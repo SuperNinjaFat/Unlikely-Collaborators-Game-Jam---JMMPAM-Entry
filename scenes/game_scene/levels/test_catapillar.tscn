@@ -1,0 +1,27 @@
+[gd_scene format=3 uid="uid://bj8vfpcjn050b"]
+
+[ext_resource type="Script" uid="uid://dwqrdeyyo5ovi" path="res://scenes/game_scene/levels/test_catapillar.gd" id="1_6o765"]
+[ext_resource type="Texture2D" uid="uid://vqujm0s3j220" path="res://icon.svg" id="2_rvyh3"]
+[ext_resource type="PackedScene" uid="uid://ckkgqi8yg8b85" path="res://scenes/catapillar/CatapillarPlayer.tscn" id="2_xiyqy"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_6o765"]
+
+[node name="TestCatapillar" type="Node3D" unique_id=101598691]
+script = ExtResource("1_6o765")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=79679846]
+transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 0, 0)
+shadow_enabled = true
+
+[node name="CatapillarPlayer" parent="." unique_id=867020313 instance=ExtResource("2_xiyqy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.76250005, 0)
+
+[node name="Sprite3D" type="Sprite3D" parent="." unique_id=2092994713]
+transform = Transform3D(-6.2550106, 0, 0, 0, -2.786299e-07, 1.0000004, 0, -6.3743086, -4.3711402e-08, 0, 0, 0)
+visible = false
+texture = ExtResource("2_rvyh3")
+
+[node name="CSGMesh3D" type="CSGMesh3D" parent="." unique_id=355598513]
+transform = Transform3D(25, 0, 0, 0, 0.525, 0, 0, 0, 25, 0, 0, 0)
+use_collision = true
+mesh = SubResource("BoxMesh_6o765")
