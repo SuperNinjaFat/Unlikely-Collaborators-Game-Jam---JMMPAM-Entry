@@ -16,6 +16,12 @@ shadow_enabled = true
 [node name="CatapillarPlayer" parent="." unique_id=867020313 instance=ExtResource("2_xiyqy")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.76250005, 0)
 
+[node name="CameraPivot" type="Node3D" parent="CatapillarPlayer" unique_id=91828865]
+
+[node name="Camera3D" type="Camera3D" parent="CatapillarPlayer/CameraPivot" unique_id=1034846894]
+transform = Transform3D(1, 0, 0, 0, 0.869495, 0.4939419, 0, -0.4939419, 0.869495, 0, 5.849, 6.3192787)
+current = true
+
 [node name="Sprite3D" type="Sprite3D" parent="." unique_id=2092994713]
 transform = Transform3D(-6.2550106, 0, 0, 0, -2.786299e-07, 1.0000004, 0, -6.3743086, -4.3711402e-08, 0, 0, 0)
 visible = false
