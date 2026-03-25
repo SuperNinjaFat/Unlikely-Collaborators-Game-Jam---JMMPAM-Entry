@@ -1,17 +1,25 @@
 [gd_scene format=3 uid="uid://ckkgqi8yg8b85"]
 
 [ext_resource type="Script" uid="uid://cqcxr4mqgdy0u" path="res://scenes/catapillar/catapillar_player.gd" id="1_6j70i"]
+[ext_resource type="PackedScene" uid="uid://dshgmcj3ko2a8" path="res://scenes/catapillar/components/pickable_segment.tscn" id="2_26bks"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_yifrs"]
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_26bks"]
+albedo_color = Color(1, 0, 0, 1)
+
+[sub_resource type="SphereMesh" id="SphereMesh_26bks"]
+material = SubResource("StandardMaterial3D_26bks")
+radius = 0.2
+height = 0.4
+radial_segments = 12
+rings = 8
+
 [node name="CatapillarPlayer" type="RigidBody3D" unique_id=143156893]
+axis_lock_linear_z = true
+axis_lock_angular_y = true
+freeze_mode = 1
 script = ExtResource("1_6j70i")
-
-[node name="CameraPivot" type="Node3D" parent="." unique_id=2086810965]
-
-[node name="Camera3D" type="Camera3D" parent="CameraPivot" unique_id=1003909740]
-transform = Transform3D(1, 0, 0, 0, 0.869495, 0.4939419, 0, -0.4939419, 0.869495, 0, 5.849, 6.3192787)
-current = true
 
 [node name="CSGSphere3D" type="CSGSphere3D" parent="." unique_id=447152464]
 radial_segments = 16
@@ -19,36 +27,24 @@ radial_segments = 16
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1433117713]
 shape = SubResource("SphereShape3D_yifrs")
 
-[node name="FrontBody" type="RigidBody3D" parent="." unique_id=611263772]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.1, 0, 0)
-contact_monitor = true
-max_contacts_reported = 1
+[node name="FrontSegment" parent="." unique_id=969736020 instance=ExtResource("2_26bks")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.0999999, 0, 0)
 
-[node name="CSGSphere3D" type="CSGSphere3D" parent="FrontBody" unique_id=1825907623]
-radial_segments = 16
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="FrontBody" unique_id=1175201429]
-shape = SubResource("SphereShape3D_yifrs")
-
-[node name="BackBody" type="RigidBody3D" parent="." unique_id=628937728]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.1, 0, 0)
-contact_monitor = true
-max_contacts_reported = 1
-
-[node name="CSGSphere3D" type="CSGSphere3D" parent="BackBody" unique_id=1097737068]
-radial_segments = 16
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="BackBody" unique_id=1400980870]
-shape = SubResource("SphereShape3D_yifrs")
+[node name="BackSegment" parent="." unique_id=1120964728 instance=ExtResource("2_26bks")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.0999999, 0, 0)
 
 [node name="Generic6DOFJoint3D" type="Generic6DOFJoint3D" parent="." unique_id=224827952]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.55, 0, 0)
-node_a = NodePath("../FrontBody")
-node_b = NodePath("..")
+node_a = NodePath("..")
+node_b = NodePath("../FrontSegment")
 angular_limit_z/enabled = false
 
+[node name="JointMesh" type="CSGMesh3D" parent="Generic6DOFJoint3D" unique_id=876309762]
+mesh = SubResource("SphereMesh_26bks")
+
 [node name="Generic6DOFJoint3D2" type="Generic6DOFJoint3D" parent="." unique_id=264054855]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.55, 0, 0)
 node_a = NodePath("..")
-node_b = NodePath("../BackBody")
+node_b = NodePath("../BackSegment")
 angular_limit_z/enabled = false
+
+[node name="JointMesh" type="CSGMesh3D" parent="Generic6DOFJoint3D2" unique_id=939808662]
+mesh = SubResource("SphereMesh_26bks")
