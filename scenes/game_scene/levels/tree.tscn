@@ -6,22 +6,23 @@
 
 [sub_resource type="CylinderMesh" id="CylinderMesh_yya0e"]
 
-[sub_resource type="BoxMesh" id="BoxMesh_okq4k"]
-
 [sub_resource type="BoxShape3D" id="BoxShape3D_mkqp2"]
 size = Vector3(62.70874, 15.981682, 10.99115)
+
+[sub_resource type="BoxMesh" id="BoxMesh_okq4k"]
 
 [node name="Tree" type="Node3D" unique_id=863522178]
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=120435625]
-transform = Transform3D(0.9284858, -0.32728776, 0.17549014, 0, 0.47255072, 0.8813035, -0.37136784, -0.8182778, 0.43875664, 0, 0, 0)
+transform = Transform3D(0.98628557, -0.021257402, 0.16367294, 0, 0.9916711, 0.1287956, -0.16504759, -0.12702923, 0.978071, 0, 0, 0)
 shadow_enabled = true
 
 [node name="CatapillarPlayer" parent="." unique_id=143156893 instance=ExtResource("1_yya0e")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.76250005, 0)
 
-[node name="CameraPivot" type="Node3D" parent="." unique_id=1251178047]
+[node name="CameraPivot" type="Node3D" parent="." unique_id=1251178047 node_paths=PackedStringArray("sections")]
 script = ExtResource("2_mkqp2")
+sections = [NodePath("../Section0"), NodePath("../Section1")]
 
 [node name="Camera3D" type="Camera3D" parent="CameraPivot" unique_id=1232756286]
 transform = Transform3D(1, 0, 0, 0, 0.99649286, -0.08367784, 0, 0.08367784, 0.99649286, 0, 3.814, 27.954)
@@ -84,26 +85,72 @@ mesh = SubResource("CylinderMesh_yya0e")
 transform = Transform3D(-0.56399834, -116.20101, 0, 14.503098, -4.5188518, 0, 0, 0, 56.349316, -681.4359, 1173.1166, -28.302002)
 mesh = SubResource("CylinderMesh_yya0e")
 
-[node name="TestFloor" type="CSGMesh3D" parent="Blockout" unique_id=1219775974]
-transform = Transform3D(25, 0, 0, 0, 0.525, 0, 0, 0, 25, 0, 0, 0)
+[node name="SectionTemplate" type="Node3D" parent="." unique_id=1343609066]
+visible = false
+
+[node name="CameraSpot" type="Marker3D" parent="SectionTemplate" unique_id=1451939170]
+
+[node name="Blockout" type="Node3D" parent="SectionTemplate" unique_id=1657768061]
+
+[node name="SectionTrigger" type="Area3D" parent="SectionTemplate" unique_id=182943012]
+script = ExtResource("2_okq4k")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="SectionTemplate/SectionTrigger" unique_id=1882459790]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2.133)
+shape = SubResource("BoxShape3D_mkqp2")
+
+[node name="Section0" type="Node3D" parent="." unique_id=781237072]
+
+[node name="CameraSpot" type="Marker3D" parent="Section0" unique_id=398715244]
+
+[node name="Blockout" type="Node3D" parent="Section0" unique_id=2127629681]
+
+[node name="TestFloor5" type="CSGMesh3D" parent="Section0/Blockout" unique_id=1906825311]
+transform = Transform3D(27.055305, 0, 0, 0, 0.525, 0, 0, 0, 25, 3.7953873, 26.264086, 0)
 use_collision = true
 mesh = SubResource("BoxMesh_okq4k")
 
-[node name="CameraSpots" type="Node3D" parent="." unique_id=117147975]
-unique_name_in_owner = true
+[node name="TestFloor6" type="CSGMesh3D" parent="Section0/Blockout" unique_id=1292622360]
+transform = Transform3D(0.76499647, 0, 0, 0, 12.639848, 0, 0, 0, 25, 17.509388, 20.14086, 0)
+use_collision = true
+mesh = SubResource("BoxMesh_okq4k")
 
-[node name="Spot0" type="Marker3D" parent="CameraSpots" unique_id=1451939170]
+[node name="TestFloor7" type="CSGMesh3D" parent="Section0/Blockout" unique_id=1362027678]
+transform = Transform3D(0.76499647, 0, 0, 0, 12.146796, 0, 0, 0, 25, -18.015446, 20.090256, 0)
+use_collision = true
+mesh = SubResource("BoxMesh_okq4k")
 
-[node name="Spot1" type="Marker3D" parent="CameraSpots" unique_id=1024620327]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 12.514799, 0)
+[node name="Section1" type="Node3D" parent="." unique_id=738425382]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 21.961699, 0)
 
-[node name="SectionTriggers" type="Node3D" parent="." unique_id=1098706033]
-unique_name_in_owner = true
+[node name="CameraSpot" type="Marker3D" parent="Section1" unique_id=1024620327]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -7.675722, 0)
 
-[node name="SectionTrigger1" type="Area3D" parent="SectionTriggers" unique_id=791572172]
+[node name="Blockout" type="Node3D" parent="Section1" unique_id=1499800905]
+
+[node name="TestFloor" type="CSGMesh3D" parent="Section1/Blockout" unique_id=1219775974]
+transform = Transform3D(36.594772, 0, 0, 0, 0.525, 0, 0, 0, 25, 0, -21.961699, 0)
+use_collision = true
+mesh = SubResource("BoxMesh_okq4k")
+
+[node name="TestFloor4" type="CSGMesh3D" parent="Section1/Blockout" unique_id=1796055992]
+transform = Transform3D(27.055305, 0, 0, 0, 0.525, 0, 0, 0, 25, -4.7568855, -7.9946747, 0)
+use_collision = true
+mesh = SubResource("BoxMesh_okq4k")
+
+[node name="TestFloor2" type="CSGMesh3D" parent="Section1/Blockout" unique_id=1807182157]
+transform = Transform3D(0.76499647, 0, 0, 0, 13.49046, 0, 0, 0, 25, 17.509388, -14.927581, 0)
+use_collision = true
+mesh = SubResource("BoxMesh_okq4k")
+
+[node name="TestFloor3" type="CSGMesh3D" parent="Section1/Blockout" unique_id=1323760172]
+transform = Transform3D(0.76499647, 0, 0, 0, 13.49046, 0, 0, 0, 25, -18.015446, -14.927581, 0)
+use_collision = true
+mesh = SubResource("BoxMesh_okq4k")
+
+[node name="SectionTrigger" type="Area3D" parent="Section1" unique_id=1504309075]
 script = ExtResource("2_okq4k")
-section_index = 1
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="SectionTriggers/SectionTrigger1" unique_id=1879779400]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 21.856258, -2.1333923)
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Section1/SectionTrigger" unique_id=737527112]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2.133)
 shape = SubResource("BoxShape3D_mkqp2")
