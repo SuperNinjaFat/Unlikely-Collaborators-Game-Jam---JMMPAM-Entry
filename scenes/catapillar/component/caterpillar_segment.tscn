@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://dui8rcac1w6x3"]
+
+[ext_resource type="Script" uid="uid://bjbtci3jd6hy1" path="res://scenes/catapillar/component/caterpillar_segment.gd" id="1_8l3s2"]
+[ext_resource type="SphereMesh" uid="uid://bnu4euh0jfmd6" path="res://scenes/catapillar/resource/test_caterpillar_segment_mesh.tres" id="2_tny1w"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_j037n"]
+
+[node name="CaterpillarSegment" type="CharacterBody3D" unique_id=2091137857]
+script = ExtResource("1_8l3s2")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1210215738]
+shape = SubResource("SphereShape3D_j037n")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=795321394]
+mesh = ExtResource("2_tny1w")

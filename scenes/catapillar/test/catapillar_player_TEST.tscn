@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://ckkgqi8yg8b85"]
 
-[ext_resource type="Script" uid="uid://cqcxr4mqgdy0u" path="res://scenes/catapillar/catapillar_player.gd" id="1_6j70i"]
-[ext_resource type="PackedScene" uid="uid://dshgmcj3ko2a8" path="res://scenes/catapillar/components/pickable_segment.tscn" id="2_26bks"]
+[ext_resource type="Script" uid="uid://cqcxr4mqgdy0u" path="res://scenes/catapillar/test/catapillar_player_TEST.gd" id="1_6j70i"]
+[ext_resource type="PackedScene" uid="uid://dshgmcj3ko2a8" path="res://scenes/catapillar/test/components/pickable_segment.tscn" id="2_26bks"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_yifrs"]
 
@@ -15,10 +15,9 @@ height = 0.4
 radial_segments = 12
 rings = 8
 
-[node name="CatapillarPlayer" type="RigidBody3D" unique_id=143156893]
+[node name="CatapillarPlayerTEST" type="RigidBody3D" unique_id=143156893]
 axis_lock_linear_z = true
 axis_lock_angular_y = true
-freeze_mode = 1
 script = ExtResource("1_6j70i")
 
 [node name="CSGSphere3D" type="CSGSphere3D" parent="." unique_id=447152464]
@@ -36,7 +35,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.0999999, 0, 0)
 [node name="Generic6DOFJoint3D" type="Generic6DOFJoint3D" parent="." unique_id=224827952]
 node_a = NodePath("..")
 node_b = NodePath("../FrontSegment")
-angular_limit_z/enabled = false
 
 [node name="JointMesh" type="CSGMesh3D" parent="Generic6DOFJoint3D" unique_id=876309762]
 mesh = SubResource("SphereMesh_26bks")
@@ -44,7 +42,6 @@ mesh = SubResource("SphereMesh_26bks")
 [node name="Generic6DOFJoint3D2" type="Generic6DOFJoint3D" parent="." unique_id=264054855]
 node_a = NodePath("..")
 node_b = NodePath("../BackSegment")
-angular_limit_z/enabled = false
 
 [node name="JointMesh" type="CSGMesh3D" parent="Generic6DOFJoint3D2" unique_id=939808662]
 mesh = SubResource("SphereMesh_26bks")
