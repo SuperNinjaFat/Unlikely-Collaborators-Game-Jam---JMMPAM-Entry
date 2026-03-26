@@ -1,0 +1,83 @@
+[gd_scene format=3 uid="uid://b1ebmtbokawua"]
+
+[ext_resource type="PackedScene" uid="uid://ckkgqi8yg8b85" path="res://scenes/catapillar/CatapillarPlayer.tscn" id="1_yya0e"]
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_yya0e"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_okq4k"]
+
+[node name="Tree" type="Node3D" unique_id=863522178]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=120435625]
+transform = Transform3D(0.9284858, -0.32728776, 0.17549014, 0, 0.47255072, 0.8813035, -0.37136784, -0.8182778, 0.43875664, 0, 0, 0)
+shadow_enabled = true
+
+[node name="CatapillarPlayer" parent="." unique_id=143156893 instance=ExtResource("1_yya0e")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.76250005, 0)
+
+[node name="CameraPivot" type="Node3D" parent="." unique_id=1251178047]
+
+[node name="Camera3D" type="Camera3D" parent="CameraPivot" unique_id=1232756286]
+transform = Transform3D(1, 0, 0, 0, 0.869495, 0.4939419, 0, -0.4939419, 0.869495, 0, 5.849, 6.3192787)
+current = true
+
+[node name="Blockout" type="Node3D" parent="." unique_id=358012471]
+
+[node name="Trunk" type="Node3D" parent="Blockout" unique_id=639620683]
+
+[node name="CSGMesh3D2" type="CSGMesh3D" parent="Blockout/Trunk" unique_id=1466101831]
+transform = Transform3D(54.05384, 0, 0, 0, 129.5394, 0, 0, 0, 54.05384, 1.6877441, 0, -28.302002)
+mesh = SubResource("CylinderMesh_yya0e")
+
+[node name="CSGMesh3D3" type="CSGMesh3D" parent="Blockout/Trunk" unique_id=1391381609]
+transform = Transform3D(49.536633, 4.165718, 0, -2.381148, 86.66224, 0, 0, 0, 54.05384, 5.218872, 214.12244, -28.302002)
+mesh = SubResource("CylinderMesh_yya0e")
+
+[node name="CSGMesh3D4" type="CSGMesh3D" parent="Blockout/Trunk" unique_id=1495656247]
+transform = Transform3D(46.742516, -5.1239176, 0, 3.40713, 70.29518, 0, 0, 0, 56.34929, 5.435089, 370.2749, -28.302002)
+mesh = SubResource("CylinderMesh_yya0e")
+
+[node name="CSGMesh3D5" type="CSGMesh3D" parent="Blockout/Trunk" unique_id=836839004]
+transform = Transform3D(41.833626, 8.063471, 0, -4.7500687, 71.014595, 0, 0, 0, 56.349304, 10.056595, 502.9651, -28.302002)
+mesh = SubResource("CylinderMesh_yya0e")
+
+[node name="CSGMesh3D6" type="CSGMesh3D" parent="Blockout/Trunk" unique_id=561631404]
+transform = Transform3D(41.508785, -11.9597, 0, 7.04528, 70.46317, 0, 0, 0, 56.3493, -3.987774, 563.4149, -28.302002)
+mesh = SubResource("CylinderMesh_yya0e")
+
+[node name="CSGMesh3D7" type="CSGMesh3D" parent="Blockout/Trunk" unique_id=540954821]
+transform = Transform3D(31.913074, 46.61837, 0, -27.462173, 54.17398, 0, 0, 0, 56.349297, 61.22062, 620.0186, -28.302002)
+mesh = SubResource("CylinderMesh_yya0e")
+
+[node name="CSGMesh3D8" type="CSGMesh3D" parent="Blockout/Trunk" unique_id=260889518]
+transform = Transform3D(8.30892, 63.268238, 0, -30.266413, 17.368774, 0, 0, 0, 56.349297, 161.54694, 688.266, -28.302002)
+mesh = SubResource("CylinderMesh_yya0e")
+
+[node name="CSGMesh3D9" type="CSGMesh3D" parent="Blockout/Trunk" unique_id=1251231814]
+transform = Transform3D(35.058838, -22.756248, 0, 11.201517, 71.22318, 0, 0, 0, 56.349297, -36.459805, 698.6606, -28.302002)
+mesh = SubResource("CylinderMesh_yya0e")
+
+[node name="CSGMesh3D10" type="CSGMesh3D" parent="Blockout/Trunk" unique_id=1908090153]
+transform = Transform3D(30.723423, -91.601166, 0, 19.148954, 146.96892, 0, 0, 0, 56.349297, -149.13358, 912.12933, -28.302002)
+mesh = SubResource("CylinderMesh_yya0e")
+
+[node name="CSGMesh3D11" type="CSGMesh3D" parent="Blockout/Trunk" unique_id=1181560097]
+transform = Transform3D(13.916307, -62.81904, 0, 26.664768, 32.78517, 0, 0, 0, 56.349304, -297.89334, 1087.3972, -28.302002)
+mesh = SubResource("CylinderMesh_yya0e")
+
+[node name="CSGMesh3D12" type="CSGMesh3D" parent="Blockout/Trunk" unique_id=1615212000]
+transform = Transform3D(5.4919076, -105.43605, 0, 22.27679, 25.993196, 0, 0, 0, 56.349304, -461.43286, 1148.5417, -28.302002)
+mesh = SubResource("CylinderMesh_yya0e")
+
+[node name="CSGMesh3D13" type="CSGMesh3D" parent="Blockout/Trunk" unique_id=909139493]
+transform = Transform3D(-6.185988, -69.426575, 0, 11.571222, -37.115524, 0, 0, 0, 56.349308, -428.08133, 1078.0354, -28.302002)
+mesh = SubResource("CylinderMesh_yya0e")
+
+[node name="CSGMesh3D14" type="CSGMesh3D" parent="Blockout/Trunk" unique_id=1727208457]
+transform = Transform3D(-0.56399834, -116.20101, 0, 14.503098, -4.5188518, 0, 0, 0, 56.349316, -681.4359, 1173.1166, -28.302002)
+mesh = SubResource("CylinderMesh_yya0e")
+
+[node name="TestFloor" type="CSGMesh3D" parent="Blockout" unique_id=1219775974]
+transform = Transform3D(25, 0, 0, 0, 0.525, 0, 0, 0, 25, 0, 0, 0)
+use_collision = true
+mesh = SubResource("BoxMesh_okq4k")
