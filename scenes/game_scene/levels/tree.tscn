@@ -1,10 +1,15 @@
 [gd_scene format=3 uid="uid://b1ebmtbokawua"]
 
 [ext_resource type="PackedScene" uid="uid://ckkgqi8yg8b85" path="res://scenes/catapillar/CatapillarPlayer.tscn" id="1_yya0e"]
+[ext_resource type="Script" uid="uid://dfwslcsnx132u" path="res://scenes/entities/camera_pivot.gd" id="2_mkqp2"]
+[ext_resource type="Script" uid="uid://jy848ssg3duj" path="res://scenes/entities/section_trigger.gd" id="2_okq4k"]
 
 [sub_resource type="CylinderMesh" id="CylinderMesh_yya0e"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_okq4k"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_mkqp2"]
+size = Vector3(62.70874, 15.981682, 10.99115)
 
 [node name="Tree" type="Node3D" unique_id=863522178]
 
@@ -16,10 +21,12 @@ shadow_enabled = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.76250005, 0)
 
 [node name="CameraPivot" type="Node3D" parent="." unique_id=1251178047]
+script = ExtResource("2_mkqp2")
 
 [node name="Camera3D" type="Camera3D" parent="CameraPivot" unique_id=1232756286]
-transform = Transform3D(1, 0, 0, 0, 0.869495, 0.4939419, 0, -0.4939419, 0.869495, 0, 5.849, 6.3192787)
+transform = Transform3D(1, 0, 0, 0, 0.99649286, -0.08367784, 0, 0.08367784, 0.99649286, 0, 3.814, 27.954)
 current = true
+fov = 25.6
 
 [node name="Blockout" type="Node3D" parent="." unique_id=358012471]
 
@@ -81,3 +88,22 @@ mesh = SubResource("CylinderMesh_yya0e")
 transform = Transform3D(25, 0, 0, 0, 0.525, 0, 0, 0, 25, 0, 0, 0)
 use_collision = true
 mesh = SubResource("BoxMesh_okq4k")
+
+[node name="CameraSpots" type="Node3D" parent="." unique_id=117147975]
+unique_name_in_owner = true
+
+[node name="Spot0" type="Marker3D" parent="CameraSpots" unique_id=1451939170]
+
+[node name="Spot1" type="Marker3D" parent="CameraSpots" unique_id=1024620327]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 12.514799, 0)
+
+[node name="SectionTriggers" type="Node3D" parent="." unique_id=1098706033]
+unique_name_in_owner = true
+
+[node name="SectionTrigger1" type="Area3D" parent="SectionTriggers" unique_id=791572172]
+script = ExtResource("2_okq4k")
+section_index = 1
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="SectionTriggers/SectionTrigger1" unique_id=1879779400]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 21.856258, -2.1333923)
+shape = SubResource("BoxShape3D_mkqp2")
