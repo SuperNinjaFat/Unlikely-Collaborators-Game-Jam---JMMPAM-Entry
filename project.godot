@@ -30,6 +30,10 @@ ProjectUISoundController="*uid://cc37235kj4384"
 
 enabled=PackedStringArray("res://addons/maaacks_game_template/plugin.cfg")
 
+[global_group]
+
+player=""
+
 [internationalization]
 
 locale/translations=PackedStringArray("res://addons/maaacks_game_template/base/translations/menus_translations.en.translation", "res://addons/maaacks_game_template/base/translations/menus_translations.fr.translation")

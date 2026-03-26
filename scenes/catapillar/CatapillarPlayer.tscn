@@ -4,7 +4,7 @@
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_yifrs"]
 
-[node name="CatapillarPlayer" type="RigidBody3D" unique_id=143156893]
+[node name="CatapillarPlayer" type="RigidBody3D" unique_id=143156893 groups=["player"]]
 script = ExtResource("1_6j70i")
 
 [node name="CSGSphere3D" type="CSGSphere3D" parent="." unique_id=447152464]
