@@ -55,6 +55,7 @@ locale/translations=PackedStringArray("res://addons/maaacks_game_template/base/t
 
 3d_physics/layer_1="World"
 3d_physics/layer_2="Player"
+3d_physics/layer_3="GrabSurface"
 
 [maaacks_game_template]
 

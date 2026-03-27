@@ -1,4 +1,4 @@
-extends CharacterBody3D
+extends Node3D
 
 const SEGMENT_MAX_DISTANCE_RAMP: float = 2.0
 const SEGMENT_DRAG_DEADZONE: float = 0.25
@@ -20,8 +20,12 @@ var _camera: Camera3D
 
 func _ready() -> void:
 	
-	_segment_length = global_position.distance_to(segment_container.get_child(0).global_position)
-	_max_body_length = global_position.distance_to($SegmentContainer/EndPickableSegment.global_position)
+	_segment_length = segment_container.get_child(0).global_position.distance_to(
+		segment_container.get_child(1).global_position
+	)
+	_max_body_length = segment_container.get_child(0).global_position.distance_to(
+		$SegmentContainer/EndCaterpillarSegment.global_position
+	)
 	
 	# TODO - most likely move to camera manager
 	_viewport = get_viewport()
@@ -30,15 +34,16 @@ func _ready() -> void:
 	
 	# TEMP - pending more permanent body scene structure
 	_selectable_segments = [
-		self,
-		$SegmentContainer/MidPickableSegment,
-		$SegmentContainer/EndPickableSegment
+		$SegmentContainer/FrontCaterpillarSegment,
+		$SegmentContainer/MidCaterpillarSegment,
+		$SegmentContainer/EndCaterpillarSegment
 	]
-	$SegmentContainer/MidPickableSegment.initialize(1)
-	$SegmentContainer/EndPickableSegment.initialize(2)
-	$SegmentContainer/EndPickableSegment.picked.connect(_on_segment_picked)
+	$SegmentContainer/FrontCaterpillarSegment.initialize(0)
+	$SegmentContainer/FrontCaterpillarSegment.picked.connect(_on_segment_picked)
+	$SegmentContainer/MidCaterpillarSegment.initialize(1)
+	$SegmentContainer/EndCaterpillarSegment.initialize(2)
+	$SegmentContainer/EndCaterpillarSegment.picked.connect(_on_segment_picked)
 	
-	_all_segments.append(self)
 	for segment: Node3D in segment_container.get_children():
 		_all_segments.append(segment)
 		segment.set_as_top_level(true)
@@ -104,6 +109,8 @@ func _update_segment_positions(delta: float) -> void:
 			
 			var absolute_target_direction: Vector3 = previous.global_position.direction_to(current.global_position)
 			var absolute_target: Vector3 = previous.global_position + absolute_target_direction * _segment_length
+			
+			# feels arbitrary
 			var constrained_target_direction: Vector3 = next.global_position.direction_to(absolute_target)
 			var constrained_target: Vector3 = next.global_position + (constrained_target_direction * (_segment_length * 1.5))
 			var move_target: Vector3 = absolute_target
@@ -118,7 +125,7 @@ func _update_segment_positions(delta: float) -> void:
 		return
 	
 	# backward pass
-	for i: int in range(_all_segments.size() - 2, 1, -1):
+	for i: int in range(_all_segments.size() - 2, 0, -1):
 		
 		var next: Node3D = _all_segments[i + 1]
 		var current: Node3D = _all_segments[i]
@@ -127,6 +134,8 @@ func _update_segment_positions(delta: float) -> void:
 		var absolute_target_direction: Vector3 = next.global_position.direction_to(current.global_position)
 		var absolute_target: Vector3 = next.global_position + absolute_target_direction * _segment_length
 		var constrained_target_direction: Vector3 = previous.global_position.direction_to(absolute_target)
+		
+		# feels arbitrary
 		var constrained_target: Vector3 = previous.global_position + (constrained_target_direction * (_segment_length * 1.5))
 		var move_target: Vector3 = absolute_target
 		if previous.global_position.distance_to(absolute_target) >= (_segment_length * 1.5):
@@ -147,10 +156,10 @@ func _update_segment_rotations(delta: float) -> void:
 		# TODO - interpolate rotations
 		current.look_at(next.global_position, Vector3.UP)
 
-@warning_ignore("unused_parameter")
-func _input_event(camera: Camera3D, event: InputEvent, event_position: Vector3, normal: Vector3, shape_idx: int) -> void:
-	if not event.is_action_pressed("left_click"): return
-	_on_segment_picked(0)
+#@warning_ignore("unused_parameter")
+#func _input_event(camera: Camera3D, event: InputEvent, event_position: Vector3, normal: Vector3, shape_idx: int) -> void:
+	#if not event.is_action_pressed("left_click"): return
+	#_on_segment_picked(0)
 
 func _on_segment_picked(segment_id: int) -> void:
 	segment_id = clamp(segment_id, 0, _selectable_segments.size() - 1)
