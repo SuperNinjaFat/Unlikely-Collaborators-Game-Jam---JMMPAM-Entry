@@ -18,8 +18,9 @@ var _max_body_length: float = 0.0 # constrains click/drag movement
 var _viewport: Viewport
 var _camera: Camera3D
 
+signal drag_released
+
 func _ready() -> void:
-	
 	_segment_length = segment_container.get_child(0).global_position.distance_to(
 		segment_container.get_child(1).global_position
 	)
@@ -74,7 +75,7 @@ func _physics_process(delta: float) -> void:
 	if _selectable_segments[_selected_segment].global_position.distance_to(travel_target) >= 0.25:
 		var segment_distance_to_mouse: float = _selectable_segments[_selected_segment].global_position.distance_to(travel_target)
 		var distance_ratio: float = clamp(
-			segment_distance_to_mouse / SEGMENT_MAX_DISTANCE_RAMP, 
+			segment_distance_to_mouse / SEGMENT_MAX_DISTANCE_RAMP,
 			0.0, 1.0
 		)
 		var travel_direction: Vector3 = _selectable_segments[_selected_segment].global_position.direction_to(travel_target)
@@ -89,15 +90,15 @@ func _physics_process(delta: float) -> void:
 	_update_segment_positions(delta)
 	_update_segment_rotations(delta)
 	
-	if Input.is_action_just_released("left_click"): _selected_segment = -1
+	if Input.is_action_just_released("left_click"):
+		print("PLOOPLE")
+		drag_released.emit()
+		_selected_segment = -1
 
 func _update_segment_positions(delta: float) -> void:
-	
 	# forward pass
 	if _selected_segment == 0:
-		
 		for i: int in range(1, _all_segments.size() - 1):
-			
 			var previous: Node3D = _all_segments[i - 1]
 			var current: Node3D = _all_segments[i]
 			var next: Node3D = _all_segments[i + 1]
@@ -119,14 +120,13 @@ func _update_segment_positions(delta: float) -> void:
 			
 			current.global_position = lerp(
 				current.global_position,
-				move_target, 
+				move_target,
 				delta * 64.0
 			)
 		return
 	
 	# backward pass
 	for i: int in range(_all_segments.size() - 2, 0, -1):
-		
 		var next: Node3D = _all_segments[i + 1]
 		var current: Node3D = _all_segments[i]
 		var previous: Node3D = _all_segments[i - 1]
@@ -143,7 +143,7 @@ func _update_segment_positions(delta: float) -> void:
 		
 		current.global_position = lerp(
 			current.global_position,
-			move_target, 
+			move_target,
 			delta * 64.0
 		)
 
@@ -168,10 +168,10 @@ func _on_segment_picked(segment_id: int) -> void:
 func _get_projected_mouse_position() -> Vector3:
 	var mouse_position: Vector2 = _viewport.get_mouse_position()
 	# this "locks" projected coordinates to the caterpillar's z-coordinate
-	var distance_to_camera: float = _camera.global_position.distance_to(global_position) 
+	var distance_to_camera: float = _camera.global_position.distance_to(global_position)
 	var world_coordinate_projection: Vector3 = (
 		_camera.project_ray_normal(mouse_position) * distance_to_camera + _camera.project_ray_origin(mouse_position)
-	) 
+	)
 	# never change z coordinate
 	world_coordinate_projection.z = global_position.z
 	return world_coordinate_projection
