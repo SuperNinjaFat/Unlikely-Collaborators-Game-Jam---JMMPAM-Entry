@@ -135,7 +135,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.2964096, 0.76250005, 0)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 21.961699, 0)
 
 [node name="CameraSpot" type="Marker3D" parent="Sections/Section1" unique_id=1024620327]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.3739738, -7.675722, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.3739738, -13.005426, 0)
 
 [node name="Blockout" type="Node3D" parent="Sections/Section1" unique_id=2127629681]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -21.961699, 0)
@@ -161,7 +161,7 @@ use_collision = true
 mesh = SubResource("BoxMesh_okq4k")
 
 [node name="SectionTrigger" type="Area3D" parent="Sections/Section1" unique_id=1504309075]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -10.509184, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -4.264389, 0)
 collision_mask = 3
 script = ExtResource("2_okq4k")
 

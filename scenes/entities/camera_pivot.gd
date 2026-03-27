@@ -89,11 +89,18 @@ func jump_to_section(index: int) -> void:
 			_disable_backtrack_prevention(i)
 
 	# Teleport player to respawn point
-	var player := get_parent().get_node_or_null("CatapillarPlayer")
-	if player and player is RigidBody3D:
-		player.global_position = get_respawn_position(index)
-		player.linear_velocity = Vector3.ZERO
-		player.angular_velocity = Vector3.ZERO
+	var player := get_parent().get_node_or_null("CaterpillarPlayer")
+	if player:
+		var respawn_pos := get_respawn_position(index)
+		var offset: Vector3 = respawn_pos - player.global_position
+		player.global_position = respawn_pos
+		# Move all segments (CharacterBody3Ds set as top_level) to follow
+		var segment_container := player.get_node_or_null("SegmentContainer")
+		if segment_container:
+			for segment in segment_container.get_children():
+				segment.global_position += offset
+				if segment is CharacterBody3D:
+					segment.velocity = Vector3.ZERO
 
 # Get the respawn position for a section (RespawnPoint Marker3D, or fallback to CameraSpot).
 func get_respawn_position(index: int) -> Vector3:
