@@ -17,6 +17,9 @@ func _ready() -> void:
 		var trigger := _find_trigger(sections[i])
 		if trigger:
 			trigger.section_entered.connect(_on_section_entered.bind(i))
+		
+		# Disable 
+		_disable_backtrack_prevention(i)
 
 # Upon a section being entered, enable the new section, disable the old one
 func _on_section_entered(index: int) -> void:
@@ -24,16 +27,33 @@ func _on_section_entered(index: int) -> void:
 	var previous_section := current_section
 	# print("Section entered: ", sections[index].name, " (", index, ") | Previous: ", sections[previous_section].name, " (", previous_section, ")")
 	current_section = index
+
 	# Find the CameraSpot of the section, which is a Marker3D.
 	var spot := _find_spot(sections[index])
 	if spot:
 		# Tween to the new CameraSpot.
+		# TODO: Pause player physics while tweening
 		var tween = create_tween()
 		tween.tween_property(self , "global_position", spot.global_position, 0.5)
 		_set_active_section(index)
 		# Disable the previous section only once the camera stops panning.
-		tween.finished.connect(func(): _disable_section(previous_section))
+		# Prevent going into the previous area by enabling backtrack-prevention geometry once tweening completes
+		tween.finished.connect(func():
+			_disable_section(previous_section)
+			_enable_backtrack_prevention(current_section)
+		)
 
+func _enable_backtrack_prevention(index: int) -> void:
+	var container := sections[index].get_node_or_null("BacktrackPrevention")
+	if container:
+		container.visible = true
+		container.process_mode = Node.PROCESS_MODE_INHERIT
+
+func _disable_backtrack_prevention(index: int) -> void:
+	var container := sections[index].get_node_or_null("BacktrackPrevention")
+	if container:
+		container.visible = false
+		container.process_mode = Node.PROCESS_MODE_DISABLED
 
 func _set_active_section(index: int) -> void:
 	sections[index].visible = true
