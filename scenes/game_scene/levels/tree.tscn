@@ -128,6 +128,9 @@ transform = Transform3D(0.76499647, 0, 0, 0, 13.49046, 0, 0, 0, 25, -18.015446, 
 use_collision = true
 mesh = SubResource("BoxMesh_okq4k")
 
+[node name="RespawnPoint" type="Marker3D" parent="Sections/Section0" unique_id=1596310466]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.2964096, 0.76250005, 0)
+
 [node name="Section1" type="Node3D" parent="Sections" unique_id=738425382]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 21.961699, 0)
 
@@ -172,6 +175,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.9168005, -8.002713, 0)
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Sections/Section1/BacktrackPrevention/StaticBody3D" unique_id=1501794742]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 4.618408)
 shape = SubResource("BoxShape3D_t8qqb")
+
+[node name="RespawnPoint" type="Marker3D" parent="Sections/Section1" unique_id=1708114677]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.322286, -6.968399, 0)
 
 [node name="Section2" type="Node3D" parent="Sections" unique_id=1352660617]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.701643, 34.533287, 0)
@@ -218,6 +224,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.27457714, -8.1994915, 0)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 4.618408)
 shape = SubResource("BoxShape3D_t8qqb")
 
+[node name="RespawnPoint" type="Marker3D" parent="Sections/Section2" unique_id=1519756320]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.024896622, -6.948925, 0)
+
 [node name="Section3" type="Node3D" parent="Sections" unique_id=1195705901]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.701643, 47.259624, 0)
 
@@ -257,3 +266,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.105783, -8.407703, 0)
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Sections/Section3/BacktrackPrevention/StaticBody3D" unique_id=529439563]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 4.618408)
 shape = SubResource("BoxShape3D_t8qqb")
+
+[node name="RespawnPoint" type="Marker3D" parent="Sections/Section3" unique_id=721592818]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.272486, -7.241024, 0)
