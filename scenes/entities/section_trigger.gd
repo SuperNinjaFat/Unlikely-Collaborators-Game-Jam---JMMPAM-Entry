@@ -4,6 +4,8 @@ signal section_entered
 
 func _ready() -> void:
     body_entered.connect(_on_body_entered)
+    # Prevent the trigger from intercepting mouse/physics picking events
+    input_ray_pickable = false
     print("[SectionTrigger] ", name, " ready. Monitoring: ", monitoring, " Collision layer: ", collision_layer, " Collision mask: ", collision_mask)
 
 func _on_body_entered(body: Node3D) -> void:
