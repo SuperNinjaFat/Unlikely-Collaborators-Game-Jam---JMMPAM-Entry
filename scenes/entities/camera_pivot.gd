@@ -1,12 +1,17 @@
 extends Node3D
 
+@export var sections_parent: Node3D
 # Array of sections, of type Node3D
-@export var sections: Array[Node3D]
+var sections: Array[Node3D]
 # Track the index of the current section
 var current_section := 0
 
 # On initialization, set up triggers.
 func _ready() -> void:
+	# Populate sections array
+	for section in sections_parent.get_children():
+		sections.append(section)
+
 	for i in sections.size():
 		# Find the trigger of the section, which will be an Area3D.
 		var trigger := _find_trigger(sections[i])
