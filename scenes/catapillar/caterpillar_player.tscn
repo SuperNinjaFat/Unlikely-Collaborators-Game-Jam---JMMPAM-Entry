@@ -1,6 +1,6 @@
-[gd_scene format=3 uid="uid://dywaonpcqbn2n"]
+[gd_scene format=3 uid="uid://bt2ro1a6gmujg"]
 
-[ext_resource type="Script" uid="uid://dctpia4uag6tt" path="res://scenes/catapillar/caterpillar_player.gd" id="1_7j6ca"]
+[ext_resource type="Script" path="res://scenes/catapillar/caterpillar_player.gd" id="1_7j6ca"]
 [ext_resource type="PackedScene" uid="uid://dui8rcac1w6x3" path="res://scenes/catapillar/component/segment/caterpillar_segment.tscn" id="3_ocytg"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_t4js3"]
@@ -24,7 +24,7 @@ script = ExtResource("1_7j6ca")
 
 [node name="SegmentContainer" type="Node3D" parent="." unique_id=375688502]
 
-[node name="FrontCaterpillarSegment" parent="SegmentContainer" unique_id=2091137857 instance=ExtResource("3_ocytg")]
+[node name="FrontCaterpillarSegment" parent="SegmentContainer" unique_id=2091137857 groups=["player"] instance=ExtResource("3_ocytg")]
 
 [node name="PlaceholderSegment0" type="MeshInstance3D" parent="SegmentContainer" unique_id=568803462]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.3, 0, 0)
@@ -46,7 +46,7 @@ mesh = SubResource("SphereMesh_rmc0o")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5000001, 0, 0)
 mesh = SubResource("SphereMesh_rmc0o")
 
-[node name="MidCaterpillarSegment" parent="SegmentContainer" unique_id=1779248257 instance=ExtResource("3_ocytg")]
+[node name="MidCaterpillarSegment" parent="SegmentContainer" unique_id=1779248257 groups=["player"] instance=ExtResource("3_ocytg")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.8000004, 0, 0)
 
 [node name="PlaceholderSegment5" type="MeshInstance3D" parent="SegmentContainer" unique_id=1754847359]
@@ -69,7 +69,7 @@ mesh = SubResource("SphereMesh_rmc0o")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.3000011, 0, 0)
 mesh = SubResource("SphereMesh_rmc0o")
 
-[node name="EndCaterpillarSegment" parent="SegmentContainer" unique_id=651545568 instance=ExtResource("3_ocytg")]
+[node name="EndCaterpillarSegment" parent="SegmentContainer" unique_id=651545568 groups=["player"] instance=ExtResource("3_ocytg")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.6000009, 0, 0)
 
 [node name="MouseMarker" type="MeshInstance3D" parent="." unique_id=583471448]

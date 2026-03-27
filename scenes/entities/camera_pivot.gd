@@ -17,23 +17,31 @@ func _ready() -> void:
 	for i in sections.size():
 		# Find the trigger of the section, which will be an Area3D.
 		var trigger := _find_trigger(sections[i])
+		print("[CameraPivot] Section ", i, " (", sections[i].name, ") trigger: ", trigger)
 		if trigger:
 			trigger.section_entered.connect(_on_section_entered.bind(i))
 
 		# Disable backtrack prevention on all sections at start
 		_disable_backtrack_prevention(i)
 
-	# Load persisted section state
+	# Load persisted section state (ensure GameState exists first)
 	var level_node := get_parent()
 	if level_node:
+		GameState.get_or_create_state()
 		level_state = GameState.get_level_state(level_node.scene_file_path)
 
 	# Restore saved section if resuming
+	if level_state:
+		print("[CameraPivot] level_state loaded | current_section saved: ", level_state.current_section)
+	else:
+		print("[CameraPivot] level_state: null")
 	if level_state and level_state.current_section > 0:
+		print("[CameraPivot] Restoring to section ", level_state.current_section)
 		call_deferred("jump_to_section", level_state.current_section)
 
 # Upon a section being entered, enable the new section, disable the old one
 func _on_section_entered(index: int) -> void:
+	print("[CameraPivot] _on_section_entered called with index: ", index, " (", sections[index].name, ") | current_section: ", current_section)
 	# Track the previous section so we can disable it after it leaves the camera view
 	var previous_section := current_section
 	current_section = index

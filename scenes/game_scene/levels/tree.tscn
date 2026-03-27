@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://b1ebmtbokawua"]
 
-[ext_resource type="PackedScene" uid="uid://dywaonpcqbn2n" path="res://scenes/catapillar/caterpillar_player.tscn" id="1_mkqp2"]
+[ext_resource type="PackedScene" uid="uid://bt2ro1a6gmujg" path="res://scenes/catapillar/caterpillar_player.tscn" id="1_mkqp2"]
 [ext_resource type="Script" uid="uid://dfwslcsnx132u" path="res://scenes/entities/camera_pivot.gd" id="2_mkqp2"]
 [ext_resource type="Script" uid="uid://jy848ssg3duj" path="res://scenes/entities/section_trigger.gd" id="2_okq4k"]
 
@@ -124,7 +124,7 @@ use_collision = true
 mesh = SubResource("BoxMesh_okq4k")
 
 [node name="TestFloor3" type="CSGMesh3D" parent="Sections/Section0/Blockout2" unique_id=1323760172]
-transform = Transform3D(0.76499647, 0, 0, 0, 13.49046, 0, 0, 0, 25, -18.015446, -14.927581, 0)
+transform = Transform3D(0.76499647, 0, 0, 0, 9.375548, 0, 0, 0, 25, -18.015446, -17.288105, 0)
 use_collision = true
 mesh = SubResource("BoxMesh_okq4k")
 
@@ -141,7 +141,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.3739738, -7.675722, 0)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -21.961699, 0)
 
 [node name="TestFloor4" type="CSGMesh3D" parent="Sections/Section1/Blockout" unique_id=1796055992]
-transform = Transform3D(25.587557, 0, 0, 0, 0.525, 0, 0, 0, 25, -5.6488533, 13.967024, 0)
+transform = Transform3D(25.587557, 0, 0, 0, 0.525, 0, 0, 0, 25, -5.6488533, 9.213639, 0)
 use_collision = true
 mesh = SubResource("BoxMesh_okq4k")
 
@@ -156,11 +156,13 @@ use_collision = true
 mesh = SubResource("BoxMesh_okq4k")
 
 [node name="TestFloor7" type="CSGMesh3D" parent="Sections/Section1/Blockout" unique_id=1362027678]
-transform = Transform3D(0.76499647, 0, 0, 0, 12.146796, 0, 0, 0, 25, -18.015446, 20.090256, 0)
+transform = Transform3D(0.76499647, 0, 0, 0, 16.878145, 0, 0, 0, 25, -18.015446, 17.632723, 0)
 use_collision = true
 mesh = SubResource("BoxMesh_okq4k")
 
 [node name="SectionTrigger" type="Area3D" parent="Sections/Section1" unique_id=1504309075]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -10.509184, 0)
+collision_mask = 3
 script = ExtResource("2_okq4k")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Sections/Section1/SectionTrigger" unique_id=737527112]
@@ -170,14 +172,14 @@ shape = SubResource("BoxShape3D_mkqp2")
 [node name="BacktrackPrevention" type="Node3D" parent="Sections/Section1" unique_id=1506397876]
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Sections/Section1/BacktrackPrevention" unique_id=192950837]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.9168005, -8.002713, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.9168005, -12.756099, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Sections/Section1/BacktrackPrevention/StaticBody3D" unique_id=1501794742]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 4.618408)
 shape = SubResource("BoxShape3D_t8qqb")
 
 [node name="RespawnPoint" type="Marker3D" parent="Sections/Section1" unique_id=1708114677]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.322286, -6.968399, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.026429, -11.754122, 0)
 
 [node name="Section2" type="Node3D" parent="Sections" unique_id=1352660617]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.701643, 34.533287, 0)
@@ -209,6 +211,7 @@ use_collision = true
 mesh = SubResource("BoxMesh_okq4k")
 
 [node name="SectionTrigger" type="Area3D" parent="Sections/Section2" unique_id=1209869366]
+collision_mask = 3
 script = ExtResource("2_okq4k")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Sections/Section2/SectionTrigger" unique_id=697021077]
@@ -252,6 +255,7 @@ use_collision = true
 mesh = SubResource("BoxMesh_okq4k")
 
 [node name="SectionTrigger" type="Area3D" parent="Sections/Section3" unique_id=170237243]
+collision_mask = 3
 script = ExtResource("2_okq4k")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Sections/Section3/SectionTrigger" unique_id=2107844624]
