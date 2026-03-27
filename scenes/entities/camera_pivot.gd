@@ -42,6 +42,9 @@ func _ready() -> void:
 # Upon a section being entered, enable the new section, disable the old one
 func _on_section_entered(index: int) -> void:
 	print("[CameraPivot] _on_section_entered called with index: ", index, " (", sections[index].name, ") | current_section: ", current_section)
+	# Skip if already in this section
+	if index == current_section:
+		return
 	# Track the previous section so we can disable it after it leaves the camera view
 	var previous_section := current_section
 	current_section = index
