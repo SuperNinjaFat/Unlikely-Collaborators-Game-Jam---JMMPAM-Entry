@@ -2,7 +2,6 @@
 
 [ext_resource type="Script" uid="uid://dwqrdeyyo5ovi" path="res://scenes/game_scene/levels/test_level.gd" id="1_6o765"]
 [ext_resource type="Texture2D" uid="uid://vqujm0s3j220" path="res://icon.svg" id="2_rvyh3"]
-[ext_resource type="PackedScene" uid="uid://ckkgqi8yg8b85" path="res://scenes/catapillar/test/catapillar_player_TEST.tscn" id="2_xiyqy"]
 [ext_resource type="PackedScene" uid="uid://dywaonpcqbn2n" path="res://scenes/catapillar/caterpillar_player.tscn" id="4_dpxjg"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_dpxjg"]
@@ -30,10 +29,6 @@ metadata/_edit_lock_ = true
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1569090327]
 environment = SubResource("Environment_o4mvr")
 
-[node name="CatapillarPlayerTEST" parent="." unique_id=867020313 instance=ExtResource("2_xiyqy")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0.76250005, 0)
-visible = false
-
 [node name="Sprite3D" type="Sprite3D" parent="." unique_id=2092994713]
 transform = Transform3D(-6.2550106, 0, 0, 0, -2.786299e-07, 1.0000004, 0, -6.3743086, -4.3711402e-08, 0, 0, 0)
 visible = false
@@ -45,7 +40,8 @@ use_collision = true
 mesh = SubResource("BoxMesh_6o765")
 
 [node name="Camera3D" type="Camera3D" parent="." unique_id=1128423004]
-transform = Transform3D(1, 0, 0, 0, 0.9659259, 0.25881907, 0, -0.25881907, 0.9659258, 0, 5, 6)
+transform = Transform3D(1, 0, 0, 0, 0.9659259, 0.25881907, 0, -0.25881907, 0.9659258, 0, 5, 6.5)
+fov = 60.0
 
 [node name="CaterpillarPlayer" parent="." unique_id=982923225 instance=ExtResource("4_dpxjg")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.3000002, 0.8, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.6, 0.7, 0)

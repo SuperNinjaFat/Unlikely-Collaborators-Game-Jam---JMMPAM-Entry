@@ -6,6 +6,7 @@
 [sub_resource type="SphereShape3D" id="SphereShape3D_j037n"]
 
 [node name="CaterpillarSegment" type="CharacterBody3D" unique_id=2091137857]
+collision_layer = 2
 script = ExtResource("1_8l3s2")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1210215738]
