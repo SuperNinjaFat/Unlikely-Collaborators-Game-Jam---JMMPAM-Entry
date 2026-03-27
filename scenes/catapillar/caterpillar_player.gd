@@ -3,7 +3,7 @@ extends CharacterBody3D
 const SEGMENT_MAX_DISTANCE_RAMP: float = 2.0
 const SEGMENT_DRAG_DEADZONE: float = 0.25
 const SEGMENT_MIN_TRAVEL_SPEED: float = 0.25
-const SEGMENT_MAX_TRAVEL_SPEED: float = 16.0
+const SEGMENT_MAX_TRAVEL_SPEED: float = 12.0
 
 @onready var segment_container: Node3D = $SegmentContainer
 @onready var mouse_marker: MeshInstance3D = $MouseMarker
@@ -91,34 +91,51 @@ func _update_segment_positions(delta: float) -> void:
 	# forward pass
 	if _selected_segment == 0:
 		
-		for i: int in range(1, _all_segments.size()):
-			if i == _all_segments.size() - 1: continue
+		for i: int in range(1, _all_segments.size() - 1):
 			
 			var previous: Node3D = _all_segments[i - 1]
 			var current: Node3D = _all_segments[i]
+			var next: Node3D = _all_segments[i + 1]
 			
-			var direction: Vector3 = (current.global_position - previous.global_position).normalized()
-			#current.global_position = previous.global_position + direction * _segment_length
+			# 1. get absolute target
+			# 2. get constrained target relative to next segment and some max distance
+			# 3. if distance from next to absolute target is greater than max distance, move target is direction to absolute target * max distance
+			# 4. else move target is absolute target
+			
+			var absolute_target_direction: Vector3 = previous.global_position.direction_to(current.global_position)
+			var absolute_target: Vector3 = previous.global_position + absolute_target_direction * _segment_length
+			var constrained_target_direction: Vector3 = next.global_position.direction_to(absolute_target)
+			var constrained_target: Vector3 = next.global_position + (constrained_target_direction * (_segment_length * 1.5))
+			var move_target: Vector3 = absolute_target
+			if next.global_position.distance_to(absolute_target) >= (_segment_length * 1.5):
+				move_target = constrained_target
+			
 			current.global_position = lerp(
 				current.global_position,
-				previous.global_position + direction * _segment_length, 
-				delta * 16.0
+				move_target, 
+				delta * 64.0
 			)
 		return
 	
 	# backward pass
-	for i: int in range(_all_segments.size() - 2, 0, -1):
-		if i == 0: continue
+	for i: int in range(_all_segments.size() - 2, 1, -1):
 		
 		var next: Node3D = _all_segments[i + 1]
 		var current: Node3D = _all_segments[i]
+		var previous: Node3D = _all_segments[i - 1]
 		
-		var direction: Vector3 = (current.global_position - next.global_position).normalized()
-		#current.global_position = next.global_position + direction * _segment_length
+		var absolute_target_direction: Vector3 = next.global_position.direction_to(current.global_position)
+		var absolute_target: Vector3 = next.global_position + absolute_target_direction * _segment_length
+		var constrained_target_direction: Vector3 = previous.global_position.direction_to(absolute_target)
+		var constrained_target: Vector3 = previous.global_position + (constrained_target_direction * (_segment_length * 1.5))
+		var move_target: Vector3 = absolute_target
+		if previous.global_position.distance_to(absolute_target) >= (_segment_length * 1.5):
+			move_target = constrained_target
+		
 		current.global_position = lerp(
 			current.global_position,
-			next.global_position + direction * _segment_length, 
-			delta * 16.0
+			move_target, 
+			delta * 64.0
 		)
 
 @warning_ignore("unused_parameter")
