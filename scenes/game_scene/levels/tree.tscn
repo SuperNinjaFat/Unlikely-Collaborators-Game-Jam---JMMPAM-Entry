@@ -2,17 +2,17 @@
 
 [ext_resource type="PackedScene" uid="uid://bt2ro1a6gmujg" path="res://scenes/catapillar/caterpillar_player.tscn" id="1_mkqp2"]
 [ext_resource type="Script" uid="uid://dfwslcsnx132u" path="res://scenes/entities/camera_pivot.gd" id="2_mkqp2"]
-[ext_resource type="PackedScene" uid="uid://fhnjig4f0qg0" path="res://scenes/game_scene/levels/section_template.tscn" id="3_t8qqb"]
+[ext_resource type="PackedScene" uid="uid://fhnjig4f0qg0" path="res://scenes/game_scene/components/section.tscn" id="3_t8qqb"]
 
 [sub_resource type="CylinderMesh" id="CylinderMesh_yya0e"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_okq4k"]
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_t8qqb"]
-size = Vector3(11.477539, 0.49023438, 16.103027)
-
 [sub_resource type="BoxShape3D" id="BoxShape3D_0hfkw"]
 size = Vector3(18.235626, 9.442686, 10.99115)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_t8qqb"]
+size = Vector3(11.477539, 0.49023438, 16.103027)
 
 [node name="Tree" type="Node3D" unique_id=863522178]
 
@@ -148,10 +148,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.1499176, -2.133)
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Sections/Section1/BacktrackPrevention" parent_id_path=PackedInt32Array(1717817911, 835127638) index="0" unique_id=106910149]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.9168005, -12.756099, 0)
-
-[node name="CollisionShape3D" parent="Sections/Section1/BacktrackPrevention/StaticBody3D" index="0"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 4.618408)
-shape = SubResource("BoxShape3D_t8qqb")
 
 [node name="Section2" parent="Sections" unique_id=463114982 instance=ExtResource("3_t8qqb")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.701643, 34.533287, 0)
