@@ -38,6 +38,9 @@ func _ready() -> void:
 	if level_state and level_state.current_section > 0:
 		print("[CameraPivot] Restoring to section ", level_state.current_section)
 		call_deferred("jump_to_section", level_state.current_section)
+	else:
+		# Fresh load — still apply selective rendering from section 0
+		call_deferred("_update_active_sections", 0)
 
 # Upon a section being entered, enable the new section, disable the old one
 func _on_section_entered(index: int) -> void:
@@ -45,8 +48,6 @@ func _on_section_entered(index: int) -> void:
 	# Skip if already in this section
 	if index == current_section:
 		return
-	# Track the previous section so we can disable it after it leaves the camera view
-	var previous_section := current_section
 	current_section = index
 
 	# Persist section progress
@@ -58,14 +59,12 @@ func _on_section_entered(index: int) -> void:
 	var spot := _find_spot(sections[index])
 	if spot:
 		var tween = create_tween().set_parallel(true)
-		tween.tween_property(self, "global_position", spot.global_position, 0.5)
-		tween.tween_property(self, "size", spot.size, 0.5)
+		tween.tween_property(self , "global_position", spot.global_position, 0.5)
+		tween.tween_property(self , "size", spot.size, 0.5)
 		tween.set_parallel(false)
-		_set_active_section(index)
-		# Disable the previous section only once the camera stops panning.
+		_update_active_sections(index)
 		# Prevent going into the previous area by enabling backtrack-prevention geometry once tweening completes
 		tween.finished.connect(func():
-			_disable_section(previous_section)
 			_enable_backtrack_prevention(current_section)
 		)
 
@@ -81,12 +80,10 @@ func jump_to_section(index: int) -> void:
 		global_position = spot.global_position
 		size = spot.size
 
-	# Activate/deactivate sections and backtrack prevention
+	# Activate adjacent sections, disable the rest
+	_update_active_sections(index)
+	# Enable backtrack prevention for all sections up to current
 	for i in sections.size():
-		if i == index:
-			_set_active_section(i)
-		else:
-			_disable_section(i)
 		if i <= index:
 			_enable_backtrack_prevention(i)
 		else:
@@ -129,16 +126,15 @@ func _disable_backtrack_prevention(index: int) -> void:
 		container.visible = false
 		container.process_mode = Node.PROCESS_MODE_DISABLED
 
-func _set_active_section(index: int) -> void:
-	sections[index].visible = true
-	sections[index].process_mode = Node.PROCESS_MODE_INHERIT
-
-func _disable_section(index: int) -> void:
-	# print("Disable section called: ", sections[index].name, " (", index, ") | Current: ", sections[current_section].name, " (", current_section, ") | Will disable: ", index != current_section)
-	if index != current_section:
-		# print("Disabling section ", index, ": visible=false, process_mode=DISABLED")
-		sections[index].visible = false
-		sections[index].process_mode = Node.PROCESS_MODE_DISABLED
+# Enable previous, current, and next sections; disable everything else.
+func _update_active_sections(index: int) -> void:
+	for i in sections.size():
+		if i >= index - 1 and i <= index + 1:
+			sections[i].visible = true
+			sections[i].process_mode = Node.PROCESS_MODE_INHERIT
+		else:
+			sections[i].visible = false
+			sections[i].process_mode = Node.PROCESS_MODE_DISABLED
 
 func _find_trigger(section: Node3D) -> Area3D:
 	for child in section.get_children():

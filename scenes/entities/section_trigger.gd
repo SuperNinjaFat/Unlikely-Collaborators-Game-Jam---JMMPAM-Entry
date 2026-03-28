@@ -10,6 +10,7 @@ func _ready() -> void:
 	call_deferred("_connect_to_player")
 
 	body_entered.connect(_on_body_entered)
+	body_exited.connect(_on_body_exited)
 	# Prevent the trigger from intercepting mouse/physics picking events
 	input_ray_pickable = false
 	print("[SectionTrigger] ", name, " ready. Monitoring: ", monitoring, " Collision layer: ", collision_layer, " Collision mask: ", collision_mask)
@@ -33,6 +34,6 @@ func _on_body_entered(body: Node3D) -> void:
 	if body.is_in_group("caterpillar_parts"):
 		_player_bodies_inside += 1
 
-func _on_body_exit(body: Node3D):
+func _on_body_exited(body: Node3D):
 	if body.is_in_group("caterpillar_parts"):
 		_player_bodies_inside -= 1
