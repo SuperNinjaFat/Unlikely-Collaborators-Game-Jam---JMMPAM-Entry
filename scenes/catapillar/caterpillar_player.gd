@@ -91,7 +91,6 @@ func _physics_process(delta: float) -> void:
 	_update_segment_rotations(delta)
 	
 	if Input.is_action_just_released("left_click"):
-		print("PLOOPLE")
 		drag_released.emit()
 		_selected_segment = -1
 

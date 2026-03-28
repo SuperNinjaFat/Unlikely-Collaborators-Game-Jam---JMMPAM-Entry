@@ -6,10 +6,10 @@
 
 [sub_resource type="CylinderMesh" id="CylinderMesh_yya0e"]
 
+[sub_resource type="BoxMesh" id="BoxMesh_okq4k"]
+
 [sub_resource type="BoxShape3D" id="BoxShape3D_mkqp2"]
 size = Vector3(12.070679, 8.455108, 10.99115)
-
-[sub_resource type="BoxMesh" id="BoxMesh_okq4k"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_t8qqb"]
 size = Vector3(11.477539, 0.49023438, 16.103027)
@@ -90,20 +90,6 @@ mesh = SubResource("CylinderMesh_yya0e")
 [node name="CSGMesh3D14" type="CSGMesh3D" parent="Blockout/Trunk" unique_id=1727208457]
 transform = Transform3D(-0.56399834, -116.20101, 0, 14.503098, -4.5188518, 0, 0, 0, 56.349316, -681.4359, 1173.1166, -28.302002)
 mesh = SubResource("CylinderMesh_yya0e")
-
-[node name="SectionTemplate" type="Node3D" parent="." unique_id=1343609066]
-visible = false
-
-[node name="CameraSpot" type="Marker3D" parent="SectionTemplate" unique_id=1451939170]
-
-[node name="Blockout" type="Node3D" parent="SectionTemplate" unique_id=1657768061]
-
-[node name="SectionTrigger" type="Area3D" parent="SectionTemplate" unique_id=182943012]
-script = ExtResource("2_okq4k")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="SectionTemplate/SectionTrigger" unique_id=1882459790]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2.133)
-shape = SubResource("BoxShape3D_mkqp2")
 
 [node name="Sections" type="Node3D" parent="." unique_id=1418033386]
 

@@ -17,7 +17,6 @@ func _ready() -> void:
 	for i in sections.size():
 		# Find the trigger of the section, which will be an Area3D.
 		var trigger := _find_trigger(sections[i])
-		print("[CameraPivot] Section ", i, " (", sections[i].name, ") trigger: ", trigger)
 		if trigger:
 			trigger.section_entered.connect(_on_section_entered.bind(i))
 
@@ -31,12 +30,7 @@ func _ready() -> void:
 		level_state = GameState.get_level_state(level_node.scene_file_path)
 
 	# Restore saved section if resuming
-	if level_state:
-		print("[CameraPivot] level_state loaded | current_section saved: ", level_state.current_section)
-	else:
-		print("[CameraPivot] level_state: null")
 	if level_state and level_state.current_section > 0:
-		print("[CameraPivot] Restoring to section ", level_state.current_section)
 		call_deferred("jump_to_section", level_state.current_section)
 	else:
 		# Fresh load — still apply selective rendering from section 0
@@ -44,7 +38,6 @@ func _ready() -> void:
 
 # Upon a section being entered, enable the new section, disable the old one
 func _on_section_entered(index: int) -> void:
-	print("[CameraPivot] _on_section_entered called with index: ", index, " (", sections[index].name, ") | current_section: ", current_section)
 	# Skip if already in this section
 	if index == current_section:
 		return
@@ -137,13 +130,7 @@ func _update_active_sections(index: int) -> void:
 			sections[i].process_mode = Node.PROCESS_MODE_DISABLED
 
 func _find_trigger(section: Node3D) -> Area3D:
-	for child in section.get_children():
-		if child is Area3D:
-			return child
-	return null
+	return section.get_node_or_null("SectionTrigger") as Area3D
 
 func _find_spot(section: Node3D) -> Camera3D:
-	for child in section.get_children():
-		if child is Camera3D:
-			return child
-	return null
+	return section.get_node_or_null("CameraSpot") as Camera3D
