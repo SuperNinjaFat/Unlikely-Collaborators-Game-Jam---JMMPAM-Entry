@@ -1,4 +1,4 @@
-extends Node3D
+extends Camera3D
 
 @export var sections_parent: Node3D
 # Array of sections, of type Node3D
@@ -54,13 +54,13 @@ func _on_section_entered(index: int) -> void:
 		level_state.current_section = index
 		GlobalState.save()
 
-	# Find the CameraSpot of the section, which is a Marker3D.
+	# Find the CameraSpot of the section, which is a Camera3D reference.
 	var spot := _find_spot(sections[index])
 	if spot:
-		# Tween to the new CameraSpot.
-		# TODO: Pause player physics while tweening
-		var tween = create_tween()
-		tween.tween_property(self , "global_position", spot.global_position, 0.5)
+		var tween = create_tween().set_parallel(true)
+		tween.tween_property(self, "global_position", spot.global_position, 0.5)
+		tween.tween_property(self, "size", spot.size, 0.5)
+		tween.set_parallel(false)
 		_set_active_section(index)
 		# Disable the previous section only once the camera stops panning.
 		# Prevent going into the previous area by enabling backtrack-prevention geometry once tweening completes
@@ -79,6 +79,7 @@ func jump_to_section(index: int) -> void:
 	var spot := _find_spot(sections[index])
 	if spot:
 		global_position = spot.global_position
+		size = spot.size
 
 	# Activate/deactivate sections and backtrack prevention
 	for i in sections.size():
@@ -145,8 +146,8 @@ func _find_trigger(section: Node3D) -> Area3D:
 			return child
 	return null
 
-func _find_spot(section: Node3D) -> Marker3D:
+func _find_spot(section: Node3D) -> Camera3D:
 	for child in section.get_children():
-		if child is Marker3D:
+		if child is Camera3D:
 			return child
 	return null
