@@ -7,7 +7,7 @@
 [sub_resource type="CylinderMesh" id="CylinderMesh_yya0e"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_mkqp2"]
-size = Vector3(12.070679, 8.754942, 10.99115)
+size = Vector3(12.070679, 8.455108, 10.99115)
 
 [sub_resource type="BoxMesh" id="BoxMesh_okq4k"]
 
@@ -167,7 +167,7 @@ collision_mask = 3
 script = ExtResource("2_okq4k")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Sections/Section1/SectionTrigger" unique_id=737527112]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2.133)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.1499176, -2.133)
 shape = SubResource("BoxShape3D_mkqp2")
 
 [node name="BacktrackPrevention" type="Node3D" parent="Sections/Section1" unique_id=1506397876]
