@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://dwqrdeyyo5ovi" path="res://scenes/game_scene/levels/test_level.gd" id="1_6o765"]
 [ext_resource type="Texture2D" uid="uid://vqujm0s3j220" path="res://icon.svg" id="2_rvyh3"]
-[ext_resource type="PackedScene" uid="uid://dywaonpcqbn2n" path="res://scenes/catapillar/caterpillar_player.tscn" id="4_dpxjg"]
+[ext_resource type="PackedScene" uid="uid://ht113lnvmdrs" path="res://scenes/catapillar/caterpillar_player.tscn" id="4_dpxjg"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_dpxjg"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -43,5 +43,5 @@ mesh = SubResource("BoxMesh_6o765")
 transform = Transform3D(1, 0, 0, 0, 0.9659259, 0.25881907, 0, -0.25881907, 0.9659258, 0, 5, 6.5)
 fov = 60.0
 
-[node name="CaterpillarPlayer" parent="." unique_id=982923225 instance=ExtResource("4_dpxjg")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.6, 0.7, 0)
+[node name="CaterpillarPlayer" parent="." unique_id=2112225814 instance=ExtResource("4_dpxjg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.3, 0)

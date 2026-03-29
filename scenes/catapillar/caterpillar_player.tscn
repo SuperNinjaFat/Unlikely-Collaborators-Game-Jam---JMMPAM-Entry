@@ -1,78 +1,18 @@
-[gd_scene format=3 uid="uid://dywaonpcqbn2n"]
+[gd_scene format=3 uid="uid://ht113lnvmdrs"]
 
-[ext_resource type="Script" uid="uid://dctpia4uag6tt" path="res://scenes/catapillar/caterpillar_player.gd" id="1_7j6ca"]
-[ext_resource type="PackedScene" uid="uid://dui8rcac1w6x3" path="res://scenes/catapillar/component/segment/caterpillar_segment.tscn" id="3_ocytg"]
+[ext_resource type="Script" uid="uid://ckq847pxixmms" path="res://scenes/catapillar/caterpillar_player.gd" id="1_wpa61"]
+[ext_resource type="PackedScene" uid="uid://bnvrwyt77hkgb" path="res://scenes/catapillar/component/caterpillar_segment.tscn" id="2_n8wdf"]
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_t4js3"]
-albedo_color = Color(0, 0.53333336, 0, 1)
+[node name="CaterpillarPlayer" type="Node3D" unique_id=2112225814]
+script = ExtResource("1_wpa61")
 
-[sub_resource type="SphereMesh" id="SphereMesh_rmc0o"]
-material = SubResource("StandardMaterial3D_t4js3")
-radius = 0.35
-height = 0.7
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ocytg"]
-albedo_color = Color(1, 0, 0, 1)
-
-[sub_resource type="SphereMesh" id="SphereMesh_t4js3"]
-material = SubResource("StandardMaterial3D_ocytg")
-radius = 0.2
-height = 0.4
-
-[node name="CaterpillarPlayer" type="Node3D" unique_id=1722133973]
-script = ExtResource("1_7j6ca")
-
-[node name="SegmentContainer" type="Node3D" parent="." unique_id=375688502]
-
-[node name="FrontCaterpillarSegment" parent="SegmentContainer" unique_id=2091137857 instance=ExtResource("3_ocytg")]
-
-[node name="PlaceholderSegment0" type="MeshInstance3D" parent="SegmentContainer" unique_id=568803462]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.3, 0, 0)
-mesh = SubResource("SphereMesh_rmc0o")
-
-[node name="PlaceholderSegment1" type="MeshInstance3D" parent="SegmentContainer" unique_id=974442066]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.59999996, 0, 0)
-mesh = SubResource("SphereMesh_rmc0o")
-
-[node name="PlaceholderSegment2" type="MeshInstance3D" parent="SegmentContainer" unique_id=1626649714]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.9, 0, 0)
-mesh = SubResource("SphereMesh_rmc0o")
-
-[node name="PlaceholderSegment3" type="MeshInstance3D" parent="SegmentContainer" unique_id=1789000301]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.2, 0, 0)
-mesh = SubResource("SphereMesh_rmc0o")
-
-[node name="PlaceholderSegment4" type="MeshInstance3D" parent="SegmentContainer" unique_id=1967903412]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5000001, 0, 0)
-mesh = SubResource("SphereMesh_rmc0o")
-
-[node name="MidCaterpillarSegment" parent="SegmentContainer" unique_id=1779248257 instance=ExtResource("3_ocytg")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.8000004, 0, 0)
-
-[node name="PlaceholderSegment5" type="MeshInstance3D" parent="SegmentContainer" unique_id=1754847359]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.100001, 0, 0)
-mesh = SubResource("SphereMesh_rmc0o")
-
-[node name="PlaceholderSegment6" type="MeshInstance3D" parent="SegmentContainer" unique_id=1033234257]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.400001, 0, 0)
-mesh = SubResource("SphereMesh_rmc0o")
-
-[node name="PlaceholderSegment7" type="MeshInstance3D" parent="SegmentContainer" unique_id=1091515138]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.7000012, 0, 0)
-mesh = SubResource("SphereMesh_rmc0o")
-
-[node name="PlaceholderSegment8" type="MeshInstance3D" parent="SegmentContainer" unique_id=909773881]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.0000014, 0, 0)
-mesh = SubResource("SphereMesh_rmc0o")
-
-[node name="PlaceholderSegment9" type="MeshInstance3D" parent="SegmentContainer" unique_id=1351838690]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.3000011, 0, 0)
-mesh = SubResource("SphereMesh_rmc0o")
-
-[node name="EndCaterpillarSegment" parent="SegmentContainer" unique_id=651545568 instance=ExtResource("3_ocytg")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.6000009, 0, 0)
-
-[node name="MouseMarker" type="MeshInstance3D" parent="." unique_id=583471448]
-top_level = true
-mesh = SubResource("SphereMesh_t4js3")
+[node name="SegmentContainer" type="Node3D" parent="." unique_id=229195454]
 metadata/_edit_lock_ = true
+
+[node name="FrontCaterpillarSegment" parent="SegmentContainer" unique_id=1363312403 instance=ExtResource("2_n8wdf")]
+
+[node name="MidCaterpillarSegment" parent="SegmentContainer" unique_id=286770193 instance=ExtResource("2_n8wdf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.2, 0, 0)
+
+[node name="EndCaterpillarSegment" parent="SegmentContainer" unique_id=1242823194 instance=ExtResource("2_n8wdf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.4, 0, 0)

@@ -21,7 +21,7 @@ script = ExtResource("1_viwjy")
 shape = SubResource("SphereShape3D_a8tkb")
 metadata/_edit_lock_ = true
 
-[node name="PinJoint3D" type="PinJoint3D" parent="." unique_id=1435039565]
+[node name="PinJoint3D" type="PinJoint3D" parent="." unique_id=276014027]
 node_a = NodePath("..")
 
 [node name="TestBall" type="CSGMesh3D" parent="." unique_id=43657827]

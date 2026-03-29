@@ -1,8 +1,9 @@
 [gd_scene format=3 uid="uid://b1ebmtbokawua"]
 
-[ext_resource type="PackedScene" uid="uid://dywaonpcqbn2n" path="res://scenes/catapillar/caterpillar_player.tscn" id="1_mkqp2"]
+[ext_resource type="PackedScene" uid="uid://dywaonpcqbn2n" path="res://scenes/catapillar/test/characterbody3d_implementation/v2/caterpillar_player_cbv2.tscn" id="1_mkqp2"]
 [ext_resource type="Script" uid="uid://dfwslcsnx132u" path="res://scenes/entities/camera_pivot.gd" id="2_mkqp2"]
 [ext_resource type="Script" uid="uid://jy848ssg3duj" path="res://scenes/entities/section_trigger.gd" id="2_okq4k"]
+
 
 [sub_resource type="CylinderMesh" id="CylinderMesh_yya0e"]
 

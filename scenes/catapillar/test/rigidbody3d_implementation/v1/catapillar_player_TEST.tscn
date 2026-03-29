@@ -1,7 +1,8 @@
 [gd_scene format=3 uid="uid://ckkgqi8yg8b85"]
 
-[ext_resource type="Script" uid="uid://cqcxr4mqgdy0u" path="res://scenes/catapillar/test/rigidbody3d_implementation/catapillar_player_TEST.gd" id="1_6j70i"]
-[ext_resource type="PackedScene" uid="uid://dshgmcj3ko2a8" path="res://scenes/catapillar/test/rigidbody3d_implementation/components/pickable_segment.tscn" id="2_26bks"]
+[ext_resource type="Script" uid="uid://cqcxr4mqgdy0u" path="res://scenes/catapillar/test/rigidbody3d_implementation/v1/catapillar_player_TEST.gd" id="1_6j70i"]
+[ext_resource type="PackedScene" uid="uid://dshgmcj3ko2a8" path="res://scenes/catapillar/test/rigidbody3d_implementation/v1/components/pickable_segment.tscn" id="2_26bks"]
+
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_yifrs"]
 
