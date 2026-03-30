@@ -1,8 +1,8 @@
 extends Node3D
 
-@onready var front_caterpillar_end_segment: RigidBody3D = $PhysicsSegmentsContainer/FrontCaterpillarEndSegment
+@onready var front_caterpillar_end_segment: CaterpillarBodyEndSegment = $PhysicsSegmentsContainer/FrontCaterpillarEndSegment
 @onready var caterpillar_middle_segment: RigidBody3D = $PhysicsSegmentsContainer/CaterpillarMiddleSegment
-@onready var end_caterpillar_end_segment: RigidBody3D = $PhysicsSegmentsContainer/EndCaterpillarEndSegment
+@onready var end_caterpillar_end_segment: CaterpillarBodyEndSegment = $PhysicsSegmentsContainer/EndCaterpillarEndSegment
 @onready var physics_segments_container: Node3D = $PhysicsSegmentsContainer
 @onready var visual_segments_container: Node3D = $VisualSegmentsContainer
 
@@ -26,6 +26,9 @@ func _ready() -> void:
 		if i < visual_segments_container.get_child_count()/2: _visual_segments_0.append(segment)
 		else: _visual_segments_1.append(segment)
 		segment.set_as_top_level(true)
+	
+	front_caterpillar_end_segment.pinned_to_world.connect(_on_segment_pinned_to_world)
+	end_caterpillar_end_segment.pinned_to_world.connect(_on_segment_pinned_to_world)
 
 func _physics_process(delta: float) -> void:
 	
@@ -58,3 +61,18 @@ func _update_visual_segments(start_physics_segment: RigidBody3D, end_physics_seg
 		
 		segment.global_position = target_position
 		segment.look_at(start_physics_segment.global_position)
+
+# TODO - cache state of all physical and visual nodes in caterpillar body
+# store in a dictionary or something
+# this will be used to restore from failure states
+func _save_body_configuration() -> void:
+	pass
+
+# TODO - related to above
+func _restore_body_configuration() -> void:
+	pass
+
+func _on_segment_pinned_to_world() -> void:
+	if not front_caterpillar_end_segment.is_pinned_to_world() or \
+	not end_caterpillar_end_segment.is_pinned_to_world(): return
+	_save_body_configuration()

@@ -1,9 +1,9 @@
 [gd_scene format=3 uid="uid://ht113lnvmdrs"]
 
-[ext_resource type="Script" uid="uid://ckq847pxixmms" path="res://scenes/catapillar/caterpillar_player.gd" id="1_wpa61"]
-[ext_resource type="PackedScene" uid="uid://bnvrwyt77hkgb" path="res://scenes/catapillar/component/caterpillar_end_segment.tscn" id="2_n8wdf"]
-[ext_resource type="PackedScene" uid="uid://b1qp6jd1y2uos" path="res://scenes/catapillar/component/caterpillar_middle_segment.tscn" id="3_ocytg"]
-[ext_resource type="PackedScene" uid="uid://gqjc3c7bhhqk" path="res://scenes/catapillar/component/caterpillar_segment_small.tscn" id="4_t4js3"]
+[ext_resource type="Script" uid="uid://ckq847pxixmms" path="res://scenes/caterpillar/caterpillar_player.gd" id="1_wpa61"]
+[ext_resource type="PackedScene" uid="uid://bnvrwyt77hkgb" path="res://scenes/caterpillar/component/caterpillar_end_segment.tscn" id="2_n8wdf"]
+[ext_resource type="PackedScene" uid="uid://b1qp6jd1y2uos" path="res://scenes/caterpillar/component/caterpillar_middle_segment.tscn" id="3_ocytg"]
+[ext_resource type="PackedScene" uid="uid://gqjc3c7bhhqk" path="res://scenes/caterpillar/component/caterpillar_segment_small.tscn" id="4_t4js3"]
 
 [node name="CaterpillarPlayer" type="Node3D" unique_id=2112225814]
 script = ExtResource("1_wpa61")

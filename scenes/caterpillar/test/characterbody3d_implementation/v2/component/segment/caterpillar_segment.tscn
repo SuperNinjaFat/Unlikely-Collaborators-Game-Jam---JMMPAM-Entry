@@ -1,8 +1,9 @@
 [gd_scene format=3 uid="uid://dui8rcac1w6x3"]
 
-[ext_resource type="Script" uid="uid://bjbtci3jd6hy1" path="res://scenes/catapillar/test/characterbody3d_implementation/v2/component/segment/caterpillar_segment.gd" id="1_8l3s2"]
-[ext_resource type="SphereMesh" uid="uid://bnu4euh0jfmd6" path="res://scenes/catapillar/resource/test_caterpillar_segment_mesh.tres" id="2_tny1w"]
-[ext_resource type="PackedScene" uid="uid://cq1voifcckwim" path="res://scenes/catapillar/test/characterbody3d_implementation/v2/component/grab/grab_surface_detector.tscn" id="3_vtj3u"]
+[ext_resource type="Script" uid="uid://bjbtci3jd6hy1" path="res://scenes/caterpillar/test/characterbody3d_implementation/v2/component/segment/caterpillar_segment.gd" id="1_8l3s2"]
+[ext_resource type="SphereMesh" uid="uid://bnu4euh0jfmd6" path="res://scenes/caterpillar/resource/test_caterpillar_segment_mesh.tres" id="2_tny1w"]
+[ext_resource type="PackedScene" uid="uid://cq1voifcckwim" path="res://scenes/caterpillar/test/characterbody3d_implementation/v2/component/grab/grab_surface_detector.tscn" id="3_vtj3u"]
+
 
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_j037n"]

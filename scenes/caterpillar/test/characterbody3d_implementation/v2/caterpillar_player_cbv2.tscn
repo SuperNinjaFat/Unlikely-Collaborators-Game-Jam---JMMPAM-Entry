@@ -1,7 +1,8 @@
 [gd_scene format=3 uid="uid://dywaonpcqbn2n"]
 
-[ext_resource type="Script" uid="uid://dctpia4uag6tt" path="res://scenes/catapillar/test/characterbody3d_implementation/v2/caterpillar_player_cbv2.tscn.gd" id="1_ckdag"]
-[ext_resource type="PackedScene" uid="uid://dui8rcac1w6x3" path="res://scenes/catapillar/test/characterbody3d_implementation/v2/component/segment/caterpillar_segment.tscn" id="2_8nrgc"]
+[ext_resource type="Script" uid="uid://dctpia4uag6tt" path="res://scenes/caterpillar/test/characterbody3d_implementation/v2/caterpillar_player_cbv2.tscn.gd" id="1_ckdag"]
+[ext_resource type="PackedScene" uid="uid://dui8rcac1w6x3" path="res://scenes/caterpillar/test/characterbody3d_implementation/v2/component/segment/caterpillar_segment.tscn" id="2_8nrgc"]
+
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_t4js3"]
 albedo_color = Color(0, 0.53333336, 0, 1)

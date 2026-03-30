@@ -1,9 +1,9 @@
 [gd_scene format=3 uid="uid://b1ebmtbokawua"]
 
-[ext_resource type="PackedScene" uid="uid://dywaonpcqbn2n" path="res://scenes/catapillar/test/characterbody3d_implementation/v2/caterpillar_player_cbv2.tscn" id="1_mkqp2"]
 [ext_resource type="Script" uid="uid://dfwslcsnx132u" path="res://scenes/entities/camera_pivot.gd" id="2_mkqp2"]
 [ext_resource type="Script" uid="uid://jy848ssg3duj" path="res://scenes/entities/section_trigger.gd" id="2_okq4k"]
-
+[ext_resource type="PackedScene" uid="uid://ht113lnvmdrs" path="res://scenes/caterpillar/caterpillar_player.tscn" id="3_mkqp2"]
+[ext_resource type="PackedScene" uid="uid://jkkawrmxgder" path="res://scenes/environment/grab_surface.tscn" id="4_t8qqb"]
 
 [sub_resource type="CylinderMesh" id="CylinderMesh_yya0e"]
 
@@ -21,8 +21,8 @@ size = Vector3(11.477539, 0.49023438, 16.103027)
 transform = Transform3D(0.98628557, -0.021257402, 0.16367294, 0, 0.9916711, 0.1287956, -0.16504759, -0.12702923, 0.978071, 0, 0, 0)
 shadow_enabled = true
 
-[node name="CaterpillarPlayer" parent="." unique_id=982923225 instance=ExtResource("1_mkqp2")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8, 0)
+[node name="CaterpillarPlayer" parent="." unique_id=2112225814 instance=ExtResource("3_mkqp2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.1000001, 0.90000004, 0)
 
 [node name="CameraPivot" type="Node3D" parent="." unique_id=1251178047 node_paths=PackedStringArray("sections_parent")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.2964096, 0, 0)
@@ -128,6 +128,54 @@ mesh = SubResource("BoxMesh_okq4k")
 transform = Transform3D(0.76499647, 0, 0, 0, 13.49046, 0, 0, 0, 25, -18.015446, -14.927581, 0)
 use_collision = true
 mesh = SubResource("BoxMesh_okq4k")
+
+[node name="GrabSurface" parent="Sections/Section0/Blockout2" unique_id=1156672266 instance=ExtResource("4_t8qqb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -19, 0)
+
+[node name="GrabSurface2" parent="Sections/Section0/Blockout2" unique_id=1394182319 instance=ExtResource("4_t8qqb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, -19, 0)
+
+[node name="GrabSurface3" parent="Sections/Section0/Blockout2" unique_id=415194737 instance=ExtResource("4_t8qqb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, -17, 0)
+
+[node name="GrabSurface4" parent="Sections/Section0/Blockout2" unique_id=1956937692 instance=ExtResource("4_t8qqb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, -17, 0)
+
+[node name="GrabSurface5" parent="Sections/Section0/Blockout2" unique_id=1732539109 instance=ExtResource("4_t8qqb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, -17, 0)
+
+[node name="GrabSurface6" parent="Sections/Section0/Blockout2" unique_id=1716863770 instance=ExtResource("4_t8qqb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, -14, 0)
+
+[node name="GrabSurface7" parent="Sections/Section0/Blockout2" unique_id=833434723 instance=ExtResource("4_t8qqb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, -11, 0)
+
+[node name="GrabSurface8" parent="Sections/Section0/Blockout2" unique_id=2122607544 instance=ExtResource("4_t8qqb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9, -9, 0)
+
+[node name="GrabSurface9" parent="Sections/Section0/Blockout2" unique_id=1735805845 instance=ExtResource("4_t8qqb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9, -7, 0)
+
+[node name="GrabSurface10" parent="Sections/Section0/Blockout2" unique_id=839050762 instance=ExtResource("4_t8qqb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9, -3, 0)
+
+[node name="GrabSurface11" parent="Sections/Section0/Blockout2" unique_id=2003587951 instance=ExtResource("4_t8qqb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, -3, 0)
+
+[node name="GrabSurface12" parent="Sections/Section0/Blockout2" unique_id=1129485972 instance=ExtResource("4_t8qqb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, -6, 0)
+
+[node name="GrabSurface13" parent="Sections/Section0/Blockout2" unique_id=164007740 instance=ExtResource("4_t8qqb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, -6, 0)
+
+[node name="GrabSurface14" parent="Sections/Section0/Blockout2" unique_id=82202762 instance=ExtResource("4_t8qqb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -6, 0)
+
+[node name="GrabSurface15" parent="Sections/Section0/Blockout2" unique_id=263547953 instance=ExtResource("4_t8qqb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -3, 0)
+
+[node name="GrabSurface16" parent="Sections/Section0/Blockout2" unique_id=1920073197 instance=ExtResource("4_t8qqb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, -3, 0)
 
 [node name="RespawnPoint" type="Marker3D" parent="Sections/Section0" unique_id=1596310466]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.2964096, 0.76250005, 0)
