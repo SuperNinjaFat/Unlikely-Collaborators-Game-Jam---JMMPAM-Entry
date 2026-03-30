@@ -1,68 +1,60 @@
 extends Node3D
 
-const SEGMENT_MAX_DISTANCE_RAMP: float = 2.0
-const SEGMENT_DRAG_DEADZONE: float = 0.1
-const SEGMENT_MIN_TRAVEL_SPEED: float = 0.25
-const SEGMENT_MAX_TRAVEL_SPEED: float = 16.0
-
+@onready var front_caterpillar_end_segment: RigidBody3D = $PhysicsSegmentsContainer/FrontCaterpillarEndSegment
+@onready var caterpillar_middle_segment: RigidBody3D = $PhysicsSegmentsContainer/CaterpillarMiddleSegment
+@onready var end_caterpillar_end_segment: RigidBody3D = $PhysicsSegmentsContainer/EndCaterpillarEndSegment
 @onready var physics_segments_container: Node3D = $PhysicsSegmentsContainer
 @onready var visual_segments_container: Node3D = $VisualSegmentsContainer
 
-#var _all_segments: Array[Node3D] = []
-
-	### TEMP ###
-#var _viewport: Viewport
-#var _camera: Camera3D
+# Dictionary of Node3D[Transform3D]
+#var _visual_segments: Dictionary = {}
+var _visual_segments_0: Array[Node3D] = []
+var _visual_segments_1: Array[Node3D] = []
+var _physics_segment_spacing: float = 0.0
+var _visual_segment_spacing: float = 0.0
 
 func _ready() -> void:
-	return
 	
-	## TODO - most likely move to camera manager
-	#_viewport = get_viewport()
-	#_viewport.physics_object_picking = true
-	#_camera = _viewport.get_camera_3d()
+	_physics_segment_spacing = (
+		caterpillar_middle_segment.global_position - front_caterpillar_end_segment.global_position
+	).length() 
+	_visual_segment_spacing = _physics_segment_spacing / (float(visual_segments_container.get_child_count()) / 2.0)
 	
-	#for segment: Node3D in segment_container.get_children():
-		#_all_segments.append(segment)
+	for i: int in range(visual_segments_container.get_child_count()):
+		var segment: Node3D = visual_segments_container.get_child(i)
+		@warning_ignore("integer_division")
+		if i < visual_segments_container.get_child_count()/2: _visual_segments_0.append(segment)
+		else: _visual_segments_1.append(segment)
+		segment.set_as_top_level(true)
 
-#func _input(event: InputEvent) -> void:
-	#if event.is_action_released("left_click"):
-		#_selected_segment = -1
-	#if event.is_action_pressed("right_click") and _selected_segment != -1:
-		#var selected_segment: RigidBody3D = _selectable_segments[_selected_segment]
-		#selected_segment.pin_to_world(!selected_segment.is_pinned_to_world())
+func _physics_process(delta: float) -> void:
+	
+	# Update segments between head and middle
+	_update_visual_segments(
+		front_caterpillar_end_segment, 
+		caterpillar_middle_segment, 
+		_visual_segments_0, 
+		delta
+	)
+	
+	# Update segments between middle and tail
+	_update_visual_segments(
+		caterpillar_middle_segment, 
+		end_caterpillar_end_segment, 
+		_visual_segments_1,
+		delta
+	)
 
-func _physics_process(_delta: float) -> void:
-	return
-	#if _selected_segment == -1: return
-	#
-	#var selected_segment: RigidBody3D = _selectable_segments[_selected_segment]
-	#
-	#var move_target: Vector3 = _get_projected_mouse_position()
-	#var direction: Vector3 = move_target - selected_segment.global_transform.origin
-	#var distance = direction.length()
-	#
-	#if distance > SEGMENT_DRAG_DEADZONE:
-		#var speed_modifier: float = clamp(
-			#distance / SEGMENT_MAX_DISTANCE_RAMP,
-			#0.0, 1.0
-		#)
-		#var speed: float = lerp(SEGMENT_MIN_TRAVEL_SPEED, SEGMENT_MAX_TRAVEL_SPEED, speed_modifier)
-		#selected_segment.linear_velocity = direction.normalized() * speed
-	#else:
-		#selected_segment.linear_velocity = Vector3.ZERO
-
-#func _on_segment_selected(segment_id: int) -> void:
-	#_selected_segment = segment_id
-	#_selectable_segments[_selected_segment].pin_to_world(false)
-
-#func _get_projected_mouse_position() -> Vector3:
-	#var mouse_position: Vector2 = _viewport.get_mouse_position()
-	## this "locks" projected coordinates to the caterpillar's z-coordinate
-	#var distance_to_camera: float = _camera.global_position.distance_to(global_position) 
-	#var world_coordinate_projection: Vector3 = (
-		#_camera.project_ray_normal(mouse_position) * distance_to_camera + _camera.project_ray_origin(mouse_position)
-	#) 
-	## never change z coordinate
-	#world_coordinate_projection.z = global_position.z
-	#return world_coordinate_projection
+func _update_visual_segments(start_physics_segment: RigidBody3D, end_physics_segment: RigidBody3D, visual_segments: Array[Node3D], _delta: float) -> void:
+	
+	var total_offset: Vector3 = end_physics_segment.global_position - start_physics_segment.global_position
+	var direction: Vector3 = total_offset / _physics_segment_spacing
+	
+	for i: int in range(visual_segments.size()):
+		
+		var segment: Node3D = visual_segments[i]
+		var distance_along: float = _visual_segment_spacing * float(i + 1)
+		var target_position: Vector3 = start_physics_segment.global_position + direction * distance_along
+		
+		segment.global_position = target_position
+		segment.look_at(start_physics_segment.global_position)

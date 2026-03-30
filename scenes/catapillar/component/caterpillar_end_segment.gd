@@ -1,9 +1,12 @@
 extends RigidBody3D
+class_name CaterpillarBodyEndSegment
 
 const SEGMENT_MAX_DISTANCE_RAMP: float = 2.0
 const SEGMENT_DRAG_DEADZONE: float = 0.1
 const SEGMENT_MIN_TRAVEL_SPEED: float = 0.25
 const SEGMENT_MAX_TRAVEL_SPEED: float = 16.0
+
+@export var opposite_segment: CaterpillarBodyEndSegment
 
 @onready var world_pin: PinJoint3D = $WorldPin
 @onready var floor_check: RayCast3D = $FloorCheck
@@ -15,7 +18,13 @@ var _selected: bool = false # redundant bool could be replaced with is_pinned_to
 var _viewport: Viewport
 var _camera: Camera3D
 
+#signal pinned_to_world
+
 func _ready() -> void:
+	
+	if not opposite_segment:
+		printerr("CaterpillarBodyEndSegment @ _ready(): No opposite segment provided. This scene will not funciton as intended.")
+		return
 	
 	# TODO - most likely move to camera manager
 	_viewport = get_viewport()
@@ -27,12 +36,12 @@ func _ready() -> void:
 func _input(event: InputEvent) -> void:
 	if event.is_action_released("left_click"): 
 		_selected = false
-		#pin_to_world(true)
 
 @warning_ignore("unused_parameter")
 func _input_event(camera: Camera3D, event: InputEvent, event_position: Vector3, normal: Vector3, shape_idx: int) -> void:
 	if not event.is_action_pressed("left_click"): return
-	if not is_pinned_to_world(): return
+	if is_pinned_to_world() and not opposite_segment.is_pinned_to_world(): return
+	elif not is_pinned_to_world() and not opposite_segment.is_pinned_to_world(): return
 	pin_to_world(false)
 	_selected = true
 
@@ -63,7 +72,8 @@ func _physics_process(_delta: float) -> void:
 	elif floor_check.is_colliding() or grab_surface_detection.get_overlapping_areas().size() > 0: 
 		pin_to_world(true)
 
-
+#func set_selectable(selectable: bool) -> void:
+	#_selectable = selectable
 
 func pin_to_world(pin: bool) -> void:
 	if pin: world_pin.node_a = get_path()
