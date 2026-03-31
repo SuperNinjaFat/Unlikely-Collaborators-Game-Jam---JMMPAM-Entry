@@ -1,4 +1,4 @@
-extends Camera3D
+extends Node3D
 
 @export var sections_parent: Node3D
 # Array of sections, of type Node3D
@@ -23,24 +23,19 @@ func _ready() -> void:
 		# Disable backtrack prevention on all sections at start
 		_disable_backtrack_prevention(i)
 
-	# Load persisted section state (ensure GameState exists first)
+	# Load persisted section state
 	var level_node := get_parent()
 	if level_node:
-		GameState.get_or_create_state()
 		level_state = GameState.get_level_state(level_node.scene_file_path)
 
 	# Restore saved section if resuming
 	if level_state and level_state.current_section > 0:
 		call_deferred("jump_to_section", level_state.current_section)
-	else:
-		# Fresh load — still apply selective rendering from section 0
-		call_deferred("_update_active_sections", 0)
 
 # Upon a section being entered, enable the new section, disable the old one
 func _on_section_entered(index: int) -> void:
-	# Skip if already in this section
-	if index == current_section:
-		return
+	# Track the previous section so we can disable it after it leaves the camera view
+	var previous_section := current_section
 	current_section = index
 
 	# Persist section progress
@@ -48,16 +43,18 @@ func _on_section_entered(index: int) -> void:
 		level_state.current_section = index
 		GlobalState.save()
 
-	# Find the CameraSpot of the section, which is a Camera3D reference.
+	# Find the CameraSpot of the section, which is a Marker3D.
 	var spot := _find_spot(sections[index])
 	if spot:
-		var tween = create_tween().set_parallel(true)
+		# Tween to the new CameraSpot.
+		# TODO: Pause player physics while tweening
+		var tween = create_tween()
 		tween.tween_property(self , "global_position", spot.global_position, 0.5)
-		tween.tween_property(self , "size", spot.size, 0.5)
-		tween.set_parallel(false)
-		_update_active_sections(index)
+		_set_active_section(index)
+		# Disable the previous section only once the camera stops panning.
 		# Prevent going into the previous area by enabling backtrack-prevention geometry once tweening completes
 		tween.finished.connect(func():
+			_disable_section(previous_section)
 			_enable_backtrack_prevention(current_section)
 		)
 
@@ -71,31 +68,24 @@ func jump_to_section(index: int) -> void:
 	var spot := _find_spot(sections[index])
 	if spot:
 		global_position = spot.global_position
-		size = spot.size
 
-	# Activate adjacent sections, disable the rest
-	_update_active_sections(index)
-	# Enable backtrack prevention for all sections up to current
+	# Activate/deactivate sections and backtrack prevention
 	for i in sections.size():
+		if i == index:
+			_set_active_section(i)
+		else:
+			_disable_section(i)
 		if i <= index:
 			_enable_backtrack_prevention(i)
 		else:
 			_disable_backtrack_prevention(i)
 
 	# Teleport player to respawn point
-	var player := get_parent().get_node_or_null("CaterpillarPlayer")
-	if player:
-		var respawn_pos := get_respawn_position(index)
-		var offset: Vector3 = respawn_pos - player.global_position
-		player.global_position = respawn_pos
-		# Move all physics segments (RigidBody3Ds set as top_level) to follow
-		var segment_container := player.get_node_or_null("PhysicsSegmentsContainer")
-		if segment_container:
-			for segment in segment_container.get_children():
-				if segment is RigidBody3D:
-					segment.global_position += offset
-					segment.linear_velocity = Vector3.ZERO
-					segment.angular_velocity = Vector3.ZERO
+	var player := get_parent().get_node_or_null("CatapillarPlayer")
+	if player and player is RigidBody3D:
+		player.global_position = get_respawn_position(index)
+		player.linear_velocity = Vector3.ZERO
+		player.angular_velocity = Vector3.ZERO
 
 # Get the respawn position for a section (RespawnPoint Marker3D, or fallback to CameraSpot).
 func get_respawn_position(index: int) -> Vector3:
@@ -120,18 +110,25 @@ func _disable_backtrack_prevention(index: int) -> void:
 		container.visible = false
 		container.process_mode = Node.PROCESS_MODE_DISABLED
 
-# Enable previous, current, and next sections; disable everything else.
-func _update_active_sections(index: int) -> void:
-	for i in sections.size():
-		if i >= index - 1 and i <= index + 1:
-			sections[i].visible = true
-			sections[i].process_mode = Node.PROCESS_MODE_INHERIT
-		else:
-			sections[i].visible = false
-			sections[i].process_mode = Node.PROCESS_MODE_DISABLED
+func _set_active_section(index: int) -> void:
+	sections[index].visible = true
+	sections[index].process_mode = Node.PROCESS_MODE_INHERIT
+
+func _disable_section(index: int) -> void:
+	# print("Disable section called: ", sections[index].name, " (", index, ") | Current: ", sections[current_section].name, " (", current_section, ") | Will disable: ", index != current_section)
+	if index != current_section:
+		# print("Disabling section ", index, ": visible=false, process_mode=DISABLED")
+		sections[index].visible = false
+		sections[index].process_mode = Node.PROCESS_MODE_DISABLED
 
 func _find_trigger(section: Node3D) -> Area3D:
-	return section.get_node_or_null("SectionTrigger") as Area3D
+	for child in section.get_children():
+		if child is Area3D:
+			return child
+	return null
 
-func _find_spot(section: Node3D) -> Camera3D:
-	return section.get_node_or_null("CameraSpot") as Camera3D
+func _find_spot(section: Node3D) -> Marker3D:
+	for child in section.get_children():
+		if child is Marker3D:
+			return child
+	return null

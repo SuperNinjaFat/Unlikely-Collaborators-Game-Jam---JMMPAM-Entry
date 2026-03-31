@@ -5,13 +5,13 @@
 [ext_resource type="PackedScene" uid="uid://b1qp6jd1y2uos" path="res://scenes/caterpillar/component/caterpillar_middle_segment.tscn" id="3_ocytg"]
 [ext_resource type="PackedScene" uid="uid://gqjc3c7bhhqk" path="res://scenes/caterpillar/component/caterpillar_segment_small.tscn" id="4_t4js3"]
 
-[node name="CaterpillarPlayer" type="Node3D" unique_id=2112225814 groups=["caterpillar"]]
+[node name="CaterpillarPlayer" type="Node3D" unique_id=2112225814]
 script = ExtResource("1_wpa61")
 
 [node name="PhysicsSegmentsContainer" type="Node3D" parent="." unique_id=229195454]
 metadata/_edit_lock_ = true
 
-[node name="FrontCaterpillarEndSegment" parent="PhysicsSegmentsContainer" unique_id=1363312403 node_paths=PackedStringArray("opposite_segment") groups=["caterpillar_parts"] instance=ExtResource("2_n8wdf")]
+[node name="FrontCaterpillarEndSegment" parent="PhysicsSegmentsContainer" unique_id=1363312403 node_paths=PackedStringArray("opposite_segment") instance=ExtResource("2_n8wdf")]
 opposite_segment = NodePath("../EndCaterpillarEndSegment")
 
 [node name="BodyJoint0" type="PinJoint3D" parent="PhysicsSegmentsContainer" unique_id=1294324113]
@@ -19,7 +19,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5, 0, 0)
 node_a = NodePath("../FrontCaterpillarEndSegment")
 node_b = NodePath("../CaterpillarMiddleSegment")
 
-[node name="CaterpillarMiddleSegment" parent="PhysicsSegmentsContainer" unique_id=664330916 groups=["caterpillar_parts"] instance=ExtResource("3_ocytg")]
+[node name="CaterpillarMiddleSegment" parent="PhysicsSegmentsContainer" unique_id=664330916 instance=ExtResource("3_ocytg")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5, 0, 0)
 
 [node name="BodyJoint1" type="PinJoint3D" parent="PhysicsSegmentsContainer" unique_id=1310126852]
@@ -27,7 +27,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5, 0, 0)
 node_a = NodePath("../CaterpillarMiddleSegment")
 node_b = NodePath("../EndCaterpillarEndSegment")
 
-[node name="EndCaterpillarEndSegment" parent="PhysicsSegmentsContainer" unique_id=1242823194 node_paths=PackedStringArray("opposite_segment") groups=["caterpillar_parts"] instance=ExtResource("2_n8wdf")]
+[node name="EndCaterpillarEndSegment" parent="PhysicsSegmentsContainer" unique_id=1242823194 node_paths=PackedStringArray("opposite_segment") instance=ExtResource("2_n8wdf")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 0, 0)
 opposite_segment = NodePath("../FrontCaterpillarEndSegment")
 
