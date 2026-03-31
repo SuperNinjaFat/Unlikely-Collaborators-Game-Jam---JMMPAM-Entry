@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://vrs2hdknykda"]
 
-[ext_resource type="PackedScene" uid="uid://bt2ro1a6gmujg" path="res://scenes/catapillar/caterpillar_player.tscn" id="1_c3cm6"]
+[ext_resource type="PackedScene" uid="uid://ht113lnvmdrs" path="res://scenes/caterpillar/caterpillar_player.tscn" id="1_c3cm6"]
 [ext_resource type="Script" uid="uid://dfwslcsnx132u" path="res://scenes/entities/camera_pivot.gd" id="2_flbao"]
 [ext_resource type="PackedScene" uid="uid://fhnjig4f0qg0" path="res://scenes/game_scene/components/section.tscn" id="3_5fiuf"]
 [ext_resource type="PackedScene" uid="uid://bai8m1w0tqbvc" path="res://scenes/entities/leaf_puzzle/leaf_puzzle.tscn" id="4_5fiuf"]

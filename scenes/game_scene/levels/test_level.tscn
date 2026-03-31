@@ -2,7 +2,8 @@
 
 [ext_resource type="Script" uid="uid://dwqrdeyyo5ovi" path="res://scenes/game_scene/levels/test_level.gd" id="1_6o765"]
 [ext_resource type="Texture2D" uid="uid://vqujm0s3j220" path="res://icon.svg" id="2_rvyh3"]
-[ext_resource type="PackedScene" uid="uid://dywaonpcqbn2n" path="res://scenes/catapillar/caterpillar_player.tscn" id="4_dpxjg"]
+[ext_resource type="PackedScene" uid="uid://ht113lnvmdrs" path="res://scenes/caterpillar/caterpillar_player.tscn" id="4_dpxjg"]
+[ext_resource type="PackedScene" uid="uid://jkkawrmxgder" path="res://scenes/environment/grab_surface.tscn" id="4_hu081"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_dpxjg"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -40,8 +41,20 @@ use_collision = true
 mesh = SubResource("BoxMesh_6o765")
 
 [node name="Camera3D" type="Camera3D" parent="." unique_id=1128423004]
-transform = Transform3D(1, 0, 0, 0, 0.9659259, 0.25881907, 0, -0.25881907, 0.9659258, 0, 5, 6.5)
+transform = Transform3D(1, 0, 0, 0, 0.9848078, 0.17364822, 0, -0.17364821, 0.9848077, 0, 5, 7.5)
 fov = 60.0
 
-[node name="CaterpillarPlayer" parent="." unique_id=982923225 instance=ExtResource("4_dpxjg")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.6, 0.7, 0)
+[node name="CaterpillarPlayer" parent="." unique_id=2112225814 instance=ExtResource("4_dpxjg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.3, 0)
+
+[node name="GrabSurface" parent="." unique_id=1156672266 instance=ExtResource("4_hu081")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.1, 2.3, 0)
+
+[node name="GrabSurface2" parent="." unique_id=409828988 instance=ExtResource("4_hu081")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.7000003, 4, 0)
+
+[node name="GrabSurface3" parent="." unique_id=2120737379 instance=ExtResource("4_hu081")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.4000003, 6.1000004, 0)
+
+[node name="GrabSurface4" parent="." unique_id=1184620067 instance=ExtResource("4_hu081")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.40000033, 6.1000004, 0)

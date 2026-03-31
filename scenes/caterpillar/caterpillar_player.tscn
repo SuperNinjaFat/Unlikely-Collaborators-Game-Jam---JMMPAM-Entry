@@ -1,0 +1,75 @@
+[gd_scene format=3 uid="uid://ht113lnvmdrs"]
+
+[ext_resource type="Script" uid="uid://ckq847pxixmms" path="res://scenes/caterpillar/caterpillar_player.gd" id="1_wpa61"]
+[ext_resource type="PackedScene" uid="uid://bnvrwyt77hkgb" path="res://scenes/caterpillar/component/caterpillar_end_segment.tscn" id="2_n8wdf"]
+[ext_resource type="PackedScene" uid="uid://b1qp6jd1y2uos" path="res://scenes/caterpillar/component/caterpillar_middle_segment.tscn" id="3_ocytg"]
+[ext_resource type="PackedScene" uid="uid://gqjc3c7bhhqk" path="res://scenes/caterpillar/component/caterpillar_segment_small.tscn" id="4_t4js3"]
+
+[node name="CaterpillarPlayer" type="Node3D" unique_id=2112225814]
+script = ExtResource("1_wpa61")
+
+[node name="PhysicsSegmentsContainer" type="Node3D" parent="." unique_id=229195454]
+metadata/_edit_lock_ = true
+
+[node name="FrontCaterpillarEndSegment" parent="PhysicsSegmentsContainer" unique_id=1363312403 node_paths=PackedStringArray("opposite_segment") instance=ExtResource("2_n8wdf")]
+opposite_segment = NodePath("../EndCaterpillarEndSegment")
+
+[node name="BodyJoint0" type="PinJoint3D" parent="PhysicsSegmentsContainer" unique_id=1294324113]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5, 0, 0)
+node_a = NodePath("../FrontCaterpillarEndSegment")
+node_b = NodePath("../CaterpillarMiddleSegment")
+
+[node name="CaterpillarMiddleSegment" parent="PhysicsSegmentsContainer" unique_id=664330916 instance=ExtResource("3_ocytg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5, 0, 0)
+
+[node name="BodyJoint1" type="PinJoint3D" parent="PhysicsSegmentsContainer" unique_id=1310126852]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5, 0, 0)
+node_a = NodePath("../CaterpillarMiddleSegment")
+node_b = NodePath("../EndCaterpillarEndSegment")
+
+[node name="EndCaterpillarEndSegment" parent="PhysicsSegmentsContainer" unique_id=1242823194 node_paths=PackedStringArray("opposite_segment") instance=ExtResource("2_n8wdf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 0, 0)
+opposite_segment = NodePath("../FrontCaterpillarEndSegment")
+
+[node name="VisualSegmentsContainer" type="Node3D" parent="." unique_id=171880237]
+metadata/_edit_lock_ = true
+
+[node name="CaterpillarSegmentSmall0" parent="VisualSegmentsContainer" unique_id=594499725 instance=ExtResource("4_t4js3")]
+
+[node name="CaterpillarSegmentSmall1" parent="VisualSegmentsContainer" unique_id=2143692491 instance=ExtResource("4_t4js3")]
+
+[node name="CaterpillarSegmentSmall2" parent="VisualSegmentsContainer" unique_id=1692030736 instance=ExtResource("4_t4js3")]
+
+[node name="CaterpillarSegmentSmall3" parent="VisualSegmentsContainer" unique_id=2146554370 instance=ExtResource("4_t4js3")]
+
+[node name="CaterpillarSegmentSmall4" parent="VisualSegmentsContainer" unique_id=1891503481 instance=ExtResource("4_t4js3")]
+
+[node name="CaterpillarSegmentSmall5" parent="VisualSegmentsContainer" unique_id=65855192 instance=ExtResource("4_t4js3")]
+
+[node name="CaterpillarSegmentSmall6" parent="VisualSegmentsContainer" unique_id=1957028878 instance=ExtResource("4_t4js3")]
+
+[node name="CaterpillarSegmentSmall7" parent="VisualSegmentsContainer" unique_id=1451775380 instance=ExtResource("4_t4js3")]
+
+[node name="CaterpillarSegmentSmall8" parent="VisualSegmentsContainer" unique_id=1486138161 instance=ExtResource("4_t4js3")]
+
+[node name="CaterpillarSegmentSmall9" parent="VisualSegmentsContainer" unique_id=880058195 instance=ExtResource("4_t4js3")]
+
+[node name="CaterpillarSegmentSmall10" parent="VisualSegmentsContainer" unique_id=1222923775 instance=ExtResource("4_t4js3")]
+
+[node name="CaterpillarSegmentSmall11" parent="VisualSegmentsContainer" unique_id=2068316293 instance=ExtResource("4_t4js3")]
+
+[node name="CaterpillarSegmentSmall12" parent="VisualSegmentsContainer" unique_id=1683724632 instance=ExtResource("4_t4js3")]
+
+[node name="CaterpillarSegmentSmall13" parent="VisualSegmentsContainer" unique_id=1091271255 instance=ExtResource("4_t4js3")]
+
+[node name="CaterpillarSegmentSmall14" parent="VisualSegmentsContainer" unique_id=790473422 instance=ExtResource("4_t4js3")]
+
+[node name="CaterpillarSegmentSmall15" parent="VisualSegmentsContainer" unique_id=606706904 instance=ExtResource("4_t4js3")]
+
+[node name="CaterpillarSegmentSmall16" parent="VisualSegmentsContainer" unique_id=48408938 instance=ExtResource("4_t4js3")]
+
+[node name="CaterpillarSegmentSmall17" parent="VisualSegmentsContainer" unique_id=1430826999 instance=ExtResource("4_t4js3")]
+
+[node name="CaterpillarSegmentSmall18" parent="VisualSegmentsContainer" unique_id=605204408 instance=ExtResource("4_t4js3")]
+
+[node name="CaterpillarSegmentSmall19" parent="VisualSegmentsContainer" unique_id=1351305103 instance=ExtResource("4_t4js3")]
