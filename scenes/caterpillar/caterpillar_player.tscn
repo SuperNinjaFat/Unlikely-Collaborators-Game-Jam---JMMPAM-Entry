@@ -19,8 +19,10 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5, 0, 0)
 node_a = NodePath("../FrontCaterpillarEndSegment")
 node_b = NodePath("../CaterpillarMiddleSegment")
 
-[node name="CaterpillarMiddleSegment" parent="PhysicsSegmentsContainer" unique_id=664330916 groups=["caterpillar_parts"] instance=ExtResource("3_ocytg")]
+[node name="CaterpillarMiddleSegment" parent="PhysicsSegmentsContainer" unique_id=664330916 node_paths=PackedStringArray("front_segment", "end_segment") groups=["caterpillar_parts"] instance=ExtResource("3_ocytg")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5, 0, 0)
+front_segment = NodePath("../FrontCaterpillarEndSegment")
+end_segment = NodePath("../EndCaterpillarEndSegment")
 
 [node name="BodyJoint1" type="PinJoint3D" parent="PhysicsSegmentsContainer" unique_id=1310126852]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5, 0, 0)

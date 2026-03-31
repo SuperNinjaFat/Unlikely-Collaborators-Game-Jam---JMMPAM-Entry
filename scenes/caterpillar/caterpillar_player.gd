@@ -104,9 +104,9 @@ func _on_middle_segment_released() -> void:
 	var launch_direction: Vector3 = _get_launch_direction()
 	var launch_strength: float = _get_launch_strength()
 	
-	front_caterpillar_end_segment.apply_central_force(launch_direction * (launch_strength * 0.3))
+	front_caterpillar_end_segment.apply_central_force(launch_direction * (launch_strength * 0.75))
 	caterpillar_middle_segment.apply_central_force(launch_direction * launch_strength)
-	end_caterpillar_end_segment.apply_central_force(launch_direction * (launch_strength * 0.3))
+	end_caterpillar_end_segment.apply_central_force(launch_direction * (launch_strength * 0.75))
 
 func _get_launch_direction() -> Vector3:
 	var body_axis: Vector3 = front_caterpillar_end_segment.global_position - end_caterpillar_end_segment.global_position

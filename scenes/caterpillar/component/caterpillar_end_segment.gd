@@ -39,14 +39,19 @@ func _input(event: InputEvent) -> void:
 @warning_ignore("unused_parameter")
 func _input_event(camera: Camera3D, event: InputEvent, event_position: Vector3, normal: Vector3, shape_idx: int) -> void:
 	
-	if not event.is_action_pressed("left_click"): return
+	if event.is_action_pressed("left_click"): 
+		# "selectable" conditions -- refer to the diagram
+		if is_pinned_to_world() and not opposite_segment.is_pinned_to_world(): return
+		elif not is_pinned_to_world() and not opposite_segment.is_pinned_to_world(): return
+		
+		pin_to_world(false)
+		_selected = true
 	
-	# "selectable" conditions -- refer to the diagram
-	if is_pinned_to_world() and not opposite_segment.is_pinned_to_world(): return
-	elif not is_pinned_to_world() and not opposite_segment.is_pinned_to_world(): return
-	
-	pin_to_world(false)
-	_selected = true
+	elif event.is_action_released("left_click"):
+		if is_pinned_to_world(): return
+		elif grab_surface_detection.get_overlapping_areas().size() == 0: return
+		
+		pin_to_world(true)
 
 func _physics_process(_delta: float) -> void:
 	
@@ -76,10 +81,11 @@ func _physics_process(_delta: float) -> void:
 	# if not selected, pin to world once the segments lands on the ground or enters a grab surface
 	elif floor_check.is_colliding():# or grab_surface_detection.get_overlapping_areas().size() > 0: 
 		pin_to_world(true)
-		pinned_to_world.emit()
 
 func pin_to_world(pin: bool) -> void:
-	if pin: world_pin.node_a = get_path()
+	if pin: 
+		world_pin.node_a = get_path()
+		pinned_to_world.emit()
 	else: world_pin.node_a = NodePath("")
 
 func is_pinned_to_world() -> bool:
@@ -94,6 +100,6 @@ func disable_world_pin(disable_time: float = 0.25) -> void:
 	grab_surface_detection.monitoring = true
 
 func _on_grab_surface_area_entered(_area: Area3D) -> void:
-	if _selected: return
-	pin_to_world(true)
-	pinned_to_world.emit()
+	return
+	#if _selected: return
+	#pin_to_world(true)
