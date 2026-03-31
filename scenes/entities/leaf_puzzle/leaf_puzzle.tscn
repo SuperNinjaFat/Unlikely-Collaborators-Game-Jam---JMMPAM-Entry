@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://bai8m1w0tqbvc"]
+
+[ext_resource type="Script" uid="uid://b6gstcub6kj5r" path="res://scenes/entities/leaf_puzzle/leaf_puzzle.gd" id="1_032t3"]
+[ext_resource type="PackedScene" uid="uid://bcn6n2re8h1p6" path="res://scenes/entities/leaf_puzzle/leaf_barrier/leaf_barrier.tscn" id="1_dbcwh"]
+
+[node name="LeafPuzzle" type="Node3D" unique_id=318786704]
+script = ExtResource("1_032t3")
+
+[node name="LeafBarrier" parent="." unique_id=1835696946 instance=ExtResource("1_dbcwh")]
+
+[node name="Leafs" type="Node3D" parent="." unique_id=448507772]

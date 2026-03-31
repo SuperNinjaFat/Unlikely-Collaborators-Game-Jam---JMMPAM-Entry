@@ -1,0 +1,76 @@
+[gd_scene format=3 uid="uid://vrs2hdknykda"]
+
+[ext_resource type="PackedScene" uid="uid://ht113lnvmdrs" path="res://scenes/caterpillar/caterpillar_player.tscn" id="1_c3cm6"]
+[ext_resource type="Script" uid="uid://dfwslcsnx132u" path="res://scenes/entities/camera_pivot.gd" id="2_flbao"]
+[ext_resource type="PackedScene" uid="uid://fhnjig4f0qg0" path="res://scenes/game_scene/components/section.tscn" id="3_5fiuf"]
+[ext_resource type="PackedScene" uid="uid://bai8m1w0tqbvc" path="res://scenes/entities/leaf_puzzle/leaf_puzzle.tscn" id="4_5fiuf"]
+[ext_resource type="PackedScene" uid="uid://yavau60xdj13" path="res://scenes/entities/leaf_puzzle/collectible_leaf/collectible_leaf.tscn" id="4_flbao"]
+[ext_resource type="PackedScene" uid="uid://jkkawrmxgder" path="res://scenes/environment/grab_surface.tscn" id="4_os5ql"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_os5ql"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_dtwsm"]
+
+[node name="LeafEater" type="Node3D" unique_id=525646909]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=123289173]
+transform = Transform3D(0.98628557, -0.021257402, 0.16367294, 0, 0.9916711, 0.1287956, -0.16504759, -0.12702923, 0.978071, 0, 0, 0)
+shadow_enabled = true
+
+[node name="CaterpillarPlayer" parent="." unique_id=1722133973 instance=ExtResource("1_c3cm6")]
+
+[node name="CameraPivot" type="Camera3D" parent="." unique_id=1599549742 node_paths=PackedStringArray("sections_parent")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.8211269, 7.747196, 27.954)
+projection = 1
+current = true
+fov = 25.6
+size = 20.25148
+script = ExtResource("2_flbao")
+sections_parent = NodePath("../Sections")
+
+[node name="Blockout" type="Node3D" parent="." unique_id=1532788986]
+
+[node name="CSGMesh3D" type="CSGMesh3D" parent="Blockout" unique_id=2059306377]
+transform = Transform3D(20.339008, 0, 0, 0, 46.411034, 0, 0, 0, 1, -2.0544434, 20.966484, -1.1088867)
+mesh = SubResource("BoxMesh_os5ql")
+
+[node name="Sections" type="Node3D" parent="." unique_id=828064577]
+
+[node name="SectionTemplate" parent="Sections" unique_id=33027719 instance=ExtResource("3_5fiuf")]
+
+[node name="CSGMesh3D" type="CSGMesh3D" parent="Sections/SectionTemplate/Blockout" parent_id_path=PackedInt32Array(33027719, 98019502) index="0" unique_id=347017242]
+transform = Transform3D(1, 0, 0, 0, 14.578548, 0, 0, 0, 1, 8.452362, 4.7441683, 0)
+mesh = SubResource("BoxMesh_dtwsm")
+
+[node name="CSGMesh3D2" type="CSGMesh3D" parent="Sections/SectionTemplate/Blockout" parent_id_path=PackedInt32Array(33027719, 98019502) index="1" unique_id=82140931]
+transform = Transform3D(1, 0, 0, 0, 14.578548, 0, 0, 0, 1, -12.310841, 4.7441683, 0)
+mesh = SubResource("BoxMesh_dtwsm")
+
+[node name="CSGMesh3D3" type="CSGMesh3D" parent="Sections/SectionTemplate/Blockout" parent_id_path=PackedInt32Array(33027719, 98019502) index="2" unique_id=1452114480]
+transform = Transform3D(20, 0, 0, 0, 1, 0, 0, 0, 1, -1.8670845, -2.1008892, 0)
+mesh = SubResource("BoxMesh_dtwsm")
+
+[node name="CSGMesh3D4" type="CSGMesh3D" parent="Sections/SectionTemplate/Blockout" parent_id_path=PackedInt32Array(33027719, 98019502) index="3" unique_id=826706910]
+transform = Transform3D(6.7804065, 0, 0, 0, 1, 0, 0, 0, 1, -8.37272, 11.511589, 0)
+mesh = SubResource("BoxMesh_dtwsm")
+
+[node name="CSGMesh3D5" type="CSGMesh3D" parent="Sections/SectionTemplate/Blockout" parent_id_path=PackedInt32Array(33027719, 98019502) index="4" unique_id=1923047577]
+transform = Transform3D(6.7804065, 0, 0, 0, 1, 0, 0, 0, 1, 4.5139227, 11.511589, 0)
+mesh = SubResource("BoxMesh_dtwsm")
+
+[node name="GrabSurface" parent="Sections/SectionTemplate/Blockout" parent_id_path=PackedInt32Array(33027719, 98019502) index="5" unique_id=1156672266 instance=ExtResource("4_os5ql")]
+transform = Transform3D(10.662247, 0, 0, 0, 23.32145, 0, 0, 0, 1, -2.054, 20.966, 0)
+
+[node name="LeafPuzzle" parent="Sections/SectionTemplate" unique_id=318786704 instance=ExtResource("4_5fiuf")]
+
+[node name="LeafBarrier" parent="Sections/SectionTemplate/LeafPuzzle" index="0" unique_id=1835696946]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.9873981, 11.475622, 0)
+
+[node name="CollectibleLeaf" parent="Sections/SectionTemplate/LeafPuzzle/Leafs" parent_id_path=PackedInt32Array(318786704, 448507772) index="0" unique_id=163625636 instance=ExtResource("4_flbao")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.8941536, 7.193956, 0.20800781)
+
+[node name="CollectibleLeaf2" parent="Sections/SectionTemplate/LeafPuzzle/Leafs" parent_id_path=PackedInt32Array(318786704, 448507772) index="1" unique_id=1054402200 instance=ExtResource("4_flbao")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.073609, 7.193956, 0.20800781)
+
+[editable path="Sections/SectionTemplate"]
+[editable path="Sections/SectionTemplate/LeafPuzzle"]
