@@ -1,5 +1,7 @@
 extends Node3D
 
+signal drag_released
+
 @onready var front_caterpillar_end_segment: CaterpillarBodyEndSegment = $PhysicsSegmentsContainer/FrontCaterpillarEndSegment
 @onready var caterpillar_middle_segment: RigidBody3D = $PhysicsSegmentsContainer/CaterpillarMiddleSegment
 @onready var end_caterpillar_end_segment: CaterpillarBodyEndSegment = $PhysicsSegmentsContainer/EndCaterpillarEndSegment
@@ -76,3 +78,4 @@ func _on_segment_pinned_to_world() -> void:
 	if not front_caterpillar_end_segment.is_pinned_to_world() or \
 	not end_caterpillar_end_segment.is_pinned_to_world(): return
 	_save_body_configuration()
+	drag_released.emit()

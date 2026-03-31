@@ -88,13 +88,14 @@ func jump_to_section(index: int) -> void:
 		var respawn_pos := get_respawn_position(index)
 		var offset: Vector3 = respawn_pos - player.global_position
 		player.global_position = respawn_pos
-		# Move all segments (CharacterBody3Ds set as top_level) to follow
-		var segment_container := player.get_node_or_null("SegmentContainer")
+		# Move all physics segments (RigidBody3Ds set as top_level) to follow
+		var segment_container := player.get_node_or_null("PhysicsSegmentsContainer")
 		if segment_container:
 			for segment in segment_container.get_children():
-				segment.global_position += offset
-				if segment is CharacterBody3D:
-					segment.velocity = Vector3.ZERO
+				if segment is RigidBody3D:
+					segment.global_position += offset
+					segment.linear_velocity = Vector3.ZERO
+					segment.angular_velocity = Vector3.ZERO
 
 # Get the respawn position for a section (RespawnPoint Marker3D, or fallback to CameraSpot).
 func get_respawn_position(index: int) -> Vector3:
