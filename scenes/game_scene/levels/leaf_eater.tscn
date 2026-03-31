@@ -5,6 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://fhnjig4f0qg0" path="res://scenes/game_scene/components/section.tscn" id="3_5fiuf"]
 [ext_resource type="PackedScene" uid="uid://bai8m1w0tqbvc" path="res://scenes/entities/leaf_puzzle/leaf_puzzle.tscn" id="4_5fiuf"]
 [ext_resource type="PackedScene" uid="uid://yavau60xdj13" path="res://scenes/entities/leaf_puzzle/collectible_leaf/collectible_leaf.tscn" id="4_flbao"]
+[ext_resource type="PackedScene" uid="uid://jkkawrmxgder" path="res://scenes/environment/grab_surface.tscn" id="4_os5ql"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_os5ql"]
 
@@ -30,7 +31,7 @@ sections_parent = NodePath("../Sections")
 [node name="Blockout" type="Node3D" parent="." unique_id=1532788986]
 
 [node name="CSGMesh3D" type="CSGMesh3D" parent="Blockout" unique_id=2059306377]
-transform = Transform3D(20.339008, 0, 0, 0, 46.411034, 0, 0, 0, 1, -2.0544434, 20.966484, -1.0155029)
+transform = Transform3D(20.339008, 0, 0, 0, 46.411034, 0, 0, 0, 1, -2.0544434, 20.966484, -1.1088867)
 mesh = SubResource("BoxMesh_os5ql")
 
 [node name="Sections" type="Node3D" parent="." unique_id=828064577]
@@ -56,6 +57,9 @@ mesh = SubResource("BoxMesh_dtwsm")
 [node name="CSGMesh3D5" type="CSGMesh3D" parent="Sections/SectionTemplate/Blockout" parent_id_path=PackedInt32Array(33027719, 98019502) index="4" unique_id=1923047577]
 transform = Transform3D(6.7804065, 0, 0, 0, 1, 0, 0, 0, 1, 4.5139227, 11.511589, 0)
 mesh = SubResource("BoxMesh_dtwsm")
+
+[node name="GrabSurface" parent="Sections/SectionTemplate/Blockout" parent_id_path=PackedInt32Array(33027719, 98019502) index="5" unique_id=1156672266 instance=ExtResource("4_os5ql")]
+transform = Transform3D(10.662247, 0, 0, 0, 23.32145, 0, 0, 0, 1, -2.054, 20.966, 0)
 
 [node name="LeafPuzzle" parent="Sections/SectionTemplate" unique_id=318786704 instance=ExtResource("4_5fiuf")]
 
