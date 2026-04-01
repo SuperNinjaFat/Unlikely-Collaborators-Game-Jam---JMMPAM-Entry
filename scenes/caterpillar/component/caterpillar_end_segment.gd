@@ -14,9 +14,8 @@ const SEGMENT_MAX_TRAVEL_SPEED: float = 16.0
 
 var _selected: bool = false # redundant bool could be replaced with is_pinned_to_world() (maybe)
 
-	### TEMP ###
-var _viewport: Viewport
-var _camera: Camera3D
+# TODO - standardize this into a special Resource subclass if there is a need
+var callbacks: Dictionary = {}
 
 signal pinned_to_world
 
@@ -26,28 +25,33 @@ func _ready() -> void:
 		printerr("CaterpillarBodyEndSegment @ _ready(): No opposite segment provided. This scene will not funciton as intended.")
 		return
 	
-	# TODO - most likely move to camera manager
-	_viewport = get_viewport()
-	_viewport.physics_object_picking = true
-	_camera = _viewport.get_camera_3d()
+	grab_surface_detection.area_entered.connect(_on_grab_surface_area_entered)
 	
 	set_as_top_level(true)
 
 func _input(event: InputEvent) -> void:
-	if event.is_action_released("left_click"): 
+	if event.is_action_released("left_click") and _selected: 
 		_selected = false
+		if grab_surface_detection.get_overlapping_areas().size() > 0:
+			pin_to_world(true)
+			pinned_to_world.emit()
 
 @warning_ignore("unused_parameter")
 func _input_event(camera: Camera3D, event: InputEvent, event_position: Vector3, normal: Vector3, shape_idx: int) -> void:
 	
-	if not event.is_action_pressed("left_click"): return
+	if event.is_action_pressed("left_click"): 
+		# "selectable" conditions -- refer to the diagram
+		if is_pinned_to_world() and not opposite_segment.is_pinned_to_world(): return
+		elif not is_pinned_to_world() and not opposite_segment.is_pinned_to_world(): return
+		
+		pin_to_world(false)
+		_selected = true
 	
-	# "selectable" conditions -- refer to the diagram
-	if is_pinned_to_world() and not opposite_segment.is_pinned_to_world(): return
-	elif not is_pinned_to_world() and not opposite_segment.is_pinned_to_world(): return
-	
-	pin_to_world(false)
-	_selected = true
+	elif event.is_action_released("left_click"):
+		if is_pinned_to_world(): return
+		elif grab_surface_detection.get_overlapping_areas().size() == 0: return
+		
+		pin_to_world(true)
 
 func _physics_process(_delta: float) -> void:
 	
@@ -60,7 +64,7 @@ func _physics_process(_delta: float) -> void:
 	# if selected, reach toward the mouse
 	if _selected: 
 		
-		var move_target: Vector3 = _get_projected_mouse_position()
+		var move_target: Vector3 = callbacks.get_mouse_position.call()
 		var direction: Vector3 = move_target - global_transform.origin
 		var distance = direction.length()
 		
@@ -75,24 +79,27 @@ func _physics_process(_delta: float) -> void:
 			linear_velocity = Vector3.ZERO
 			
 	# if not selected, pin to world once the segments lands on the ground or enters a grab surface
-	elif floor_check.is_colliding() or grab_surface_detection.get_overlapping_areas().size() > 0: 
+	elif floor_check.is_colliding():# or grab_surface_detection.get_overlapping_areas().size() > 0: 
 		pin_to_world(true)
-		pinned_to_world.emit()
 
 func pin_to_world(pin: bool) -> void:
-	if pin: world_pin.node_a = get_path()
+	if pin: 
+		world_pin.node_a = get_path()
+		pinned_to_world.emit()
 	else: world_pin.node_a = NodePath("")
 
 func is_pinned_to_world() -> bool:
 	return world_pin.node_a != NodePath("")
 
-func _get_projected_mouse_position() -> Vector3:
-	var mouse_position: Vector2 = _viewport.get_mouse_position()
-	# this "locks" projected coordinates to the caterpillar's z-coordinate
-	var distance_to_camera: float = _camera.global_position.distance_to(global_position) 
-	var world_coordinate_projection: Vector3 = (
-		_camera.project_ray_normal(mouse_position) * distance_to_camera + _camera.project_ray_origin(mouse_position)
-	) 
-	# never change z coordinate
-	world_coordinate_projection.z = global_position.z
-	return world_coordinate_projection
+func disable_world_pin(disable_time: float = 0.25) -> void:
+	pin_to_world(false)
+	floor_check.enabled = false
+	grab_surface_detection.monitoring = false
+	await get_tree().create_timer(disable_time).timeout
+	floor_check.enabled = true
+	grab_surface_detection.monitoring = true
+
+func _on_grab_surface_area_entered(_area: Area3D) -> void:
+	return
+	#if _selected: return
+	#pin_to_world(true)
