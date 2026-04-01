@@ -64,6 +64,7 @@ func _spawn_player(section_index: int) -> void:
 	# Offset so the middle segment (at local x=-1.5) lands exactly on the respawn point
 	player_instance.position = respawn_pos - MIDDLE_SEGMENT_LOCAL_OFFSET
 	get_parent().add_child(player_instance)
+	player_instance.engage_grip()
 
 # Upon a section being entered, enable the new section, disable the old one
 func _on_section_entered(index: int) -> void:

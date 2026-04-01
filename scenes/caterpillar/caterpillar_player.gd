@@ -91,6 +91,10 @@ func _save_body_configuration() -> void:
 func _restore_body_configuration() -> void:
 	pass
 
+func engage_grip() -> void:
+	front_caterpillar_end_segment.pin_to_world(true)
+	end_caterpillar_end_segment.pin_to_world(true)
+
 func _on_segment_pinned_to_world() -> void:
 	if not front_caterpillar_end_segment.is_pinned_to_world() or \
 	not end_caterpillar_end_segment.is_pinned_to_world(): return
