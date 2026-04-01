@@ -172,7 +172,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.049881, -1.8617191, 27.870
 size = 22.166
 
 [node name="RespawnPoint" parent="Sections/Section2" index="1" unique_id=427335471]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.39808083, -2.7325287, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.3467731, -10.550375, 0)
 
 [node name="TestFloor8" type="CSGMesh3D" parent="Sections/Section2/Blockout" parent_id_path=PackedInt32Array(463114982, 98019502) index="0" unique_id=865759250]
 transform = Transform3D(19.055828, 0, 0, 0, 3.8512764, 0, 0, 0, 25, -3.030117, 4.302387, 0)
@@ -259,7 +259,7 @@ transform = Transform3D(5.830517, 0, 0, 0, 5.354442, 0, 0, 0, 1, -6.118932, -1.1
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.692177, -3.315506, 0)
 
 [node name="CollisionShape3D" parent="Sections/Section3/SectionTrigger" index="0" unique_id=1708760178]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.8805542, -0.47458267, -2.133)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.599762, -1.7048645, -2.133)
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Sections/Section3/BacktrackPrevention" parent_id_path=PackedInt32Array(2069214035, 835127638) index="0" unique_id=131418751]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.105783, -8.407703, 0)
