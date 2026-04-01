@@ -1,5 +1,9 @@
 extends Camera3D
 
+const CaterpillarPlayerScene := preload("res://scenes/caterpillar/caterpillar_player.tscn")
+# Local offset of the middle segment within the player scene
+const MIDDLE_SEGMENT_LOCAL_OFFSET := Vector3(-1.5, 0, 0)
+
 @export var sections_parent: Node3D
 # Array of sections, of type Node3D
 var sections: Array[Node3D]
@@ -29,12 +33,37 @@ func _ready() -> void:
 		GameState.get_or_create_state()
 		level_state = GameState.get_level_state(level_node.scene_file_path)
 
-	# Restore saved section if resuming
+	# Determine which section to spawn at
+	var spawn_section := 0
 	if level_state and level_state.current_section > 0:
-		call_deferred("jump_to_section", level_state.current_section)
-	else:
-		# Fresh load — still apply selective rendering from section 0
-		call_deferred("_update_active_sections", 0)
+		spawn_section = level_state.current_section
+
+	call_deferred("_initial_spawn", spawn_section)
+
+# Spawn the player and set up the camera/sections for the initial load.
+func _initial_spawn(index: int) -> void:
+	_spawn_player(index)
+	_update_active_sections(index)
+
+	if index > 0:
+		current_section = index
+		var spot := _find_spot(sections[index])
+		if spot:
+			global_position = spot.global_position
+			size = spot.size
+		for i in sections.size():
+			if i <= index:
+				_enable_backtrack_prevention(i)
+			else:
+				_disable_backtrack_prevention(i)
+
+# Instantiate a fresh CaterpillarPlayer with its center on the respawn point.
+func _spawn_player(section_index: int) -> void:
+	var player_instance := CaterpillarPlayerScene.instantiate()
+	var respawn_pos := get_respawn_position(section_index)
+	# Offset so the middle segment (at local x=-1.5) lands exactly on the respawn point
+	player_instance.position = respawn_pos - MIDDLE_SEGMENT_LOCAL_OFFSET
+	get_parent().add_child(player_instance)
 
 # Upon a section being entered, enable the new section, disable the old one
 func _on_section_entered(index: int) -> void:
@@ -61,7 +90,7 @@ func _on_section_entered(index: int) -> void:
 			_enable_backtrack_prevention(current_section)
 		)
 
-# Instantly snap to a section (used when restoring from save, no tween).
+# Destroy the current player and spawn a fresh one at the given section.
 func jump_to_section(index: int) -> void:
 	if index < 0 or index >= sections.size():
 		return
@@ -73,29 +102,19 @@ func jump_to_section(index: int) -> void:
 		global_position = spot.global_position
 		size = spot.size
 
-	# Activate adjacent sections, disable the rest
 	_update_active_sections(index)
-	# Enable backtrack prevention for all sections up to current
 	for i in sections.size():
 		if i <= index:
 			_enable_backtrack_prevention(i)
 		else:
 			_disable_backtrack_prevention(i)
 
-	# Teleport player to respawn point
-	var player := get_parent().get_node_or_null("CaterpillarPlayer")
-	if player:
-		var respawn_pos := get_respawn_position(index)
-		var offset: Vector3 = respawn_pos - player.global_position
-		player.global_position = respawn_pos
-		# Move all physics segments (RigidBody3Ds set as top_level) to follow
-		var segment_container := player.get_node_or_null("PhysicsSegmentsContainer")
-		if segment_container:
-			for segment in segment_container.get_children():
-				if segment is RigidBody3D:
-					segment.global_position += offset
-					segment.linear_velocity = Vector3.ZERO
-					segment.angular_velocity = Vector3.ZERO
+	# Remove old player, then spawn fresh
+	var old_player := get_parent().get_node_or_null("CaterpillarPlayer")
+	if old_player:
+		old_player.queue_free()
+		await get_tree().process_frame
+	_spawn_player(index)
 
 # Get the respawn position for a section (RespawnPoint Marker3D, or fallback to CameraSpot).
 func get_respawn_position(index: int) -> Vector3:

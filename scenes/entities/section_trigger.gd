@@ -17,9 +17,11 @@ func _ready() -> void:
 func _connect_to_player() -> void:
 	var caterpillar := get_tree().get_first_node_in_group("caterpillar")
 	if caterpillar:
-		caterpillar.drag_released.connect(_on_drag_released)
+		if not caterpillar.drag_released.is_connected(_on_drag_released):
+			caterpillar.drag_released.connect(_on_drag_released)
 	else:
-		push_warning("SectionTrigger: Could not find caterpillar node in group 'caterpillar'")
+		# Player not spawned yet; retry next frame
+		get_tree().process_frame.connect(_connect_to_player, CONNECT_ONE_SHOT)
 
 func _on_drag_released():
 	if _player_bodies_inside >= REQUIRED_BODIES:

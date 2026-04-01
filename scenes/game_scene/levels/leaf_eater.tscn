@@ -1,6 +1,5 @@
 [gd_scene format=3 uid="uid://vrs2hdknykda"]
 
-[ext_resource type="PackedScene" uid="uid://ht113lnvmdrs" path="res://scenes/caterpillar/caterpillar_player.tscn" id="1_c3cm6"]
 [ext_resource type="Script" uid="uid://dfwslcsnx132u" path="res://scenes/entities/camera_pivot.gd" id="2_flbao"]
 [ext_resource type="PackedScene" uid="uid://fhnjig4f0qg0" path="res://scenes/game_scene/components/section.tscn" id="3_5fiuf"]
 [ext_resource type="PackedScene" uid="uid://bai8m1w0tqbvc" path="res://scenes/entities/leaf_puzzle/leaf_puzzle.tscn" id="4_5fiuf"]
@@ -16,8 +15,6 @@
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=123289173]
 transform = Transform3D(0.98628557, -0.021257402, 0.16367294, 0, 0.9916711, 0.1287956, -0.16504759, -0.12702923, 0.978071, 0, 0, 0)
 shadow_enabled = true
-
-[node name="CaterpillarPlayer" parent="." unique_id=1722133973 instance=ExtResource("1_c3cm6")]
 
 [node name="CameraPivot" type="Camera3D" parent="." unique_id=1599549742 node_paths=PackedStringArray("sections_parent")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.8211269, 7.747196, 27.954)
