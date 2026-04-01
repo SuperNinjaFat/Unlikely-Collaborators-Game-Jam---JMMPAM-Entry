@@ -37,22 +37,27 @@ mesh = SubResource("BoxMesh_os5ql")
 
 [node name="CSGMesh3D" type="CSGMesh3D" parent="Sections/SectionTemplate/Blockout" parent_id_path=PackedInt32Array(33027719, 98019502) index="0" unique_id=347017242]
 transform = Transform3D(1, 0, 0, 0, 14.578548, 0, 0, 0, 1, 8.452362, 4.7441683, 0)
+use_collision = true
 mesh = SubResource("BoxMesh_dtwsm")
 
 [node name="CSGMesh3D2" type="CSGMesh3D" parent="Sections/SectionTemplate/Blockout" parent_id_path=PackedInt32Array(33027719, 98019502) index="1" unique_id=82140931]
 transform = Transform3D(1, 0, 0, 0, 14.578548, 0, 0, 0, 1, -12.310841, 4.7441683, 0)
+use_collision = true
 mesh = SubResource("BoxMesh_dtwsm")
 
 [node name="CSGMesh3D3" type="CSGMesh3D" parent="Sections/SectionTemplate/Blockout" parent_id_path=PackedInt32Array(33027719, 98019502) index="2" unique_id=1452114480]
 transform = Transform3D(20, 0, 0, 0, 1, 0, 0, 0, 1, -1.8670845, -2.1008892, 0)
+use_collision = true
 mesh = SubResource("BoxMesh_dtwsm")
 
 [node name="CSGMesh3D4" type="CSGMesh3D" parent="Sections/SectionTemplate/Blockout" parent_id_path=PackedInt32Array(33027719, 98019502) index="3" unique_id=826706910]
 transform = Transform3D(6.7804065, 0, 0, 0, 1, 0, 0, 0, 1, -8.37272, 11.511589, 0)
+use_collision = true
 mesh = SubResource("BoxMesh_dtwsm")
 
 [node name="CSGMesh3D5" type="CSGMesh3D" parent="Sections/SectionTemplate/Blockout" parent_id_path=PackedInt32Array(33027719, 98019502) index="4" unique_id=1923047577]
 transform = Transform3D(6.7804065, 0, 0, 0, 1, 0, 0, 0, 1, 4.5139227, 11.511589, 0)
+use_collision = true
 mesh = SubResource("BoxMesh_dtwsm")
 
 [node name="GrabSurface" parent="Sections/SectionTemplate/Blockout" parent_id_path=PackedInt32Array(33027719, 98019502) index="5" unique_id=1156672266 instance=ExtResource("4_os5ql")]
