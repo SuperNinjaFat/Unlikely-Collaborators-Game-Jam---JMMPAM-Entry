@@ -9,6 +9,7 @@ size = Vector3(12.070679, 8.455108, 10.99115)
 [node name="SectionTemplate" type="Node3D" unique_id=33027719]
 
 [node name="CameraSpot" type="Camera3D" parent="." unique_id=1614131868]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 27.871)
 projection = 1
 size = 25.0
 
