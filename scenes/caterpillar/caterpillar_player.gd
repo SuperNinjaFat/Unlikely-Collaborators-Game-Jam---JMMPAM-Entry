@@ -92,8 +92,12 @@ func _restore_body_configuration() -> void:
 	pass
 
 func engage_grip() -> void:
-	front_caterpillar_end_segment.pin_to_world(true)
-	end_caterpillar_end_segment.pin_to_world(true)
+	# Wait for physics to process so area overlaps are detected
+	await get_tree().physics_frame
+	if front_caterpillar_end_segment.grab_surface_detection.get_overlapping_areas().size() > 0:
+		front_caterpillar_end_segment.pin_to_world(true)
+	if end_caterpillar_end_segment.grab_surface_detection.get_overlapping_areas().size() > 0:
+		end_caterpillar_end_segment.pin_to_world(true)
 
 func _on_segment_pinned_to_world() -> void:
 	if not front_caterpillar_end_segment.is_pinned_to_world() or \
