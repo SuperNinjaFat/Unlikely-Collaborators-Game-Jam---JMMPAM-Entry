@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://cq1voifcckwim"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_tny1w"]
+
+[node name="GrabSurfaceDetector" type="Area3D" unique_id=1114995054]
+collision_layer = 0
+collision_mask = 4
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1814635933]
+shape = SubResource("SphereShape3D_tny1w")
+metadata/_edit_lock_ = true

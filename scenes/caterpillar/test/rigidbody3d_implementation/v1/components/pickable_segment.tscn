@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://dshgmcj3ko2a8"]
+
+[ext_resource type="Script" uid="uid://dfs1ey16638ld" path="res://scenes/caterpillar/test/rigidbody3d_implementation/v1/components/pickable_segment.gd" id="1_41va4"]
+
+
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_yifrs"]
+
+[node name="PickableSegment" type="RigidBody3D" unique_id=969736020]
+axis_lock_linear_z = true
+axis_lock_angular_y = true
+max_contacts_reported = 1
+script = ExtResource("1_41va4")
+
+[node name="CSGSphere3D" type="CSGSphere3D" parent="." unique_id=829033082]
+radial_segments = 16
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1571219552]
+shape = SubResource("SphereShape3D_yifrs")
