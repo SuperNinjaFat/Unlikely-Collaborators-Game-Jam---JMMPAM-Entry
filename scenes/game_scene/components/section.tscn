@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://jy848ssg3duj" path="res://scenes/entities/section_trigger.gd" id="1_8vv8y"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_mkqp2"]
+resource_local_to_scene = true
 size = Vector3(12.070679, 8.455108, 10.99115)
 
 [node name="SectionTemplate" type="Node3D" unique_id=33027719]
