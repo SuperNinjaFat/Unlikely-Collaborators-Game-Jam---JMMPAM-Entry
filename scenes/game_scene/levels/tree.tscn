@@ -2,6 +2,8 @@
 
 [ext_resource type="Script" uid="uid://dfwslcsnx132u" path="res://scenes/entities/camera_pivot.gd" id="2_mkqp2"]
 [ext_resource type="PackedScene" uid="uid://fhnjig4f0qg0" path="res://scenes/game_scene/components/section.tscn" id="3_t8qqb"]
+[ext_resource type="PackedScene" uid="uid://bai8m1w0tqbvc" path="res://scenes/entities/leaf_puzzle/leaf_puzzle.tscn" id="4_0hfkw"]
+[ext_resource type="PackedScene" uid="uid://yavau60xdj13" path="res://scenes/entities/leaf_puzzle/collectible_leaf/collectible_leaf.tscn" id="5_lxcgy"]
 [ext_resource type="PackedScene" uid="uid://jkkawrmxgder" path="res://scenes/environment/grab_surface.tscn" id="5_t8qqb"]
 
 [sub_resource type="CylinderMesh" id="CylinderMesh_yya0e"]
@@ -202,9 +204,6 @@ mesh = SubResource("PrismMesh_mkqp2")
 [node name="GrabSurface" parent="Sections/Section2/Blockout" parent_id_path=PackedInt32Array(463114982, 98019502) index="5" unique_id=1705054585 instance=ExtResource("5_t8qqb")]
 transform = Transform3D(7.360573, 0, 0, 0, 6.288302, 0, 0, 0, 1, -4.599166, -3.746251, 0)
 
-[node name="GrabSurface2" parent="Sections/Section2/Blockout" parent_id_path=PackedInt32Array(463114982, 98019502) index="6" unique_id=229755789 instance=ExtResource("5_t8qqb")]
-transform = Transform3D(2.8686666, 0, 0, 0, 0.6793236, 0, 0, 0, 1, -14.758404, -9.339233, 0)
-
 [node name="CollisionShape3D" parent="Sections/Section2/SectionTrigger" parent_id_path=PackedInt32Array(463114982, 2029195658) index="0" unique_id=1708760178]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.6160793, -7.7260895, -2.133)
 shape = SubResource("BoxShape3D_0hfkw")
@@ -237,12 +236,12 @@ use_collision = true
 mesh = SubResource("BoxMesh_okq4k")
 
 [node name="TestFloor11" type="CSGMesh3D" parent="Sections/Section3/Blockout" parent_id_path=PackedInt32Array(2069214035, 98019502) index="2" unique_id=629157564]
-transform = Transform3D(0.76499647, 0, 0, 0, 3.610593, 0, 0, 0, 25, -0.6827259, 2.2518694, 0)
+transform = Transform3D(0.76499647, 0, 0, 0, 2.6530855, 0, 0, 0, 25, -0.6827259, 2.754059, 0)
 use_collision = true
 mesh = SubResource("BoxMesh_okq4k")
 
 [node name="TestFloor12" type="CSGMesh3D" parent="Sections/Section3/Blockout" parent_id_path=PackedInt32Array(2069214035, 98019502) index="3" unique_id=571882944]
-transform = Transform3D(0.76499647, 0, 0, 0, 3.1650875, 0, 0, 0, 25, -0.6827259, -4.952339, 0)
+transform = Transform3D(0.76499647, 0, 0, 0, 2.3257253, 0, 0, 0, 25, -0.6827259, -5.3752327, 0)
 use_collision = true
 mesh = SubResource("BoxMesh_okq4k")
 
@@ -268,7 +267,16 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.105783, -8.407703, 0)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 4.618408)
 shape = SubResource("BoxShape3D_t8qqb")
 
+[node name="LeafPuzzle" parent="Sections/Section3" unique_id=318786704 instance=ExtResource("4_0hfkw")]
+
+[node name="LeafBarrier" parent="Sections/Section3/LeafPuzzle" index="0" unique_id=1835696946]
+transform = Transform3D(-4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, 0, 1, -0.66078, -1.3744164, 0)
+
+[node name="CollectibleLeaf" parent="Sections/Section3/LeafPuzzle/Leafs" parent_id_path=PackedInt32Array(318786704, 448507772) index="0" unique_id=163625636 instance=ExtResource("5_lxcgy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.475628, -1.4272804, 0)
+
 [editable path="Sections/Section0"]
 [editable path="Sections/Section1"]
 [editable path="Sections/Section2"]
 [editable path="Sections/Section3"]
+[editable path="Sections/Section3/LeafPuzzle"]
