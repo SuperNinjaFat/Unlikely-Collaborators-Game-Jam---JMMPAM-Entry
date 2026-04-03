@@ -42,10 +42,10 @@ size = Vector3(17.206844, 11.720536, 10.99115)
 size = Vector3(0.8963623, 5.767151, 1)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_23rn6"]
-size = Vector3(9.738964, 7.8724537, 10.99115)
+size = Vector3(9.738964, 7.5635242, 10.99115)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ub3dp"]
-size = Vector3(5.9130707, 1.3534698, 2000.4298)
+size = Vector3(5.9508038, 0.69803655, 2000.4298)
 
 [sub_resource type="CylinderMesh" id="CylinderMesh_0hfkw"]
 
@@ -436,14 +436,14 @@ use_collision = true
 mesh = SubResource("BoxMesh_okq4k")
 
 [node name="CollisionShape3D" parent="Sections/Section5/SectionTrigger" parent_id_path=PackedInt32Array(1311396626, 2029195658) index="0" unique_id=1708760178]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.2727184, -8.424812, -2.133)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.2727184, -8.270348, -2.133)
 shape = SubResource("BoxShape3D_23rn6")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Sections/Section5/BacktrackPrevention" parent_id_path=PackedInt32Array(1311396626, 835127638) index="0" unique_id=683644199]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.187624, -13.618744, 0)
 
-[node name="CollisionShape3D" parent="Sections/Section5/BacktrackPrevention/StaticBody3D" index="0"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.6371536, 0.34423065, 0)
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Sections/Section5/BacktrackPrevention/StaticBody3D" unique_id=964713361]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.48388958, 0.6407585, 0)
 shape = SubResource("BoxShape3D_ub3dp")
 
 [node name="Section6" parent="Sections" unique_id=1550235819 instance=ExtResource("3_t8qqb")]
