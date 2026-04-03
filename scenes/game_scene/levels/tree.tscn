@@ -185,7 +185,7 @@ use_collision = true
 mesh = SubResource("BoxMesh_okq4k")
 
 [node name="GrabSurface" parent="Sections/Section0/Blockout" parent_id_path=PackedInt32Array(33027719, 98019502) index="3" unique_id=1121560045 instance=ExtResource("5_t8qqb")]
-transform = Transform3D(9.342612, 0, 0, 0, 4.501539, 0, 0, 0, 1, 2.7950156, 4.610221, 0)
+transform = Transform3D(2.4768205, 0, 0, 0, 4.501539, 0, 0, 0, 1, 9.647383, 4.610221, 0)
 
 [node name="CollisionShape3D" parent="Sections/Section0/SectionTrigger" parent_id_path=PackedInt32Array(33027719, 2029195658) index="0" unique_id=1708760178]
 shape = SubResource("BoxShape3D_3y3aj")
