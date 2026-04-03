@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://cqy7e7a8unm80"]
+
+[ext_resource type="Script" uid="uid://dygcxx0r4y2fc" path="res://scenes/caterpillar/component/slide_body.gd" id="1_68qoa"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_68qoa"]
+radius = 0.25
+
+[node name="SlideBody" type="CharacterBody3D" unique_id=1678991401]
+top_level = true
+collision_layer = 0
+collision_mask = 0
+axis_lock_linear_z = true
+axis_lock_angular_x = true
+axis_lock_angular_y = true
+axis_lock_angular_z = true
+script = ExtResource("1_68qoa")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=837456234]
+shape = SubResource("SphereShape3D_68qoa")

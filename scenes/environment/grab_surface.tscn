@@ -1,5 +1,7 @@
 [gd_scene format=3 uid="uid://jkkawrmxgder"]
 
+[ext_resource type="Script" uid="uid://qv6ay1mo7sgx" path="res://scenes/environment/grab_surface.gd" id="1_oq6ap"]
+
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_q7huo"]
 albedo_color = Color(0, 0, 0.4627451, 1)
 
@@ -9,16 +11,15 @@ material = SubResource("StandardMaterial3D_q7huo")
 [sub_resource type="BoxShape3D" id="BoxShape3D_q7huo"]
 size = Vector3(2, 2, 2)
 
-[node name="GrabSurface" type="Node3D" unique_id=1156672266]
+[node name="GrabSurface" type="Area3D" unique_id=1344339532]
+collision_layer = 4
+collision_mask = 0
+input_ray_pickable = false
+script = ExtResource("1_oq6ap")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=78994872]
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, -0.59999996)
 mesh = SubResource("PlaneMesh_oq6ap")
 
-[node name="Area3D" type="Area3D" parent="." unique_id=490445571]
-collision_layer = 4
-collision_mask = 0
-input_ray_pickable = false
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=2034447646]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=2034447646]
 shape = SubResource("BoxShape3D_q7huo")

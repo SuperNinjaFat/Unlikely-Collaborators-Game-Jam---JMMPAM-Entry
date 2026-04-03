@@ -58,3 +58,5 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.4000003, 6.1000004, 0)
 
 [node name="GrabSurface4" parent="." unique_id=1184620067 instance=ExtResource("4_hu081")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.40000033, 6.1000004, 0)
+
+[node name="CharacterBody3D" type="CharacterBody3D" parent="." unique_id=1105142555]
