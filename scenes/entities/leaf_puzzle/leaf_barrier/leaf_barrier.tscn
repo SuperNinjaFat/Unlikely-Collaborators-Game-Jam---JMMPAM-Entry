@@ -6,6 +6,7 @@
 size = Vector3(6.3808594, 1, 1)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_os5ql"]
+shading_mode = 0
 albedo_color = Color(0.23921569, 1, 0.19607843, 1)
 
 [sub_resource type="BoxMesh" id="BoxMesh_qpymo"]
