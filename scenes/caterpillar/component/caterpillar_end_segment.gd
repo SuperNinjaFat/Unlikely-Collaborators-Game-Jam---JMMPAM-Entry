@@ -14,6 +14,8 @@ const SLIDE_BODY_UID: String = "uid://cqy7e7a8unm80"
 @onready var grab_surface_detection: Area3D = $GrabSurfaceDetection
 
 var _selected: bool = false # redundant bool could be replaced with is_pinned_to_world() (maybe)
+var _max_extension_length: float = 0.0
+var _opposite_segment_sliding: bool = false
 var _slide_body: CharacterBody3D
 
 # TODO - standardize this into a special Resource subclass if there is a need
@@ -27,15 +29,11 @@ func _ready() -> void:
 		printerr("CaterpillarBodyEndSegment @ _ready(): No opposite segment provided. This scene will not funciton as intended.")
 		return
 	
+	_max_extension_length = global_position.distance_to(opposite_segment.global_position)
+	
 	grab_surface_detection.area_exited.connect(_on_grab_surface_area_exited)
 	
 	set_as_top_level(true)
-
-func _input(event: InputEvent) -> void:
-	if event.is_action_released("left_click") and _selected: 
-		_selected = false
-		if grab_surface_detection.get_overlapping_areas().size() > 0:
-			pin_to_world(true)
 
 @warning_ignore("unused_parameter")
 func _input_event(camera: Camera3D, event: InputEvent, event_position: Vector3, normal: Vector3, shape_idx: int) -> void:
@@ -47,6 +45,7 @@ func _input_event(camera: Camera3D, event: InputEvent, event_position: Vector3, 
 		
 		pin_to_world(false)
 		_selected = true
+		_opposite_segment_sliding = opposite_segment.is_sliding()
 	
 	elif event.is_action_released("left_click"):
 		if is_pinned_to_world(): return
@@ -54,24 +53,38 @@ func _input_event(camera: Camera3D, event: InputEvent, event_position: Vector3, 
 		
 		pin_to_world(true)
 
+func _input(event: InputEvent) -> void:
+	if event.is_action_released("left_click") and _selected: 
+		_selected = false
+		if grab_surface_detection.get_overlapping_areas().size() > 0:
+			pin_to_world(true)
+
 func _physics_process(_delta: float) -> void:
-	if is_pinned_to_world(): return
 	
-	print()
-	print(world_pin.node_a)
-	print(world_pin.node_b)
+	# Force release from grab surface if sliding too far away
+	if is_instance_valid(_slide_body) and world_pin.node_b != NodePath(""):
+		var slide_body_distance: float = opposite_segment.global_position.distance_to(_slide_body.global_position) 
+		if slide_body_distance > _max_extension_length + 0.2: 
+			pin_to_world(false)
+	
+	if is_pinned_to_world(): return
 	
 	floor_check.target_position = to_local(
 		global_position + Vector3(0.0, -.5001, 0.0)
 	)
 	
-	# if selected, reach toward the mouse
+	# Behavior when dragged by mouse
 	if _selected: 
 		
+		# Force de-select if opposite segment slides off of a grab surface
+		if _opposite_segment_sliding and not opposite_segment.is_sliding():
+			_selected = false
+			return
+		
+		# Reach towards projected drag position
 		var move_target: Vector3 = callbacks.get_mouse_position.call()
 		var direction: Vector3 = move_target - global_transform.origin
 		var distance = direction.length()
-		
 		if distance > SEGMENT_DRAG_DEADZONE:
 			var speed_modifier: float = clamp(
 				distance / SEGMENT_MAX_DISTANCE_RAMP,
@@ -82,8 +95,8 @@ func _physics_process(_delta: float) -> void:
 		else:
 			linear_velocity = Vector3.ZERO
 			
-	# if not selected, pin to world once the segments lands on the ground or enters a grab surface
-	elif floor_check.is_colliding():# or grab_surface_detection.get_overlapping_areas().size() > 0: 
+	# If not selected, pin to world once the segments lands on the ground or enters a grab surface
+	elif floor_check.is_colliding():
 		pin_to_world(true)
 
 func pin_to_world(pin: bool) -> void:
@@ -104,8 +117,9 @@ func pin_to_world(pin: bool) -> void:
 				0.0
 			)
 		)
-		await get_tree().physics_frame
-		await get_tree().physics_frame
+		# account for bizarre physics lurch 
+		await get_tree().physics_frame # :/
+		await get_tree().physics_frame # :(
 		world_pin.node_b = _slide_body.get_path()
 	else: 
 		world_pin.node_a = NodePath("")
@@ -114,6 +128,9 @@ func pin_to_world(pin: bool) -> void:
 
 func is_pinned_to_world() -> bool:
 	return world_pin.node_a != NodePath("")
+
+func is_sliding() -> bool:
+	return is_instance_valid(_slide_body)
 
 func disable_world_pin(disable_time: float = 0.25) -> void:
 	pin_to_world(false)
