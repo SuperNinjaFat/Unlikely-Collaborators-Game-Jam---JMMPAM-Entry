@@ -441,6 +441,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20.541176, 64.43213, 0)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.7047005, 2.47715, 27.871)
 size = 22.560822
 
+[node name="RespawnPoint" parent="Sections/Section6" index="1" unique_id=427335471]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.925392, 0.9161911, 0)
+
 [node name="TestFloor5" type="CSGMesh3D" parent="Sections/Section6/Blockout" parent_id_path=PackedInt32Array(1550235819, 98019502) index="0" unique_id=385804601]
 transform = Transform3D(15.558611, 0, 0, 0, 6.05299, 0, 0, 0, 25, 3.6371055, 6.404688, 0)
 use_collision = true
