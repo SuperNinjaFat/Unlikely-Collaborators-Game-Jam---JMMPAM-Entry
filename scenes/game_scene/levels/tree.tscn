@@ -58,6 +58,8 @@ size = Vector3(9.528336, 12.603043, 10.99115)
 [sub_resource type="BoxShape3D" id="BoxShape3D_awo2h"]
 size = Vector3(0.7634258, 5.6497746, 1)
 
+[sub_resource type="BoxMesh" id="BoxMesh_awo2h"]
+
 [sub_resource type="BoxShape3D" id="BoxShape3D_lweol"]
 resource_local_to_scene = true
 size = Vector3(11.596863, 8.934586, 2007.5586)
@@ -76,7 +78,11 @@ material = SubResource("StandardMaterial3D_h3dag")
 resource_local_to_scene = true
 size = Vector3(18.333054, 11.342789, 10.99115)
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_vd7vu"]
+[sub_resource type="BoxMesh" id="BoxMesh_vd7vu"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_kjpiw"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_tuk6f"]
 resource_local_to_scene = true
 size = Vector3(15.760345, 8.133553, 10.99115)
 
@@ -636,10 +642,10 @@ use_collision = true
 mesh = SubResource("BoxMesh_okq4k")
 
 [node name="TestFloor9" type="CSGMesh3D" parent="Sections/Section7/Blockout" parent_id_path=PackedInt32Array(1218749252, 98019502) index="9" unique_id=505199832]
-transform = Transform3D(1.7222401, 0, 0, 0, -5.36907e-07, -1.7222401, 0, 12.283, -7.52815e-08, 11.976623, -6.5149364, 5.339822e-09)
+transform = Transform3D(2.9278083, 0, 0, 0, -5.36907e-07, -0.86112005, 0, 12.283, -3.7640753e-08, 11.976623, -6.5149364, 5.339822e-09)
 material_override = ExtResource("4_lr8mv")
 use_collision = true
-mesh = SubResource("CylinderMesh_0hfkw")
+mesh = SubResource("BoxMesh_awo2h")
 
 [node name="CollisionShape3D" parent="Sections/Section7/SectionTrigger" parent_id_path=PackedInt32Array(1218749252, 2029195658) index="0" unique_id=1708760178]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.1592655, -5.10878, 996.1507)
@@ -758,16 +764,16 @@ use_collision = true
 mesh = SubResource("BoxMesh_okq4k")
 
 [node name="TestFloor11" type="CSGMesh3D" parent="Sections/Section9/Blockout" parent_id_path=PackedInt32Array(1005249169, 98019502) index="9" unique_id=379815232]
-transform = Transform3D(1.7222401, 0, 0, 0, -5.36907e-07, -1.7222401, 0, 12.283, -7.52815e-08, -13.548535, 0.43660927, 3.0920148e-07)
+transform = Transform3D(2.9278083, 0, 0, 0, -5.36907e-07, -0.86112005, 0, 12.283, -3.764075e-08, -13.548534, 0.43660736, 3.0920148e-07)
 material_override = ExtResource("4_lr8mv")
 use_collision = true
-mesh = SubResource("CylinderMesh_0hfkw")
+mesh = SubResource("BoxMesh_vd7vu")
 
 [node name="TestFloor12" type="CSGMesh3D" parent="Sections/Section9/Blockout" parent_id_path=PackedInt32Array(1005249169, 98019502) index="10" unique_id=594350578]
-transform = Transform3D(1.7222401, 0, 0, 0, -5.36907e-07, -1.7222401, 0, 12.283, -7.52815e-08, -8.792211, -5.079603, 3.0920145e-07)
+transform = Transform3D(2.9278083, 0, 0, 0, -5.36907e-07, -0.86112005, 0, 12.283, -3.7640753e-08, -8.684713, -3.1231842, 3.0920145e-07)
 material_override = ExtResource("4_lr8mv")
 use_collision = true
-mesh = SubResource("CylinderMesh_0hfkw")
+mesh = SubResource("BoxMesh_kjpiw")
 
 [node name="TestFloor13" type="CSGMesh3D" parent="Sections/Section9/Blockout" parent_id_path=PackedInt32Array(1005249169, 98019502) index="11" unique_id=198499766]
 transform = Transform3D(12.279235, 0, 0, 0, 1.4232508, 0, 0, 0, 25, 11.513643, -4.49301, 0)
@@ -828,7 +834,7 @@ transform = Transform3D(-3.0643306, 0, 0, 0, 8.861159, 0, 0, 0, 1, -2.9156685, 1
 
 [node name="CollisionShape3D" parent="Sections/Section9/SectionTrigger" parent_id_path=PackedInt32Array(1005249169, 2029195658) index="0" unique_id=1708760178]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.353191, -4.5701904, -2.133)
-shape = SubResource("BoxShape3D_vd7vu")
+shape = SubResource("BoxShape3D_tuk6f")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Sections/Section9/BacktrackPrevention" parent_id_path=PackedInt32Array(1005249169, 835127638) index="0" unique_id=836226281]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22.396666, -4.3750076, 0)
