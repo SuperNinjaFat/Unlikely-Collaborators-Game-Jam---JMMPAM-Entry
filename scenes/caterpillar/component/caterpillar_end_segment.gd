@@ -10,7 +10,7 @@ const SLIDE_BODY_UID: String = "uid://cqy7e7a8unm80"
 @export var opposite_segment: CaterpillarBodyEndSegment
 
 @onready var world_pin: PinJoint3D = $WorldPin
-@onready var floor_check: RayCast3D = $FloorCheck
+@onready var floor_checks: Node3D = $FloorChecks
 @onready var grab_surface_detection: Area3D = $GrabSurfaceDetection
 
 var _selected: bool = false # redundant bool could be replaced with is_pinned_to_world() (maybe)
@@ -34,6 +34,7 @@ func _ready() -> void:
 	grab_surface_detection.area_exited.connect(_on_grab_surface_area_exited)
 	
 	set_as_top_level(true)
+	floor_checks.set_as_top_level(true)
 
 @warning_ignore("unused_parameter")
 func _input_event(camera: Camera3D, event: InputEvent, event_position: Vector3, normal: Vector3, shape_idx: int) -> void:
@@ -72,9 +73,10 @@ func _physics_process(_delta: float) -> void:
 	
 	if is_pinned_to_world(): return
 	
-	floor_check.target_position = to_local(
-		global_position + Vector3(0.0, -.5001, 0.0)
-	)
+	#floor_check.target_position = to_local(
+		#global_position + Vector3(0.0, -.5001, 0.0)
+	#)
+	floor_checks.global_position = global_position
 	
 	# Behavior when dragged by mouse
 	if _selected: 
@@ -99,7 +101,7 @@ func _physics_process(_delta: float) -> void:
 			linear_velocity = Vector3.ZERO
 			
 	# If not selected, pin to world once the segments lands on the ground or enters a grab surface
-	elif floor_check.is_colliding():
+	elif _is_on_floor():
 		pin_to_world(true)
 
 func pin_to_world(pin: bool) -> void:
@@ -109,7 +111,7 @@ func pin_to_world(pin: bool) -> void:
 	if pin: 
 		world_pin.node_a = get_path()
 		pinned_to_world.emit()
-		if floor_check.is_colliding(): return
+		if _is_on_floor(): return
 		if grab_surface_detection.get_overlapping_areas().size() == 0: return # is this necessary?
 		var grab_surface: Node3D = grab_surface_detection.get_overlapping_areas()[0]
 		if grab_surface.slide_velocity == Vector2.ZERO: return
@@ -138,11 +140,24 @@ func is_sliding() -> bool:
 
 func disable_world_pin(disable_time: float = 0.25) -> void:
 	pin_to_world(false)
-	floor_check.enabled = false
+	_enable_floor_checks(false)
 	grab_surface_detection.monitoring = false
 	await get_tree().create_timer(disable_time).timeout
-	floor_check.enabled = true
+	_enable_floor_checks(true)
 	grab_surface_detection.monitoring = true
+
+func _is_on_floor() -> bool:
+	return (
+		$FloorChecks/DownFloorCheck.is_colliding()
+		and (
+			$FloorChecks/SecondaryFloorCheck0.is_colliding() or
+			$FloorChecks/SecondaryFloorCheck1.is_colliding()
+		)
+	)
+
+func _enable_floor_checks(enabled: bool) -> void:
+	for ray: Node3D in floor_checks.get_children():
+		ray.enabled = enabled
 
 func _on_grab_surface_area_exited(_area: Area3D) -> void:
 	if _selected: return
