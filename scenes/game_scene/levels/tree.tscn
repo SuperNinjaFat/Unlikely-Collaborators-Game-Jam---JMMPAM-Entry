@@ -114,7 +114,7 @@ size = Vector3(2, 2, 2)
 size = Vector3(2, 2, 2)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_0dcr5"]
-size = Vector3(2, 2.3984375, 2)
+size = Vector3(2, 2.7155762, 2)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_tuk6f"]
 resource_local_to_scene = true
@@ -921,7 +921,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.2801094, -2.025299, 27.871)
 size = 20.499146
 
 [node name="RespawnPoint" parent="Sections/Section10" index="1" unique_id=427335471]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.806345, -10.318047, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.1280766, -9.7999115, 0)
 
 [node name="TestFloor10" type="CSGMesh3D" parent="Sections/Section10/Blockout" parent_id_path=PackedInt32Array(1047179397, 98019502) index="0" unique_id=811672322]
 transform = Transform3D(1.592798, 0, 0, 0, 19.038904, 0, 0, 0, 25, -10.42, -2.0286102, 0)
@@ -992,21 +992,21 @@ transform = Transform3D(1.2769899, 0, 0, 0, 3.5160804, 0, 0, 0, 1, 5.851763, 3.7
 transform = Transform3D(4.5408864, 0, 0, 0, 1.319566, 0, 0, 0, 1, 11.622182, 5.8913116, 0)
 
 [node name="TestFloor15" type="CSGMesh3D" parent="Sections/Section10/Blockout" parent_id_path=PackedInt32Array(1047179397, 98019502) index="11" unique_id=1257672891]
-transform = Transform3D(0.9851311, 0, 0, 0, 5.9453216, 0, 0, 0, 25, 16.67513, 4.404297, 0)
+transform = Transform3D(0.9851311, 0, 0, 0, 6.3229427, 0, 0, 0, 25, 16.67513, 4.194641, 0)
 material_override = ExtResource("4_lr8mv")
 use_collision = true
 mesh = SubResource("BoxMesh_okq4k")
 
 [node name="GrabSurface3" parent="Sections/Section10/Blockout" parent_id_path=PackedInt32Array(1047179397, 98019502) index="12" unique_id=761714569 instance=ExtResource("5_t8qqb")]
-transform = Transform3D(1.405, 0, 0, 0, 3.0761373, 0, 0, 0, 1.405, 14.779175, 1.4505615, 0)
+transform = Transform3D(1.405, 0, 0, 0, 3.0761373, 0, 0, 0, 1.405, 14.779175, 0.38012695, 0)
 slide_velocity = Vector2(0, -0.5)
 
 [node name="MeshInstance3D" parent="Sections/Section10/Blockout/GrabSurface3" index="0" unique_id=78994872]
-transform = Transform3D(0.9999998, 0, 0, 0, -4.3711378e-08, -1.1947405, 0, 0.9999998, -5.2223765e-08, 0, -0.18684387, -0.59999985)
+transform = Transform3D(0.9999997, 0, 0, 0, -4.3711374e-08, -1.3640032, 0, 0.9999997, -5.9622465e-08, 0, 0, -0.59999996)
 mesh = SubResource("PlaneMesh_3y3aj")
 
 [node name="CollisionShape3D" parent="Sections/Section10/Blockout/GrabSurface3" index="1" unique_id=2034447646]
-transform = Transform3D(0.9999932, 0, 0, 0, 0.9999933, 0, 0, 0, 0.9999932, 0, -0.19921875, 0)
+transform = Transform3D(0.999988, 0, 0, 0, 0.99998814, 0, 0, 0, 0.999988, 0, 0.00012588501, 0)
 shape = SubResource("BoxShape3D_0dcr5")
 
 [node name="TestFloor16" type="CSGMesh3D" parent="Sections/Section10/Blockout" parent_id_path=PackedInt32Array(1047179397, 98019502) index="13" unique_id=240482043]
