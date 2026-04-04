@@ -63,6 +63,9 @@ func _physics_process(_delta: float) -> void:
 	
 	# Force release from grab surface if sliding too far away
 	if is_instance_valid(_slide_body) and world_pin.node_b != NodePath(""):
+		if _slide_body.is_on_wall() or _slide_body.is_on_ceiling() or _slide_body.is_on_floor():
+			pin_to_world(false)
+			return
 		var slide_body_distance: float = opposite_segment.global_position.distance_to(_slide_body.global_position) 
 		if slide_body_distance > _max_extension_length + 0.2: 
 			pin_to_world(false)
