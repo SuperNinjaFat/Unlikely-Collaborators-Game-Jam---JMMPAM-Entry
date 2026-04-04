@@ -63,11 +63,8 @@ func _physics_process(_delta: float) -> void:
 	
 	# Force release from grab surface if sliding too far away
 	if is_instance_valid(_slide_body) and world_pin.node_b != NodePath(""):
-		if _slide_body.is_on_wall() or _slide_body.is_on_ceiling() or _slide_body.is_on_floor():
-			pin_to_world(false)
-			return
 		var slide_body_distance: float = opposite_segment.global_position.distance_to(_slide_body.global_position) 
-		if slide_body_distance > _max_extension_length + 0.5: 
+		if slide_body_distance > _max_extension_length + 0.2: 
 			pin_to_world(false)
 	
 	if is_pinned_to_world(): return
@@ -103,17 +100,13 @@ func _physics_process(_delta: float) -> void:
 		pin_to_world(true)
 
 func pin_to_world(pin: bool) -> void:
-	world_pin.node_a = NodePath("")
-	world_pin.node_b = NodePath("")
-	if is_instance_valid(_slide_body): _slide_body.queue_free()
 	if pin: 
 		world_pin.node_a = get_path()
 		pinned_to_world.emit()
-		if floor_check.is_colliding(): return
-		if grab_surface_detection.get_overlapping_areas().size() == 0: return # is this necessary?
+		if grab_surface_detection.get_overlapping_areas().size() == 0: return 
 		var grab_surface: Node3D = grab_surface_detection.get_overlapping_areas()[0]
 		if grab_surface.slide_velocity == Vector2.ZERO: return
-		#if is_instance_valid(_slide_body): _slide_body.queue_free()
+		if is_instance_valid(_slide_body): _slide_body.queue_free()
 		_slide_body = load(SLIDE_BODY_UID).instantiate()
 		add_child(_slide_body)
 		_slide_body.global_position = global_position
@@ -127,8 +120,11 @@ func pin_to_world(pin: bool) -> void:
 		# account for bizarre physics lurch 
 		await get_tree().physics_frame # :/
 		await get_tree().physics_frame # :(
-		if not is_instance_valid(_slide_body): return
 		world_pin.node_b = _slide_body.get_path()
+	else: 
+		world_pin.node_a = NodePath("")
+		world_pin.node_b = NodePath("")
+		if is_instance_valid(_slide_body): _slide_body.queue_free()
 
 func is_pinned_to_world() -> bool:
 	return world_pin.node_a != NodePath("")
@@ -145,10 +141,4 @@ func disable_world_pin(disable_time: float = 0.25) -> void:
 	grab_surface_detection.monitoring = true
 
 func _on_grab_surface_area_exited(_area: Area3D) -> void:
-	if _selected: return
-	# editor was yelling at me for not checking this occasionally
-	if grab_surface_detection.monitoring:
-		# if we just slid off a slide surface onto another grabbable surface
-		if is_instance_valid(_slide_body) and grab_surface_detection.get_overlapping_areas().size() > 0:
-			pin_to_world(true)
-	else: pin_to_world(false)
+	pin_to_world(false)
