@@ -50,20 +50,38 @@ transform = Transform3D(1, 0, 0, 0, 0.9848078, 0.17364822, 0, -0.17364821, 0.984
 fov = 60.0
 
 [node name="CaterpillarPlayer" parent="." unique_id=2112225814 instance=ExtResource("4_dpxjg")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.3, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.2, 2.3, 0)
 
 [node name="GrabSurface" parent="." unique_id=1156672266 instance=ExtResource("4_hu081")]
-transform = Transform3D(1, 0, 0, 0, 0.999973, -0.0073477626, 0, 0.0073477626, 0.999973, 5.6, 2.3, 0)
+transform = Transform3D(1, 0, 0, 0, 0.999973, -0.0073477626, 0, 0.0073477626, 0.999973, 2.6999998, 1.3999999, 0)
+slide_velocity = Vector2(0, -0.5)
 
 [node name="GrabSurface2" parent="." unique_id=409828988 instance=ExtResource("4_hu081")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.7000003, 4.3, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.6999998, 1.3999999, 0)
+slide_velocity = Vector2(0, -0.5)
 
 [node name="GrabSurface3" parent="." unique_id=2120737379 instance=ExtResource("4_hu081")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.4000003, 6.1000004, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.7000003, 3.4000003, 0)
 slide_velocity = Vector2(0, -0.5)
 
 [node name="GrabSurface4" parent="." unique_id=1184620067 instance=ExtResource("4_hu081")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.40000033, 6.1000004, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.70000035, 3.4000003, 0)
+slide_velocity = Vector2(0, -0.5)
+
+[node name="GrabSurface5" parent="." unique_id=1344339532 instance=ExtResource("4_hu081")]
+transform = Transform3D(1, 0, 0, 0, 0.999973, -0.0073477626, 0, 0.0073477626, 0.999973, 2.6999998, 5.3999996, 0)
+slide_velocity = Vector2(0, -0.5)
+
+[node name="GrabSurface6" parent="." unique_id=1920540963 instance=ExtResource("4_hu081")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.6999998, 5.3999996, 0)
+slide_velocity = Vector2(0, -0.5)
+
+[node name="GrabSurface7" parent="." unique_id=1382819921 instance=ExtResource("4_hu081")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.7000003, 7.4000006, 0)
+slide_velocity = Vector2(0, -0.5)
+
+[node name="GrabSurface8" parent="." unique_id=837904882 instance=ExtResource("4_hu081")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.70000035, 7.4000006, 0)
 slide_velocity = Vector2(0, -0.5)
 
 [node name="CharacterBody3D" type="CharacterBody3D" parent="." unique_id=1105142555]

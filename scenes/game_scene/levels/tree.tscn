@@ -77,9 +77,6 @@ resource_local_to_scene = true
 size = Vector3(18.333054, 11.342789, 10.99115)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_vd7vu"]
-size = Vector3(0.88532233, 7.308466, 1)
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_kjpiw"]
 resource_local_to_scene = true
 size = Vector3(15.760345, 8.133553, 10.99115)
 
@@ -707,10 +704,6 @@ shape = SubResource("BoxShape3D_h5wik")
 [node name="StaticBody3D" type="StaticBody3D" parent="Sections/Section8/BacktrackPrevention" parent_id_path=PackedInt32Array(618854749, 835127638) index="0" unique_id=1190851455]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.800016, 0.46575165, 0)
 
-[node name="CollisionShape3D2" parent="Sections/Section8/BacktrackPrevention/StaticBody3D" index="0"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.1801796, -0.30610657, 0)
-shape = SubResource("BoxShape3D_vd7vu")
-
 [node name="Section9" parent="Sections" unique_id=1005249169 instance=ExtResource("3_t8qqb")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.950989, 106.99553, 0)
 
@@ -835,7 +828,7 @@ transform = Transform3D(-3.0643306, 0, 0, 0, 8.861159, 0, 0, 0, 1, -2.9156685, 1
 
 [node name="CollisionShape3D" parent="Sections/Section9/SectionTrigger" parent_id_path=PackedInt32Array(1005249169, 2029195658) index="0" unique_id=1708760178]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.353191, -4.5701904, -2.133)
-shape = SubResource("BoxShape3D_kjpiw")
+shape = SubResource("BoxShape3D_vd7vu")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Sections/Section9/BacktrackPrevention" parent_id_path=PackedInt32Array(1005249169, 835127638) index="0" unique_id=836226281]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22.396666, -4.3750076, 0)
