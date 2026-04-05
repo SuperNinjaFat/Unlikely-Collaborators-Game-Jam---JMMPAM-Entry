@@ -10,6 +10,7 @@ albedo_color = Color(0.8235294, 0.7058824, 0.54901963, 1)
 material = SubResource("StandardMaterial3D_q7huo")
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_q7huo"]
+resource_local_to_scene = true
 size = Vector3(2, 2, 2)
 
 [node name="GrabSurface" type="Area3D" unique_id=1344339532]

@@ -27,7 +27,6 @@ signal pinned_to_world
 signal game_end_reached
 
 func _ready() -> void:
-	
 	if not opposite_segment:
 		printerr("CaterpillarBodyEndSegment @ _ready(): No opposite segment provided. This scene will not funciton as intended.")
 		return
@@ -69,14 +68,13 @@ func _input(event: InputEvent) -> void:
 			pin_to_world(true)
 
 func _physics_process(_delta: float) -> void:
-	
 	# Force release from grab surface if sliding too far away
 	if is_instance_valid(_slide_body) and world_pin.node_b != NodePath(""):
 		if _slide_body.is_on_wall() or _slide_body.is_on_ceiling() or _slide_body.is_on_floor():
 			pin_to_world(false)
 			return
-		var slide_body_distance: float = opposite_segment.global_position.distance_to(_slide_body.global_position) 
-		if slide_body_distance > _max_extension_length + 0.5: 
+		var slide_body_distance: float = opposite_segment.global_position.distance_to(_slide_body.global_position)
+		if slide_body_distance > _max_extension_length + 0.5:
 			pin_to_world(false)
 	
 	if is_pinned_to_world(): return
@@ -87,8 +85,7 @@ func _physics_process(_delta: float) -> void:
 	floor_checks.global_position = global_position
 	
 	# Behavior when dragged by mouse
-	if _selected: 
-		
+	if _selected:
 		# Force de-select if opposite segment slides off of a grab surface
 		if _opposite_segment_sliding and not opposite_segment.is_sliding():
 			_selected = false
@@ -116,7 +113,7 @@ func pin_to_world(pin: bool) -> void:
 	world_pin.node_a = NodePath("")
 	world_pin.node_b = NodePath("")
 	if is_instance_valid(_slide_body): _slide_body.queue_free()
-	if pin: 
+	if pin:
 		world_pin.node_a = get_path()
 		pinned_to_world.emit()
 		if _is_on_floor(): return
@@ -180,4 +177,4 @@ func _on_grab_surface_area_exited(_area: Area3D) -> void:
 		# if we just slid off a slide surface onto another grabbable surface
 		if is_instance_valid(_slide_body) and grab_surface_detection.get_overlapping_areas().size() > 0:
 			pin_to_world(true)
-	else: pin_to_world(false)
+		else: pin_to_world(false)
