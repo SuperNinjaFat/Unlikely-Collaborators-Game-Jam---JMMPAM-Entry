@@ -1,12 +1,19 @@
 [gd_scene format=3 uid="uid://c6k5nnpbypshi"]
 
 [ext_resource type="Script" uid="uid://bhgs1upaahk3y" path="res://addons/maaacks_game_template/base/nodes/menus/main_menu/main_menu.gd" id="1"]
+[ext_resource type="Texture2D" uid="uid://dgfqxnfr5p2tx" path="res://assets/ui_files/hill_v1.png" id="4_f1tla"]
 [ext_resource type="Script" uid="uid://1nf36h0gms3q" path="res://addons/maaacks_game_template/base/nodes/utilities/capture_focus.gd" id="4_l1ebe"]
 [ext_resource type="PackedScene" uid="uid://bkcsjsk2ciff" path="res://addons/maaacks_game_template/base/nodes/music_players/background_music_player.tscn" id="4_w8sbm"]
+[ext_resource type="Texture2D" uid="uid://c622hga77g6gl" path="res://assets/ui_files/hill_v2.png" id="5_v1l2c"]
+[ext_resource type="Texture2D" uid="uid://dpmt4732mbvlw" path="res://assets/ui_files/cloud_v1.png" id="6_5lk5m"]
+[ext_resource type="Texture2D" uid="uid://dus78j8los8pq" path="res://assets/ui_files/tree_v1.png" id="6_7msp7"]
 [ext_resource type="Script" uid="uid://b5oej1q4h7jvh" path="res://addons/maaacks_game_template/base/nodes/autoloads/ui_sound_controller/ui_sound_controller.gd" id="6_bs342"]
 [ext_resource type="Script" uid="uid://dmkubt2nsnsbn" path="res://addons/maaacks_game_template/base/nodes/labels/config_version_label.gd" id="6_pdiij"]
 [ext_resource type="PackedScene" uid="uid://cwt4p3bufkke5" path="res://addons/maaacks_game_template/base/nodes/windows/confirmation_overlaid_window.tscn" id="7_im16j"]
 [ext_resource type="Script" uid="uid://bkwlopi4qn32o" path="res://addons/maaacks_game_template/base/nodes/labels/config_name_label.gd" id="7_j7612"]
+[ext_resource type="Texture2D" uid="uid://bpr0d8ea5mxkc" path="res://assets/ui_files/caterpillar_v1.png" id="7_lf2y4"]
+[ext_resource type="FontFile" uid="uid://bfqgp73lkxt8w" path="res://assets/fonts/LakkiReddy-Regular.ttf" id="7_vjnah"]
+[ext_resource type="Texture2D" uid="uid://bs8rbnjlk6n6j" path="res://assets/ui_files/cloud_v2.png" id="7_vn02j"]
 
 [node name="MainMenu" type="Control" unique_id=781937481]
 layout_mode = 3
@@ -22,15 +29,14 @@ script = ExtResource("6_bs342")
 
 [node name="BackgroundMusicPlayer" parent="." unique_id=1141822549 instance=ExtResource("4_w8sbm")]
 
-[node name="BackgroundTextureRect" type="TextureRect" parent="." unique_id=1940176448]
+[node name="BackgroundTextureRect" type="ColorRect" parent="." unique_id=1881931395]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-expand_mode = 1
-stretch_mode = 5
+color = Color(0.5411765, 0.7921569, 0.972549, 1)
 
 [node name="MenuContainer" type="MarginContainer" parent="." unique_id=396616752]
 unique_name_in_owner = true
@@ -40,6 +46,29 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="BackgroundArt" type="Node2D" parent="MenuContainer" unique_id=1549388441]
+
+[node name="HillV1" type="Sprite2D" parent="MenuContainer/BackgroundArt" unique_id=5454121]
+position = Vector2(866, 210)
+scale = Vector2(1.0000001, 1.0000001)
+texture = ExtResource("4_f1tla")
+
+[node name="HillV2" type="Sprite2D" parent="MenuContainer/BackgroundArt" unique_id=1451566376]
+position = Vector2(899, 356)
+texture = ExtResource("5_v1l2c")
+
+[node name="TreeV1" type="Sprite2D" parent="MenuContainer/BackgroundArt" unique_id=243310071]
+position = Vector2(1100, 430)
+rotation = 0.17453292
+scale = Vector2(0.99999994, 0.99999994)
+texture = ExtResource("6_7msp7")
+
+[node name="CaterpillarV1" type="Sprite2D" parent="MenuContainer/BackgroundArt" unique_id=408462404]
+position = Vector2(850, 340)
+rotation = -1.134464
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("7_lf2y4")
 
 [node name="TitleMargin" type="MarginContainer" parent="MenuContainer" unique_id=2112060331]
 layout_mode = 2
@@ -56,7 +85,7 @@ anchor_right = 1.0
 offset_bottom = 67.0
 grow_horizontal = 2
 theme_override_font_sizes/font_size = 48
-text = "Title"
+text = "Climbing Caterpillar"
 horizontal_alignment = 1
 vertical_alignment = 1
 script = ExtResource("7_j7612")
@@ -98,37 +127,99 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -64.0
-offset_top = -104.0
-offset_right = 64.0
-offset_bottom = 104.0
+offset_left = -526.0
+offset_top = -202.0
+offset_right = 580.0
+offset_bottom = 334.0
 grow_horizontal = 2
 grow_vertical = 2
+scale = Vector2(0.6, 0.6)
 size_flags_horizontal = 4
-theme_override_constants/separation = 16
+theme_override_constants/separation = 10
 alignment = 1
 vertical = true
 script = ExtResource("4_l1ebe")
 
-[node name="NewGameButton" type="Button" parent="MenuContainer/MenuButtonsMargin/MenuButtonsContainer/MenuButtonsBoxContainer" unique_id=2044537792]
+[node name="NewGameButton" type="TextureButton" parent="MenuContainer/MenuButtonsMargin/MenuButtonsContainer/MenuButtonsBoxContainer" unique_id=1210784591]
 unique_name_in_owner = true
 layout_mode = 2
-text = "New Game"
+size_flags_horizontal = 4
+texture_normal = ExtResource("6_5lk5m")
 
-[node name="OptionsButton" type="Button" parent="MenuContainer/MenuButtonsMargin/MenuButtonsContainer/MenuButtonsBoxContainer" unique_id=1486236076]
-unique_name_in_owner = true
-layout_mode = 2
-text = "Options"
+[node name="StartMarginContainer" type="MarginContainer" parent="MenuContainer/MenuButtonsMargin/MenuButtonsContainer/MenuButtonsBoxContainer/NewGameButton" unique_id=71777503]
+layout_mode = 0
+offset_left = 140.0
+offset_top = 80.0
+offset_right = 442.0
+offset_bottom = 298.00024
 
-[node name="CreditsButton" type="Button" parent="MenuContainer/MenuButtonsMargin/MenuButtonsContainer/MenuButtonsBoxContainer" unique_id=301223169]
+[node name="Start" type="Label" parent="MenuContainer/MenuButtonsMargin/MenuButtonsContainer/MenuButtonsBoxContainer/NewGameButton/StartMarginContainer" unique_id=1363012500]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.10980392, 0.21176471, 0.007843138, 1)
+theme_override_fonts/font = ExtResource("7_vjnah")
+theme_override_font_sizes/font_size = 130
+text = "Start"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MenuContainer/MenuButtonsMargin/MenuButtonsContainer/MenuButtonsBoxContainer" unique_id=347986360]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="OptionsButton" type="TextureButton" parent="MenuContainer/MenuButtonsMargin/MenuButtonsContainer/MenuButtonsBoxContainer/HBoxContainer" unique_id=1771312783]
 unique_name_in_owner = true
 layout_mode = 2
+texture_normal = ExtResource("7_vn02j")
+
+[node name="StartMarginContainer" type="MarginContainer" parent="MenuContainer/MenuButtonsMargin/MenuButtonsContainer/MenuButtonsBoxContainer/HBoxContainer/OptionsButton" unique_id=75820295]
+layout_mode = 0
+offset_left = 50.0
+offset_top = 20.0
+offset_right = 352.0
+offset_bottom = 238.00024
+
+[node name="Settings" type="Label" parent="MenuContainer/MenuButtonsMargin/MenuButtonsContainer/MenuButtonsBoxContainer/HBoxContainer/OptionsButton/StartMarginContainer" unique_id=1850803588]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.10980392, 0.21176471, 0.007843138, 1)
+theme_override_fonts/font = ExtResource("7_vjnah")
+theme_override_font_sizes/font_size = 64
+text = "Settings"
+
+[node name="CreditsButton" type="TextureButton" parent="MenuContainer/MenuButtonsMargin/MenuButtonsContainer/MenuButtonsBoxContainer/HBoxContainer" unique_id=2142732479]
+unique_name_in_owner = true
+layout_mode = 2
+texture_normal = ExtResource("7_vn02j")
+
+[node name="StartMarginContainer" type="MarginContainer" parent="MenuContainer/MenuButtonsMargin/MenuButtonsContainer/MenuButtonsBoxContainer/HBoxContainer/CreditsButton" unique_id=1485635205]
+layout_mode = 0
+offset_left = 65.0
+offset_top = 80.0
+offset_right = 367.0
+offset_bottom = 187.0
+
+[node name="Credits" type="Label" parent="MenuContainer/MenuButtonsMargin/MenuButtonsContainer/MenuButtonsBoxContainer/HBoxContainer/CreditsButton/StartMarginContainer" unique_id=2032279671]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.10980392, 0.21176471, 0.007843138, 1)
+theme_override_fonts/font = ExtResource("7_vjnah")
+theme_override_font_sizes/font_size = 64
 text = "Credits"
 
-[node name="ExitButton" type="Button" parent="MenuContainer/MenuButtonsMargin/MenuButtonsContainer/MenuButtonsBoxContainer" unique_id=1750454379]
+[node name="ExitButton" type="TextureButton" parent="MenuContainer/MenuButtonsMargin/MenuButtonsContainer/MenuButtonsBoxContainer/HBoxContainer" unique_id=1374705709]
 unique_name_in_owner = true
 layout_mode = 2
-text = "Exit"
+texture_normal = ExtResource("7_vn02j")
+
+[node name="StartMarginContainer" type="MarginContainer" parent="MenuContainer/MenuButtonsMargin/MenuButtonsContainer/MenuButtonsBoxContainer/HBoxContainer/ExitButton" unique_id=1656296004]
+layout_mode = 0
+offset_left = 90.0
+offset_top = 20.0
+offset_right = 392.0
+offset_bottom = 238.00024
+
+[node name="Quit" type="Label" parent="MenuContainer/MenuButtonsMargin/MenuButtonsContainer/MenuButtonsBoxContainer/HBoxContainer/ExitButton/StartMarginContainer" unique_id=770413679]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.10980392, 0.21176471, 0.007843138, 1)
+theme_override_fonts/font = ExtResource("7_vjnah")
+theme_override_font_sizes/font_size = 64
+text = "Quit"
 
 [node name="VersionMargin" type="MarginContainer" parent="." unique_id=1732528471]
 layout_mode = 1
@@ -176,7 +267,7 @@ text = "Really exit the game?"
 title_visible = false
 
 [connection signal="pressed" from="MenuContainer/MenuButtonsMargin/MenuButtonsContainer/MenuButtonsBoxContainer/NewGameButton" to="." method="_on_new_game_button_pressed"]
-[connection signal="pressed" from="MenuContainer/MenuButtonsMargin/MenuButtonsContainer/MenuButtonsBoxContainer/OptionsButton" to="." method="_on_options_button_pressed"]
-[connection signal="pressed" from="MenuContainer/MenuButtonsMargin/MenuButtonsContainer/MenuButtonsBoxContainer/CreditsButton" to="." method="_on_credits_button_pressed"]
-[connection signal="pressed" from="MenuContainer/MenuButtonsMargin/MenuButtonsContainer/MenuButtonsBoxContainer/ExitButton" to="." method="_on_exit_button_pressed"]
+[connection signal="pressed" from="MenuContainer/MenuButtonsMargin/MenuButtonsContainer/MenuButtonsBoxContainer/HBoxContainer/OptionsButton" to="." method="_on_options_button_pressed"]
+[connection signal="pressed" from="MenuContainer/MenuButtonsMargin/MenuButtonsContainer/MenuButtonsBoxContainer/HBoxContainer/CreditsButton" to="." method="_on_credits_button_pressed"]
+[connection signal="pressed" from="MenuContainer/MenuButtonsMargin/MenuButtonsContainer/MenuButtonsBoxContainer/HBoxContainer/ExitButton" to="." method="_on_exit_button_pressed"]
 [connection signal="confirmed" from="ExitConfirmation" to="." method="_on_exit_confirmation_confirmed"]
