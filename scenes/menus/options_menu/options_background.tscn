@@ -1,0 +1,225 @@
+[gd_scene format=3 uid="uid://d3n7idrux37be"]
+
+[ext_resource type="Texture2D" uid="uid://dgfqxnfr5p2tx" path="res://assets/ui_files/hill_v1.png" id="1_8eune"]
+[ext_resource type="Texture2D" uid="uid://c622hga77g6gl" path="res://assets/ui_files/hill_v2.png" id="2_fn33d"]
+[ext_resource type="Texture2D" uid="uid://csn56rw1gn6yk" path="res://assets/ui_files/tree_v2.png" id="3_jp4qw"]
+[ext_resource type="Texture2D" uid="uid://8oqbtk8vclho" path="res://assets/ui_files/caterpillar_v2.png" id="4_gcuxi"]
+[ext_resource type="Texture2D" uid="uid://bs8rbnjlk6n6j" path="res://assets/ui_files/cloud_v2.png" id="5_idjub"]
+[ext_resource type="FontFile" uid="uid://bfqgp73lkxt8w" path="res://assets/fonts/LakkiReddy-Regular.ttf" id="6_mu3iv"]
+[ext_resource type="Script" uid="uid://c7ec0jj1gt72t" path="res://scenes/menus/options_menu/options_background.gd" id="7_script"]
+
+[node name="OptionsBackground" type="Control" unique_id=419945252]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("7_script")
+
+[node name="BackgroundColorRect" type="ColorRect" parent="." unique_id=1061247509]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.5411765, 0.7921569, 0.972549, 1)
+
+[node name="BackgroundArt" type="Node2D" parent="." unique_id=802263714]
+
+[node name="HillV1" type="Sprite2D" parent="BackgroundArt" unique_id=1879404516]
+position = Vector2(690, 418)
+texture = ExtResource("1_8eune")
+
+[node name="HillV2" type="Sprite2D" parent="BackgroundArt" unique_id=2038440147]
+position = Vector2(696, 551)
+texture = ExtResource("2_fn33d")
+
+[node name="TreeV2" type="Sprite2D" parent="BackgroundArt" unique_id=1332635330]
+position = Vector2(766, 324)
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("3_jp4qw")
+
+[node name="CaterpillarV2" type="Sprite2D" parent="BackgroundArt" unique_id=487700219]
+position = Vector2(333, 237.00002)
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("4_gcuxi")
+
+[node name="BackButtonMargin" type="MarginContainer" parent="." unique_id=418920930]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+scale = Vector2(0.6, 0.6)
+theme_override_constants/margin_left = 40
+theme_override_constants/margin_top = 40
+
+[node name="BackButton" type="TextureButton" parent="BackButtonMargin" unique_id=227339353]
+layout_mode = 2
+texture_normal = ExtResource("5_idjub")
+
+[node name="Back" type="Label" parent="BackButtonMargin/BackButton" unique_id=1840368085]
+layout_mode = 0
+offset_left = 60.0
+offset_top = 60.0
+offset_right = 198.0
+offset_bottom = 167.0
+theme_override_colors/font_color = Color(0.10980392, 0.21176471, 0.007843138, 1)
+theme_override_fonts/font = ExtResource("6_mu3iv")
+theme_override_font_sizes/font_size = 64
+text = "Back"
+
+[node name="SettingsMargin" type="MarginContainer" parent="." unique_id=1712916089]
+layout_mode = 0
+offset_left = 499.0
+offset_top = 129.0
+offset_right = 1049.0
+offset_bottom = 579.0
+
+[node name="SettingsContainer" type="VBoxContainer" parent="SettingsMargin" unique_id=1985033372]
+layout_mode = 2
+
+[node name="Settings" type="Label" parent="SettingsMargin/SettingsContainer" unique_id=1470556706]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+theme_override_colors/font_color = Color(0.10980392, 0.21176471, 0.007843138, 1)
+theme_override_fonts/font = ExtResource("6_mu3iv")
+theme_override_font_sizes/font_size = 64
+text = "SETTINGS"
+
+[node name="ScrollContainer" type="ScrollContainer" parent="SettingsMargin/SettingsContainer" unique_id=404340690]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="SettingsListContainer" type="VBoxContainer" parent="SettingsMargin/SettingsContainer/ScrollContainer" unique_id=508258463]
+layout_mode = 2
+
+[node name="AudioContainer" type="VBoxContainer" parent="SettingsMargin/SettingsContainer/ScrollContainer/SettingsListContainer" unique_id=419470690]
+layout_mode = 2
+
+[node name="Audio" type="Label" parent="SettingsMargin/SettingsContainer/ScrollContainer/SettingsListContainer/AudioContainer" unique_id=1900750457]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+theme_override_colors/font_color = Color(0.10980392, 0.21176471, 0.007843138, 1)
+theme_override_fonts/font = ExtResource("6_mu3iv")
+theme_override_font_sizes/font_size = 42
+text = "Audio"
+
+[node name="MusicMargin" type="MarginContainer" parent="SettingsMargin/SettingsContainer/ScrollContainer/SettingsListContainer/AudioContainer" unique_id=1836042469]
+layout_mode = 2
+
+[node name="MusicContainer" type="HBoxContainer" parent="SettingsMargin/SettingsContainer/ScrollContainer/SettingsListContainer/AudioContainer/MusicMargin" unique_id=2097766904]
+layout_mode = 2
+
+[node name="Music" type="Label" parent="SettingsMargin/SettingsContainer/ScrollContainer/SettingsListContainer/AudioContainer/MusicMargin/MusicContainer" unique_id=1947980703]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.10980392, 0.21176471, 0.007843138, 1)
+theme_override_fonts/font = ExtResource("6_mu3iv")
+theme_override_font_sizes/font_size = 30
+text = "Music"
+
+[node name="MusicSlider" type="HSlider" parent="SettingsMargin/SettingsContainer/ScrollContainer/SettingsListContainer/AudioContainer/MusicMargin/MusicContainer" unique_id=1788521601]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(250, 40)
+layout_mode = 2
+min_value = 0.0
+max_value = 1.0
+step = 0.05
+value = 1.0
+
+[node name="SFXMargin" type="MarginContainer" parent="SettingsMargin/SettingsContainer/ScrollContainer/SettingsListContainer/AudioContainer" unique_id=1859775616]
+layout_mode = 2
+
+[node name="SFXContainer" type="HBoxContainer" parent="SettingsMargin/SettingsContainer/ScrollContainer/SettingsListContainer/AudioContainer/SFXMargin" unique_id=2085005981]
+layout_mode = 2
+
+[node name="SFX" type="Label" parent="SettingsMargin/SettingsContainer/ScrollContainer/SettingsListContainer/AudioContainer/SFXMargin/SFXContainer" unique_id=251454415]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.10980392, 0.21176471, 0.007843138, 1)
+theme_override_fonts/font = ExtResource("6_mu3iv")
+theme_override_font_sizes/font_size = 30
+text = "SFX"
+
+[node name="SFXSlider" type="HSlider" parent="SettingsMargin/SettingsContainer/ScrollContainer/SettingsListContainer/AudioContainer/SFXMargin/SFXContainer" unique_id=1426456947]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(250, 40)
+layout_mode = 2
+min_value = 0.0
+max_value = 1.0
+step = 0.05
+value = 1.0
+
+[node name="MasterMargin" type="MarginContainer" parent="SettingsMargin/SettingsContainer/ScrollContainer/SettingsListContainer/AudioContainer" unique_id=951391663]
+layout_mode = 2
+
+[node name="MasterContainer" type="HBoxContainer" parent="SettingsMargin/SettingsContainer/ScrollContainer/SettingsListContainer/AudioContainer/MasterMargin" unique_id=71449309]
+layout_mode = 2
+
+[node name="Master" type="Label" parent="SettingsMargin/SettingsContainer/ScrollContainer/SettingsListContainer/AudioContainer/MasterMargin/MasterContainer" unique_id=1671565603]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.10980392, 0.21176471, 0.007843138, 1)
+theme_override_fonts/font = ExtResource("6_mu3iv")
+theme_override_font_sizes/font_size = 30
+text = "Master"
+
+[node name="MasterSlider" type="HSlider" parent="SettingsMargin/SettingsContainer/ScrollContainer/SettingsListContainer/AudioContainer/MasterMargin/MasterContainer" unique_id=366727677]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(250, 40)
+layout_mode = 2
+min_value = 0.0
+max_value = 1.0
+step = 0.05
+value = 1.0
+
+[node name="DisplayContainer" type="VBoxContainer" parent="SettingsMargin/SettingsContainer/ScrollContainer/SettingsListContainer" unique_id=709384128]
+layout_mode = 2
+
+[node name="Display" type="Label" parent="SettingsMargin/SettingsContainer/ScrollContainer/SettingsListContainer/DisplayContainer" unique_id=39896548]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(0.10980392, 0.21176471, 0.007843138, 1)
+theme_override_fonts/font = ExtResource("6_mu3iv")
+theme_override_font_sizes/font_size = 42
+text = "Display"
+
+[node name="FullscreenMargin" type="MarginContainer" parent="SettingsMargin/SettingsContainer/ScrollContainer/SettingsListContainer/DisplayContainer"]
+layout_mode = 2
+
+[node name="FullscreenContainer" type="HBoxContainer" parent="SettingsMargin/SettingsContainer/ScrollContainer/SettingsListContainer/DisplayContainer/FullscreenMargin"]
+layout_mode = 2
+
+[node name="FullscreenLabel" type="Label" parent="SettingsMargin/SettingsContainer/ScrollContainer/SettingsListContainer/DisplayContainer/FullscreenMargin/FullscreenContainer"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.10980392, 0.21176471, 0.007843138, 1)
+theme_override_fonts/font = ExtResource("6_mu3iv")
+theme_override_font_sizes/font_size = 30
+text = "Fullscreen"
+
+[node name="FullscreenCheck" type="CheckButton" parent="SettingsMargin/SettingsContainer/ScrollContainer/SettingsListContainer/DisplayContainer/FullscreenMargin/FullscreenContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="VSyncMargin" type="MarginContainer" parent="SettingsMargin/SettingsContainer/ScrollContainer/SettingsListContainer/DisplayContainer"]
+layout_mode = 2
+
+[node name="VSyncContainer" type="HBoxContainer" parent="SettingsMargin/SettingsContainer/ScrollContainer/SettingsListContainer/DisplayContainer/VSyncMargin"]
+layout_mode = 2
+
+[node name="VSyncLabel" type="Label" parent="SettingsMargin/SettingsContainer/ScrollContainer/SettingsListContainer/DisplayContainer/VSyncMargin/VSyncContainer"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.10980392, 0.21176471, 0.007843138, 1)
+theme_override_fonts/font = ExtResource("6_mu3iv")
+theme_override_font_sizes/font_size = 30
+text = "V-Sync"
+
+[node name="VSyncOption" type="OptionButton" parent="SettingsMargin/SettingsContainer/ScrollContainer/SettingsListContainer/DisplayContainer/VSyncMargin/VSyncContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(200, 40)
+layout_mode = 2

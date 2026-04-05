@@ -19,6 +19,14 @@ tonemap_mode = 2
 
 [sub_resource type="BoxMesh" id="BoxMesh_6o765"]
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dpxjg"]
+albedo_color = Color(0.37716255, 0.37716258, 0.37716255, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_dpxjg"]
+size = Vector3(1, 8, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hu081"]
+
 [node name="test_level" type="Node3D" unique_id=101598691]
 script = ExtResource("1_6o765")
 
@@ -39,22 +47,44 @@ texture = ExtResource("2_rvyh3")
 transform = Transform3D(25, 0, 0, 0, 0.525, 0, 0, 0, 25, 0, 0, 0)
 use_collision = true
 mesh = SubResource("BoxMesh_6o765")
+material = SubResource("StandardMaterial3D_dpxjg")
 
 [node name="Camera3D" type="Camera3D" parent="." unique_id=1128423004]
 transform = Transform3D(1, 0, 0, 0, 0.9848078, 0.17364822, 0, -0.17364821, 0.9848077, 0, 5, 7.5)
 fov = 60.0
 
 [node name="CaterpillarPlayer" parent="." unique_id=2112225814 instance=ExtResource("4_dpxjg")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.3, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.2, 2.3, 0)
 
 [node name="GrabSurface" parent="." unique_id=1156672266 instance=ExtResource("4_hu081")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.1, 2.3, 0)
+transform = Transform3D(1, 0, 0, 0, 0.999973, -0.0073477626, 0, 0.0073477626, 0.999973, 2.6999998, 1.3999999, 0)
 
 [node name="GrabSurface2" parent="." unique_id=409828988 instance=ExtResource("4_hu081")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.7000003, 4, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.6999998, 1.3999999, 0)
 
 [node name="GrabSurface3" parent="." unique_id=2120737379 instance=ExtResource("4_hu081")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.4000003, 6.1000004, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.7000003, 3.4000003, 0)
 
 [node name="GrabSurface4" parent="." unique_id=1184620067 instance=ExtResource("4_hu081")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.40000033, 6.1000004, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.70000035, 3.4000003, 0)
+
+[node name="GrabSurface5" parent="." unique_id=1344339532 instance=ExtResource("4_hu081")]
+transform = Transform3D(1, 0, 0, 0, 0.999973, -0.0073477626, 0, 0.0073477626, 0.999973, 2.6999998, 5.3999996, 0)
+
+[node name="GrabSurface6" parent="." unique_id=1920540963 instance=ExtResource("4_hu081")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.6999998, 5.3999996, 0)
+
+[node name="GrabSurface7" parent="." unique_id=1382819921 instance=ExtResource("4_hu081")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.7000003, 7.4000006, 0)
+
+[node name="GrabSurface8" parent="." unique_id=837904882 instance=ExtResource("4_hu081")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.70000035, 7.4000006, 0)
+
+[node name="CharacterBody3D" type="CharacterBody3D" parent="." unique_id=1105142555]
+
+[node name="CSGMesh3D2" type="CSGMesh3D" parent="." unique_id=829035048]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.8999996, 4.2000003, 0)
+use_collision = true
+collision_mask = 0
+mesh = SubResource("BoxMesh_dpxjg")
+material = SubResource("StandardMaterial3D_hu081")

@@ -6,12 +6,13 @@
 size = Vector3(6.3808594, 1, 1)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_os5ql"]
+shading_mode = 0
 albedo_color = Color(0.23921569, 1, 0.19607843, 1)
 
 [sub_resource type="BoxMesh" id="BoxMesh_qpymo"]
 material = SubResource("StandardMaterial3D_os5ql")
 
-[node name="LeafBarrier" type="Area3D" unique_id=1835696946]
+[node name="LeafBarrier" type="StaticBody3D" unique_id=1835696946]
 script = ExtResource("1_v8twt")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=515650256]

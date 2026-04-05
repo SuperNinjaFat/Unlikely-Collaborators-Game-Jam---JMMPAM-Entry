@@ -21,6 +21,7 @@ var _physics_segment_spacing: float = 0.0
 var _visual_segment_spacing: float = 0.0
 
 signal drag_released
+signal game_end_reached # what connects to this?
 
 func _ready() -> void:
 	
@@ -37,9 +38,15 @@ func _ready() -> void:
 	# Physics segment dependency injection
 	front_caterpillar_end_segment.callbacks = {"get_mouse_position": _get_projected_mouse_position}
 	front_caterpillar_end_segment.pinned_to_world.connect(_on_segment_pinned_to_world)
+	front_caterpillar_end_segment.game_end_reached.connect(_on_game_end_reached)
+	caterpillar_middle_segment.callbacks = {
+		"get_mouse_position": _get_projected_mouse_position,
+		"get_launch_direction": _get_launch_direction
+	}
 	caterpillar_middle_segment.released.connect(_on_middle_segment_released)
 	end_caterpillar_end_segment.callbacks = {"get_mouse_position": _get_projected_mouse_position}
 	end_caterpillar_end_segment.pinned_to_world.connect(_on_segment_pinned_to_world)
+	end_caterpillar_end_segment.game_end_reached.connect(_on_game_end_reached)
 	
 	# Initialize visual segments
 	for i: int in range(visual_segments_container.get_child_count()):
@@ -92,8 +99,12 @@ func _restore_body_configuration() -> void:
 	pass
 
 func engage_grip() -> void:
-	front_caterpillar_end_segment.pin_to_world(true)
-	end_caterpillar_end_segment.pin_to_world(true)
+	# Wait for physics to process so area overlaps are detected
+	await get_tree().physics_frame
+	if front_caterpillar_end_segment.grab_surface_detection.get_overlapping_areas().size() > 0:
+		front_caterpillar_end_segment.pin_to_world(true)
+	if end_caterpillar_end_segment.grab_surface_detection.get_overlapping_areas().size() > 0:
+		end_caterpillar_end_segment.pin_to_world(true)
 
 func _on_segment_pinned_to_world() -> void:
 	if not front_caterpillar_end_segment.is_pinned_to_world() or \
@@ -115,7 +126,8 @@ func _on_middle_segment_released() -> void:
 func _get_launch_direction() -> Vector3:
 	var body_axis: Vector3 = front_caterpillar_end_segment.global_position - end_caterpillar_end_segment.global_position
 	var perpendicular_vector: Vector3 = Vector3(-body_axis.y, body_axis.x, 0.0).normalized()
-	var center: Vector3 = (front_caterpillar_end_segment.global_position + end_caterpillar_end_segment.global_position) * 0.5
+	#var center: Vector3 = (front_caterpillar_end_segment.global_position + end_caterpillar_end_segment.global_position) * 0.5
+	var center: Vector3 = caterpillar_middle_segment.global_position
 	var avoid_direction: Vector3 = center - _get_projected_mouse_position()
 	if perpendicular_vector.dot(avoid_direction.normalized()) < 0.0:
 		perpendicular_vector = -perpendicular_vector
@@ -137,3 +149,9 @@ func _get_projected_mouse_position() -> Vector3:
 	# never change z coordinate
 	world_coordinate_projection.z = global_position.z
 	return world_coordinate_projection
+
+func _on_game_end_reached() -> void:
+	front_caterpillar_end_segment.set_selectable(false)
+	caterpillar_middle_segment.set_selectable(false)
+	end_caterpillar_end_segment.set_selectable(false)
+	game_end_reached.emit()

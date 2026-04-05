@@ -30,6 +30,8 @@ func _on_drag_released():
 func _on_body_entered(body: Node3D) -> void:
 	if body.is_in_group("caterpillar_parts"):
 		_player_bodies_inside += 1
+		if _player_bodies_inside >= REQUIRED_BODIES and not Input.is_action_pressed("left_click"):
+			section_entered.emit()
 
 func _on_body_exited(body: Node3D):
 	if body.is_in_group("caterpillar_parts"):
