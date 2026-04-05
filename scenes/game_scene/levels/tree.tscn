@@ -1414,19 +1414,16 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.9670753, -10.185104, 0)
 [node name="CollectibleLeaf4" parent="Sections/Section14/LeafPuzzle/Leafs" parent_id_path=PackedInt32Array(1188697580, 448507772) index="3" unique_id=1632132458 instance=ExtResource("5_lxcgy")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.1033506, -5.5397186, 0)
 
-[node name="CollectibleLeaf5" parent="Sections/Section14/LeafPuzzle/Leafs" parent_id_path=PackedInt32Array(1188697580, 448507772) index="4" unique_id=53845133 instance=ExtResource("5_lxcgy")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.0031853, -6.866165, 0)
+[node name="CollectibleLeaf6" parent="Sections/Section14/LeafPuzzle/Leafs" parent_id_path=PackedInt32Array(1188697580, 448507772) index="4" unique_id=746516342 instance=ExtResource("5_lxcgy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.195364, -6.4772034, 0)
 
-[node name="CollectibleLeaf6" parent="Sections/Section14/LeafPuzzle/Leafs" parent_id_path=PackedInt32Array(1188697580, 448507772) index="5" unique_id=746516342 instance=ExtResource("5_lxcgy")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.8253956, -5.98645, 0)
-
-[node name="CollectibleLeaf7" parent="Sections/Section14/LeafPuzzle/Leafs" parent_id_path=PackedInt32Array(1188697580, 448507772) index="6" unique_id=1055807707 instance=ExtResource("5_lxcgy")]
+[node name="CollectibleLeaf7" parent="Sections/Section14/LeafPuzzle/Leafs" parent_id_path=PackedInt32Array(1188697580, 448507772) index="5" unique_id=1055807707 instance=ExtResource("5_lxcgy")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.19852829, -2.4701233, 0)
 
-[node name="CollectibleLeaf8" parent="Sections/Section14/LeafPuzzle/Leafs" parent_id_path=PackedInt32Array(1188697580, 448507772) index="7" unique_id=1500910032 instance=ExtResource("5_lxcgy")]
+[node name="CollectibleLeaf8" parent="Sections/Section14/LeafPuzzle/Leafs" parent_id_path=PackedInt32Array(1188697580, 448507772) index="6" unique_id=1500910032 instance=ExtResource("5_lxcgy")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.2246284, -3.4058838, 0)
 
-[node name="CollectibleLeaf9" parent="Sections/Section14/LeafPuzzle/Leafs" parent_id_path=PackedInt32Array(1188697580, 448507772) index="8" unique_id=172299391 instance=ExtResource("5_lxcgy")]
+[node name="CollectibleLeaf9" parent="Sections/Section14/LeafPuzzle/Leafs" parent_id_path=PackedInt32Array(1188697580, 448507772) index="7" unique_id=172299391 instance=ExtResource("5_lxcgy")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.069536, -7.424286, 0)
 
 [editable path="Sections/Section0"]
