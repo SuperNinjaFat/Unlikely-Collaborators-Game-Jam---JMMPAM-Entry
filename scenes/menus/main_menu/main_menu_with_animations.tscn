@@ -5,6 +5,8 @@
 [ext_resource type="PackedScene" uid="uid://d11ku5sf7grth" path="res://scenes/windows/main_menu_options_window.tscn" id="3_2k5l7"]
 [ext_resource type="PackedScene" uid="uid://bnmk8t60jcsep" path="res://scenes/windows/main_menu_credits_window.tscn" id="4_vsp5b"]
 [ext_resource type="PackedScene" uid="uid://cwt4p3bufkke5" path="res://addons/maaacks_game_template/base/nodes/windows/confirmation_overlaid_window.tscn" id="5_6xh1d"]
+[ext_resource type="Texture2D" uid="uid://dpmt4732mbvlw" path="res://assets/ui_files/cloud_v1.png" id="6_cloud"]
+[ext_resource type="FontFile" uid="uid://bfqgp73lkxt8w" path="res://assets/fonts/LakkiReddy-Regular.ttf" id="7_font"]
 
 [sub_resource type="Animation" id="1"]
 resource_name = "Intro"
@@ -339,12 +341,43 @@ modulate = Color(1, 1, 1, 0)
 modulate = Color(1, 1, 1, 0)
 
 [node name="MenuButtonsBoxContainer" parent="MenuContainer/MenuButtonsMargin/MenuButtonsContainer" index="0" unique_id=2017477786]
+layout_mode = 0
+anchors_preset = 0
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 0.0
+offset_top = 0.0
+offset_right = 1138.0
+offset_bottom = 850.0
+grow_horizontal = 1
+grow_vertical = 1
 lock = true
 
-[node name="ContinueGameButton" type="Button" parent="MenuContainer/MenuButtonsMargin/MenuButtonsContainer/MenuButtonsBoxContainer" index="1" unique_id=1206401873]
+[node name="Start" parent="MenuContainer/MenuButtonsMargin/MenuButtonsContainer/MenuButtonsBoxContainer/NewGameButton/StartMarginContainer" parent_id_path=PackedInt32Array(71777503) index="0" unique_id=1363012500]
+theme_override_font_sizes/font_size = 73
+text = "New Game"
+
+[node name="ContinueGameButton" type="TextureButton" parent="MenuContainer/MenuButtonsMargin/MenuButtonsContainer/MenuButtonsBoxContainer" index="1" unique_id=1206401873]
 unique_name_in_owner = true
 visible = false
 layout_mode = 2
+size_flags_horizontal = 4
+texture_normal = ExtResource("6_cloud")
+
+[node name="StartMarginContainer" type="MarginContainer" parent="MenuContainer/MenuButtonsMargin/MenuButtonsContainer/MenuButtonsBoxContainer/ContinueGameButton" index="0" unique_id=796848816]
+layout_mode = 0
+offset_left = 140.0
+offset_top = 80.0
+offset_right = 442.0
+offset_bottom = 298.00024
+
+[node name="Start" type="Label" parent="MenuContainer/MenuButtonsMargin/MenuButtonsContainer/MenuButtonsBoxContainer/ContinueGameButton/StartMarginContainer" index="0" unique_id=656661135]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.10980392, 0.21176471, 0.007843138, 1)
+theme_override_fonts/font = ExtResource("7_font")
+theme_override_font_sizes/font_size = 87
 text = "Continue"
 
 [node name="LevelSelectButton" type="Button" parent="MenuContainer/MenuButtonsMargin/MenuButtonsContainer/MenuButtonsBoxContainer" index="2" unique_id=78300098]
