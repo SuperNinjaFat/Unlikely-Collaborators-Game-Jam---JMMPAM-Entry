@@ -121,9 +121,14 @@ theme_override_fonts/font = ExtResource("6_mu3iv")
 theme_override_font_sizes/font_size = 30
 text = "Music"
 
-[node name="HSlider" type="HSlider" parent="SettingsMargin/SettingsContainer/ScrollContainer/SettingsListContainer/AudioContainer/MusicMargin/MusicContainer" unique_id=1788521601]
+[node name="MusicSlider" type="HSlider" parent="SettingsMargin/SettingsContainer/ScrollContainer/SettingsListContainer/AudioContainer/MusicMargin/MusicContainer" unique_id=1788521601]
+unique_name_in_owner = true
 custom_minimum_size = Vector2(250, 40)
 layout_mode = 2
+min_value = 0.0
+max_value = 1.0
+step = 0.05
+value = 1.0
 
 [node name="SFXMargin" type="MarginContainer" parent="SettingsMargin/SettingsContainer/ScrollContainer/SettingsListContainer/AudioContainer" unique_id=1859775616]
 layout_mode = 2
@@ -139,9 +144,14 @@ theme_override_fonts/font = ExtResource("6_mu3iv")
 theme_override_font_sizes/font_size = 30
 text = "SFX"
 
-[node name="HSlider" type="HSlider" parent="SettingsMargin/SettingsContainer/ScrollContainer/SettingsListContainer/AudioContainer/SFXMargin/SFXContainer" unique_id=1426456947]
+[node name="SFXSlider" type="HSlider" parent="SettingsMargin/SettingsContainer/ScrollContainer/SettingsListContainer/AudioContainer/SFXMargin/SFXContainer" unique_id=1426456947]
+unique_name_in_owner = true
 custom_minimum_size = Vector2(250, 40)
 layout_mode = 2
+min_value = 0.0
+max_value = 1.0
+step = 0.05
+value = 1.0
 
 [node name="MasterMargin" type="MarginContainer" parent="SettingsMargin/SettingsContainer/ScrollContainer/SettingsListContainer/AudioContainer" unique_id=951391663]
 layout_mode = 2
@@ -157,9 +167,14 @@ theme_override_fonts/font = ExtResource("6_mu3iv")
 theme_override_font_sizes/font_size = 30
 text = "Master"
 
-[node name="HSlider" type="HSlider" parent="SettingsMargin/SettingsContainer/ScrollContainer/SettingsListContainer/AudioContainer/MasterMargin/MasterContainer" unique_id=366727677]
+[node name="MasterSlider" type="HSlider" parent="SettingsMargin/SettingsContainer/ScrollContainer/SettingsListContainer/AudioContainer/MasterMargin/MasterContainer" unique_id=366727677]
+unique_name_in_owner = true
 custom_minimum_size = Vector2(250, 40)
 layout_mode = 2
+min_value = 0.0
+max_value = 1.0
+step = 0.05
+value = 1.0
 
 [node name="DisplayContainer" type="VBoxContainer" parent="SettingsMargin/SettingsContainer/ScrollContainer/SettingsListContainer" unique_id=709384128]
 layout_mode = 2
@@ -172,56 +187,39 @@ theme_override_fonts/font = ExtResource("6_mu3iv")
 theme_override_font_sizes/font_size = 42
 text = "Display"
 
-[node name="MusicMargin" type="MarginContainer" parent="SettingsMargin/SettingsContainer/ScrollContainer/SettingsListContainer/DisplayContainer" unique_id=807705452]
+[node name="FullscreenMargin" type="MarginContainer" parent="SettingsMargin/SettingsContainer/ScrollContainer/SettingsListContainer/DisplayContainer"]
 layout_mode = 2
 
-[node name="MusicContainer" type="HBoxContainer" parent="SettingsMargin/SettingsContainer/ScrollContainer/SettingsListContainer/DisplayContainer/MusicMargin" unique_id=1852256292]
+[node name="FullscreenContainer" type="HBoxContainer" parent="SettingsMargin/SettingsContainer/ScrollContainer/SettingsListContainer/DisplayContainer/FullscreenMargin"]
 layout_mode = 2
 
-[node name="Music" type="Label" parent="SettingsMargin/SettingsContainer/ScrollContainer/SettingsListContainer/DisplayContainer/MusicMargin/MusicContainer" unique_id=658713542]
+[node name="FullscreenLabel" type="Label" parent="SettingsMargin/SettingsContainer/ScrollContainer/SettingsListContainer/DisplayContainer/FullscreenMargin/FullscreenContainer"]
 custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
 theme_override_colors/font_color = Color(0.10980392, 0.21176471, 0.007843138, 1)
 theme_override_fonts/font = ExtResource("6_mu3iv")
 theme_override_font_sizes/font_size = 30
-text = "Music"
+text = "Fullscreen"
 
-[node name="HSlider" type="HSlider" parent="SettingsMargin/SettingsContainer/ScrollContainer/SettingsListContainer/DisplayContainer/MusicMargin/MusicContainer" unique_id=76687529]
-custom_minimum_size = Vector2(250, 40)
+[node name="FullscreenCheck" type="CheckButton" parent="SettingsMargin/SettingsContainer/ScrollContainer/SettingsListContainer/DisplayContainer/FullscreenMargin/FullscreenContainer"]
+unique_name_in_owner = true
 layout_mode = 2
 
-[node name="SFXMargin" type="MarginContainer" parent="SettingsMargin/SettingsContainer/ScrollContainer/SettingsListContainer/DisplayContainer" unique_id=1878192126]
+[node name="VSyncMargin" type="MarginContainer" parent="SettingsMargin/SettingsContainer/ScrollContainer/SettingsListContainer/DisplayContainer"]
 layout_mode = 2
 
-[node name="SFXContainer" type="HBoxContainer" parent="SettingsMargin/SettingsContainer/ScrollContainer/SettingsListContainer/DisplayContainer/SFXMargin" unique_id=1304543940]
+[node name="VSyncContainer" type="HBoxContainer" parent="SettingsMargin/SettingsContainer/ScrollContainer/SettingsListContainer/DisplayContainer/VSyncMargin"]
 layout_mode = 2
 
-[node name="SFX" type="Label" parent="SettingsMargin/SettingsContainer/ScrollContainer/SettingsListContainer/DisplayContainer/SFXMargin/SFXContainer" unique_id=90816239]
+[node name="VSyncLabel" type="Label" parent="SettingsMargin/SettingsContainer/ScrollContainer/SettingsListContainer/DisplayContainer/VSyncMargin/VSyncContainer"]
 custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
 theme_override_colors/font_color = Color(0.10980392, 0.21176471, 0.007843138, 1)
 theme_override_fonts/font = ExtResource("6_mu3iv")
 theme_override_font_sizes/font_size = 30
-text = "SFX"
+text = "V-Sync"
 
-[node name="HSlider" type="HSlider" parent="SettingsMargin/SettingsContainer/ScrollContainer/SettingsListContainer/DisplayContainer/SFXMargin/SFXContainer" unique_id=1581927625]
-custom_minimum_size = Vector2(250, 40)
-layout_mode = 2
-
-[node name="MasterMargin" type="MarginContainer" parent="SettingsMargin/SettingsContainer/ScrollContainer/SettingsListContainer/DisplayContainer" unique_id=592526694]
-layout_mode = 2
-
-[node name="MasterContainer" type="HBoxContainer" parent="SettingsMargin/SettingsContainer/ScrollContainer/SettingsListContainer/DisplayContainer/MasterMargin" unique_id=20362110]
-layout_mode = 2
-
-[node name="Master" type="Label" parent="SettingsMargin/SettingsContainer/ScrollContainer/SettingsListContainer/DisplayContainer/MasterMargin/MasterContainer" unique_id=1954219742]
-custom_minimum_size = Vector2(200, 0)
-layout_mode = 2
-theme_override_colors/font_color = Color(0.10980392, 0.21176471, 0.007843138, 1)
-theme_override_fonts/font = ExtResource("6_mu3iv")
-theme_override_font_sizes/font_size = 30
-text = "Master"
-
-[node name="HSlider" type="HSlider" parent="SettingsMargin/SettingsContainer/ScrollContainer/SettingsListContainer/DisplayContainer/MasterMargin/MasterContainer" unique_id=2001862989]
-custom_minimum_size = Vector2(250, 40)
+[node name="VSyncOption" type="OptionButton" parent="SettingsMargin/SettingsContainer/ScrollContainer/SettingsListContainer/DisplayContainer/VSyncMargin/VSyncContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(200, 40)
 layout_mode = 2
