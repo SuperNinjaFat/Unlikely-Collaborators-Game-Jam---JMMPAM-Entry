@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Set the current section in the UCJam save file.
+"""Set the current section in the Caterpillar Climb save file.
 
 Usage:
     python tools/set_section.py <section_number> [level_path]
@@ -19,7 +19,7 @@ import sys
 
 SAVE_PATH = os.path.join(
     os.environ.get("APPDATA", ""),
-    "Godot", "app_userdata", "UCJam", "global_state.tres",
+    "Godot", "app_userdata", "Caterpillar Climb", "global_state.tres",
 )
 
 
