@@ -1212,6 +1212,24 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.0755177, -7.8954163, 0)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.104)
 shape = SubResource("BoxShape3D_3r5v7")
 
+[node name="LeafPuzzle" parent="Sections/Section12" unique_id=396259638 instance=ExtResource("4_0hfkw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.499733, 7.7487946, 0)
+
+[node name="LeafBarrier" parent="Sections/Section12/LeafPuzzle" index="0" unique_id=1835696946]
+transform = Transform3D(1.7729573, 0, 0, 0, 0.86631274, 0, 0, 0, 1, 0.41635132, 0.13877869, 0)
+
+[node name="CollectibleLeaf" parent="Sections/Section12/LeafPuzzle/Leafs" parent_id_path=PackedInt32Array(396259638, 448507772) index="0" unique_id=327809198 instance=ExtResource("5_lxcgy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.465841, -3.2614288, 0)
+
+[node name="CollectibleLeaf2" parent="Sections/Section12/LeafPuzzle/Leafs" parent_id_path=PackedInt32Array(396259638, 448507772) index="1" unique_id=1741537905 instance=ExtResource("5_lxcgy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.020977, -9.691772, 0)
+
+[node name="CollectibleLeaf3" parent="Sections/Section12/LeafPuzzle/Leafs" parent_id_path=PackedInt32Array(396259638, 448507772) index="2" unique_id=247340434 instance=ExtResource("5_lxcgy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.1048927, -11.149017, 0)
+
+[node name="CollectibleLeaf4" parent="Sections/Section12/LeafPuzzle/Leafs" parent_id_path=PackedInt32Array(396259638, 448507772) index="3" unique_id=2048288138 instance=ExtResource("5_lxcgy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.1635284, -3.839676, 0)
+
 [node name="Section13" parent="Sections" unique_id=89616397 instance=ExtResource("3_t8qqb")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.38933, 186.17781, 0)
 
@@ -1340,4 +1358,5 @@ shape = SubResource("BoxShape3D_66qj3")
 [editable path="Sections/Section11/Blockout/GrabSurface"]
 [editable path="Sections/Section12"]
 [editable path="Sections/Section12/Blockout/GrabSurface"]
+[editable path="Sections/Section12/LeafPuzzle"]
 [editable path="Sections/Section13"]
