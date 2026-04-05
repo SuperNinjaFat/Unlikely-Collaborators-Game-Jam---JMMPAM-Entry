@@ -178,9 +178,6 @@ size = Vector3(9.864258, 0.8955078, 2.3110962)
 resource_local_to_scene = true
 size = Vector3(20.503136, 9.831184, 10.99115)
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_u53t4"]
-size = Vector3(1.0061035, 10.241211, 2.3110962)
-
 [node name="Tree" type="Node3D" unique_id=863522178]
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=120435625]
@@ -1575,10 +1572,6 @@ shape = SubResource("BoxShape3D_f5140")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Sections/Section16/BacktrackPrevention" parent_id_path=PackedInt32Array(782441552, 835127638) index="0" unique_id=550427647]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.269455, -0.3526001, 0)
-
-[node name="CollisionShape3D5" parent="Sections/Section16/BacktrackPrevention/StaticBody3D" index="0"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.013427734, -0.0970459, -0.104)
-shape = SubResource("BoxShape3D_u53t4")
 
 [editable path="Sections/Section0"]
 [editable path="Sections/Section1"]

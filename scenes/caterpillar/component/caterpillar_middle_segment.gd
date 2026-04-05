@@ -6,6 +6,9 @@ const MAX_DRAG_DISTANCE: float = 2.0
 @export var end_segment: CaterpillarBodyEndSegment
 @onready var launch_indicator_pivot: Node3D = $LaunchIndicatorPivot
 @onready var launch_indicator_container: Node3D = $LaunchIndicatorPivot/LaunchIndicatorContainer
+@onready var selected_sound: AudioStreamPlayer = $SelectedSound
+@onready var launch_sound: AudioStreamPlayer = $LaunchSound
+
 
 signal released
 
@@ -41,6 +44,7 @@ func _input(event: InputEvent) -> void:
 	_selected = false
 	released.emit()
 	launch_indicator_pivot.visible = false
+	launch_sound.play()
 
 @warning_ignore("unused_parameter")
 func _input_event(camera: Camera3D, event: InputEvent, event_position: Vector3, normal: Vector3, shape_idx: int) -> void:
@@ -49,6 +53,7 @@ func _input_event(camera: Camera3D, event: InputEvent, event_position: Vector3, 
 	if not front_segment.is_pinned_to_world() or not end_segment.is_pinned_to_world(): return
 	_selected = true
 	launch_indicator_pivot.visible = true
+	selected_sound.play()
 
 func set_selectable(selectable: bool) -> void:
 	_selectable = selectable

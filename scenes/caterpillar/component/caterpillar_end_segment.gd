@@ -12,6 +12,8 @@ const SLIDE_BODY_UID: String = "uid://cqy7e7a8unm80"
 @onready var world_pin: PinJoint3D = $WorldPin
 @onready var floor_checks: Node3D = $FloorChecks
 @onready var grab_surface_detection: Area3D = $GrabSurfaceDetection
+@onready var selected_sound: AudioStreamPlayer = $SelectedSound
+@onready var pinned_sound: AudioStreamPlayer = $PinnedSound
 
 var _selected: bool = false 
  # true will still defer to all auxiliary selectability logic, but false will always prevent selection
@@ -51,6 +53,8 @@ func _input_event(camera: Camera3D, event: InputEvent, event_position: Vector3, 
 		pin_to_world(false)
 		_selected = true
 		_opposite_segment_sliding = opposite_segment.is_sliding()
+		
+		selected_sound.play()
 	
 	elif event.is_action_released("left_click"):
 		if is_pinned_to_world(): return
@@ -116,6 +120,7 @@ func pin_to_world(pin: bool) -> void:
 	if pin:
 		world_pin.node_a = get_path()
 		pinned_to_world.emit()
+		pinned_sound.play(0.01)
 		if _is_on_floor(): return
 		if grab_surface_detection.get_overlapping_areas().size() == 0: return # is this necessary?
 		var grab_surface: Node3D = grab_surface_detection.get_overlapping_areas()[0]
