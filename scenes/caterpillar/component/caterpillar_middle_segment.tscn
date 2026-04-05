@@ -5,6 +5,24 @@
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_ke6ca"]
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_t3f7v"]
+shading_mode = 0
+disable_receive_shadows = true
+
+[sub_resource type="BoxMesh" id="BoxMesh_i80sl"]
+material = SubResource("StandardMaterial3D_t3f7v")
+size = Vector3(1.4, 0.2, 0.2)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_i80sl"]
+shading_mode = 0
+disable_receive_shadows = true
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_sllwc"]
+material = SubResource("StandardMaterial3D_i80sl")
+top_radius = 0.0
+bottom_radius = 0.2
+height = 0.8
+
 [node name="CaterpillarMiddleSegment" type="RigidBody3D" unique_id=664330916]
 collision_layer = 2
 axis_lock_linear_z = true
@@ -17,3 +35,25 @@ shape = SubResource("SphereShape3D_ke6ca")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1405010064]
 mesh = ExtResource("1_ke6ca")
+
+[node name="TestLaunchVelocityIndicator" type="RayCast3D" parent="." unique_id=383004081]
+target_position = Vector3(0, 0, 0)
+collision_mask = 0
+
+[node name="LaunchIndicatorPivot" type="Node3D" parent="." unique_id=1782799914]
+visible = false
+
+[node name="LaunchIndicatorContainer" type="Node3D" parent="LaunchIndicatorPivot" unique_id=625137098]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0, 0, -0.8)
+
+[node name="ArrowBody" type="MeshInstance3D" parent="LaunchIndicatorPivot/LaunchIndicatorContainer" unique_id=1200985278]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.7, 0, 0)
+cast_shadow = 0
+mesh = SubResource("BoxMesh_i80sl")
+metadata/_edit_lock_ = true
+
+[node name="ArrowHead" type="MeshInstance3D" parent="LaunchIndicatorPivot/LaunchIndicatorContainer" unique_id=428490168]
+transform = Transform3D(-4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, 0, 1, 1.8, 0, 0)
+cast_shadow = 0
+mesh = SubResource("CylinderMesh_sllwc")
+metadata/_edit_lock_ = true

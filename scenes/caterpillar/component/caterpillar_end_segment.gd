@@ -13,7 +13,9 @@ const SLIDE_BODY_UID: String = "uid://cqy7e7a8unm80"
 @onready var floor_checks: Node3D = $FloorChecks
 @onready var grab_surface_detection: Area3D = $GrabSurfaceDetection
 
-var _selected: bool = false # redundant bool could be replaced with is_pinned_to_world() (maybe)
+var _selected: bool = false 
+ # true will still defer to all auxiliary selectability logic, but false will always prevent selection
+var _selectable: bool = true
 var _max_extension_length: float = 0.0
 var _opposite_segment_sliding: bool = false
 var _slide_body: CharacterBody3D
@@ -22,6 +24,7 @@ var _slide_body: CharacterBody3D
 var callbacks: Dictionary = {}
 
 signal pinned_to_world
+signal game_end_reached
 
 func _ready() -> void:
 	
@@ -39,6 +42,8 @@ func _ready() -> void:
 @warning_ignore("unused_parameter")
 func _input_event(camera: Camera3D, event: InputEvent, event_position: Vector3, normal: Vector3, shape_idx: int) -> void:
 	
+	if not _selectable: return
+	
 	if event.is_action_pressed("left_click"): 
 		# "selectable" conditions -- refer to the diagram
 		if is_pinned_to_world() and not opposite_segment.is_pinned_to_world(): return
@@ -55,6 +60,9 @@ func _input_event(camera: Camera3D, event: InputEvent, event_position: Vector3, 
 		pin_to_world(true)
 
 func _input(event: InputEvent) -> void:
+	
+	if not _selectable: return
+	
 	if event.is_action_released("left_click") and _selected: 
 		_selected = false
 		if grab_surface_detection.get_overlapping_areas().size() > 0:
@@ -114,6 +122,9 @@ func pin_to_world(pin: bool) -> void:
 		if _is_on_floor(): return
 		if grab_surface_detection.get_overlapping_areas().size() == 0: return # is this necessary?
 		var grab_surface: Node3D = grab_surface_detection.get_overlapping_areas()[0]
+		if grab_surface.game_end:
+			game_end_reached.emit()
+			return
 		if grab_surface.slide_velocity == Vector2.ZERO: return
 		#if is_instance_valid(_slide_body): _slide_body.queue_free()
 		_slide_body = load(SLIDE_BODY_UID).instantiate()
@@ -145,6 +156,9 @@ func disable_world_pin(disable_time: float = 0.25) -> void:
 	await get_tree().create_timer(disable_time).timeout
 	_enable_floor_checks(true)
 	grab_surface_detection.monitoring = true
+
+func set_selectable(selectable: bool) -> void:
+	_selectable = selectable
 
 func _is_on_floor() -> bool:
 	return (
