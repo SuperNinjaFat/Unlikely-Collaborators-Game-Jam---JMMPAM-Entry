@@ -4,6 +4,7 @@ const CaterpillarPlayerScene := preload("res://scenes/caterpillar/caterpillar_pl
 # Local offset of the middle segment within the player scene
 const MIDDLE_SEGMENT_LOCAL_OFFSET := Vector3(-1.5, 0, 0)
 
+@export var end_cutscene: Cutscene
 @export var sections_parent: Node3D
 # Array of sections, of type Node3D
 var sections: Array[Node3D]
@@ -65,6 +66,15 @@ func _spawn_player(section_index: int) -> void:
 	player_instance.position = respawn_pos - MIDDLE_SEGMENT_LOCAL_OFFSET
 	get_parent().add_child(player_instance)
 	player_instance.engage_grip()
+	player_instance.game_end_reached.connect(_on_game_end_reached)
+
+func _on_game_end_reached() -> void:
+	# play end cutscene
+	var cutscene_manager = get_parent().get_node("CutsceneManager")
+	await cutscene_manager.play_cutscene(end_cutscene)
+	
+	# end level after cutscene ends
+	get_parent().level_won.emit()
 
 # Upon a section being entered, enable the new section, disable the old one
 func _on_section_entered(index: int) -> void:
