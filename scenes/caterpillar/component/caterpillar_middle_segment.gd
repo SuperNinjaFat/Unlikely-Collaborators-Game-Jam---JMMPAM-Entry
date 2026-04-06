@@ -28,6 +28,7 @@ func _process(_delta: float) -> void:
 		(global_position.distance_to(mouse_position))/MAX_DRAG_DISTANCE,
 		0.0, 1.0
 	)
+	# TODO - make sure target and up vector are not colinear
 	launch_indicator_pivot.look_at(
 		global_position + callbacks.get_launch_direction.call()
 	)
