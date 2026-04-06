@@ -64,6 +64,7 @@ func _input_event(camera: Camera3D, event: InputEvent, event_position: Vector3, 
 	
 	elif event.is_action_released("left_click"):
 		if is_pinned_to_world(): return
+		# TODO - "can't find overlappying areas when monitoring is off" :/
 		elif grab_surface_detection.get_overlapping_areas().size() == 0: return
 		
 		pin_to_world(true)
