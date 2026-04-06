@@ -10,6 +10,7 @@
 [ext_resource type="Material" uid="uid://lyxplwn1qaue" path="res://resources/materials/bark2.tres" id="4_lr8mv"]
 [ext_resource type="PackedScene" uid="uid://yavau60xdj13" path="res://scenes/entities/leaf_puzzle/collectible_leaf/collectible_leaf.tscn" id="5_lxcgy"]
 [ext_resource type="PackedScene" uid="uid://jkkawrmxgder" path="res://scenes/environment/grab_surface.tscn" id="5_t8qqb"]
+[ext_resource type="PackedScene" uid="uid://chp30vobl7iri" path="res://addons/maaacks_game_template/base/nodes/tutorial_giver/tutorial_giver.tscn" id="11_23rn6"]
 
 [sub_resource type="CylinderMesh" id="CylinderMesh_yya0e"]
 
@@ -199,7 +200,7 @@ script = ExtResource("1_lr8mv")
 transform = Transform3D(0.98628557, -0.021257402, 0.16367294, 0, 0.9916711, 0.1287956, -0.16504759, -0.12702923, 0.978071, 0, 0, 0)
 shadow_enabled = true
 
-[node name="CameraPivot" type="Camera3D" parent="." unique_id=1232756286 node_paths=PackedStringArray("end_cutscene", "sections_parent")]
+[node name="CameraPivot" type="Camera3D" parent="." unique_id=1232756286 node_paths=PackedStringArray("end_cutscene", "sections_parent", "tutorial_giver")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.521097, 5.7190466, 27.954)
 projection = 1
 current = true
@@ -208,6 +209,7 @@ size = 15.815
 script = ExtResource("2_mkqp2")
 end_cutscene = NodePath("../CutsceneManager/Cutscene")
 sections_parent = NodePath("../Sections")
+tutorial_giver = NodePath("../TutorialGiver")
 
 [node name="CutsceneManager" parent="." unique_id=1659254018 instance=ExtResource("3_8hv7v")]
 
@@ -1613,6 +1615,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.383793, 3.6537018, 0)
 
 [node name="CollectibleLeaf3" parent="Sections/Section16/LeafPuzzle/Leafs" parent_id_path=PackedInt32Array(583281097, 448507772) index="2" unique_id=1027864344 instance=ExtResource("5_lxcgy")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.7283745, 2.076416, 0)
+
+[node name="TutorialGiver" parent="." unique_id=1051063935 instance=ExtResource("11_23rn6")]
 
 [editable path="Sections/Section0"]
 [editable path="Sections/Section1"]

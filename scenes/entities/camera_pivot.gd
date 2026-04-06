@@ -6,12 +6,15 @@ const MIDDLE_SEGMENT_LOCAL_OFFSET := Vector3(-1.5, 0, 0)
 
 @export var end_cutscene: Cutscene
 @export var sections_parent: Node3D
+@export var tutorial_giver: Node
 # Array of sections, of type Node3D
 var sections: Array[Node3D]
 # Track the index of the current section
 var current_section := 0
 # Persisted level state for saving section progress
 var level_state: LevelState
+
+signal new_section_entered(section_id: int)
 
 # On initialization, set up triggers and restore saved section.
 func _ready() -> void:
@@ -67,6 +70,13 @@ func _spawn_player(section_index: int) -> void:
 	get_parent().add_child(player_instance)
 	player_instance.engage_grip()
 	player_instance.game_end_reached.connect(_on_game_end_reached)
+	if not tutorial_giver: 
+		printerr("No TutorialGiver? :(")
+		return
+	tutorial_giver.initialize(
+		self,
+		player_instance
+	)
 
 func _on_game_end_reached() -> void:
 	# play end cutscene
@@ -100,6 +110,9 @@ func _on_section_entered(index: int) -> void:
 		tween.finished.connect(func():
 			_enable_backtrack_prevention(current_section)
 		)
+	
+	# used by TutorialGiver
+	new_section_entered.emit(current_section)
 
 # Destroy the current player and spawn a fresh one at the given section.
 func jump_to_section(index: int) -> void:

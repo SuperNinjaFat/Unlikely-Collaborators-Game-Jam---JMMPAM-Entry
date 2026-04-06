@@ -9,7 +9,6 @@ const MAX_DRAG_DISTANCE: float = 2.0
 @onready var selected_sound: AudioStreamPlayer = $SelectedSound
 @onready var launch_sound: AudioStreamPlayer = $LaunchSound
 
-
 signal released
 
 var _selected: bool = false
