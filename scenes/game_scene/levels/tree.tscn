@@ -1622,6 +1622,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.7283745, 2.076416, 0)
 [node name="BGMPlayer" type="AudioStreamPlayer" parent="." unique_id=1261825081]
 stream = ExtResource("12_ub3dp")
 autoplay = true
+bus = &"Music"
 
 [editable path="Sections/Section0"]
 [editable path="Sections/Section1"]
