@@ -3,7 +3,7 @@ shader_type canvas_item;
 uniform float direction = 1;
 uniform float speed = 1.0;
 uniform float y_frequency = 1.0;
-uniform float y_amplitude = 0.025;
+uniform float y_amplitude = 0.005;
 varying vec4 modulate; // ensures the modulate functions still work
 
 void vertex() {
