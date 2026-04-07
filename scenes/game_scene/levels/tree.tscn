@@ -157,6 +157,9 @@ resource_local_to_scene = true
 size = Vector3(5.4687805, 9.724625, 10.99115)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_66qj3"]
+size = Vector3(1, 5.301758, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_f5140"]
 resource_local_to_scene = true
 size = Vector3(5.5120544, 7.9581375, 10.99115)
 
@@ -165,11 +168,14 @@ size = Vector3(0.9038086, 7.998047, 2.3110962)
 
 [sub_resource type="CylinderMesh" id="CylinderMesh_0hfkw"]
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_f5140"]
+[sub_resource type="BoxShape3D" id="BoxShape3D_u53t4"]
 resource_local_to_scene = true
 size = Vector3(12.552887, 8.455108, 10.99115)
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_u53t4"]
+[sub_resource type="BoxShape3D" id="BoxShape3D_wr4mq"]
+size = Vector3(12.875, 1, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_xiac4"]
 resource_local_to_scene = true
 size = Vector3(12.410675, 21.882387, 10.99115)
 
@@ -183,15 +189,18 @@ albedo_color = Color(0.44555736, 0.8298593, 0.456303, 1)
 [sub_resource type="PlaneMesh" id="PlaneMesh_23rn6"]
 material = SubResource("StandardMaterial3D_8hv7v")
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_wr4mq"]
+[sub_resource type="BoxShape3D" id="BoxShape3D_5xuhm"]
 resource_local_to_scene = true
 size = Vector3(2, 2, 2)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_tf22"]
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_xiac4"]
+[sub_resource type="BoxShape3D" id="BoxShape3D_vwj37"]
 resource_local_to_scene = true
 size = Vector3(20.503136, 9.831184, 10.99115)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_0ru7v"]
+size = Vector3(1, 10.318359, 1)
 
 [node name="Tree" type="Node3D" unique_id=863522178]
 script = ExtResource("1_lr8mv")
@@ -1194,6 +1203,10 @@ shape = SubResource("BoxShape3D_5povq")
 [node name="StaticBody3D" type="StaticBody3D" parent="Sections/Section12/BacktrackPrevention" parent_id_path=PackedInt32Array(690953752, 835127638) index="0" unique_id=92344543]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.0755177, -7.8954163, 0)
 
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Sections/Section12/BacktrackPrevention/StaticBody3D" unique_id=1567898859]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.1616211, 0)
+shape = SubResource("BoxShape3D_66qj3")
+
 [node name="LeafPuzzle" parent="Sections/Section12" unique_id=396259638 instance=ExtResource("4_0hfkw")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.499733, 7.7487946, 0)
 
@@ -1302,7 +1315,7 @@ transform = Transform3D(6.156434, 0, 0, 0, 1.4145601, 0, 0, 0, 1, -1.1871071, 2.
 
 [node name="CollisionShape3D" parent="Sections/Section13/SectionTrigger" parent_id_path=PackedInt32Array(89616397, 2029195658) index="0" unique_id=1708760178]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.095703, -11.945221, -2.133)
-shape = SubResource("BoxShape3D_66qj3")
+shape = SubResource("BoxShape3D_f5140")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Sections/Section13/BacktrackPrevention" parent_id_path=PackedInt32Array(89616397, 835127638) index="0" unique_id=484532199]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.4830227, -12.676849, 0)
@@ -1386,10 +1399,13 @@ mesh = SubResource("PrismMesh_h3dag")
 
 [node name="CollisionShape3D" parent="Sections/Section14/SectionTrigger" parent_id_path=PackedInt32Array(100839602, 2029195658) index="0" unique_id=1708760178]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.98433876, -8.610504, -2.133)
-shape = SubResource("BoxShape3D_f5140")
+shape = SubResource("BoxShape3D_u53t4")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Sections/Section14/BacktrackPrevention" parent_id_path=PackedInt32Array(100839602, 835127638) index="0" unique_id=1488728817]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.9923687, -13.579086, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Sections/Section14/BacktrackPrevention/StaticBody3D" unique_id=1038611992]
+shape = SubResource("BoxShape3D_wr4mq")
 
 [node name="LeafPuzzle" parent="Sections/Section14" unique_id=1188697580 instance=ExtResource("4_0hfkw")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.9218502, 3.8050995, 0)
@@ -1507,7 +1523,7 @@ transform = Transform3D(9.362223, 0.32753208, 0, -3.392774, 0.9038115, 0, 0, 0, 
 
 [node name="CollisionShape3D" parent="Sections/Section15/SectionTrigger" parent_id_path=PackedInt32Array(1821260037, 2029195658) index="0" unique_id=1708760178]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.1558685, -0.5359802, -2.133)
-shape = SubResource("BoxShape3D_u53t4")
+shape = SubResource("BoxShape3D_xiac4")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Sections/Section15/BacktrackPrevention" parent_id_path=PackedInt32Array(1821260037, 835127638) index="0" unique_id=1518567611]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.09665871, -12.139008, 0)
@@ -1543,8 +1559,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.7360153, -1.7746277, 0)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -51.2482, 225.50066, 0)
 
 [node name="CameraSpot" parent="Sections/Section16" index="0" unique_id=1614131868]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.767624, 0, 27.871)
-size = 19.337982
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.7597923, 0.16255188, 27.871)
+size = 18.6156
 
 [node name="RespawnPoint" parent="Sections/Section16" index="1" unique_id=427335471]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.5652275, -4.524048, 0)
@@ -1587,7 +1603,7 @@ game_end = true
 mesh = SubResource("PlaneMesh_23rn6")
 
 [node name="CollisionShape3D" parent="Sections/Section16/Blockout/GrabSurface11" index="1" unique_id=2034447646]
-shape = SubResource("BoxShape3D_wr4mq")
+shape = SubResource("BoxShape3D_5xuhm")
 
 [node name="TestFloor22" type="StaticBody3D" parent="Sections/Section16/Blockout" parent_id_path=PackedInt32Array(782441552, 98019502) index="7" unique_id=578164903]
 transform = Transform3D(9.94724, 2.4820955, 0, -11.590489, 2.130195, 0, 0, 0, 25.000002, -15.316643, -1.3317108, 0)
@@ -1596,11 +1612,14 @@ transform = Transform3D(9.94724, 2.4820955, 0, -11.590489, 2.130195, 0, 0, 0, 25
 shape = SubResource("BoxShape3D_tf22")
 
 [node name="CollisionShape3D" parent="Sections/Section16/SectionTrigger" parent_id_path=PackedInt32Array(782441552, 2029195658) index="0" unique_id=1708760178]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.36493683, -0.59173584, -2.133)
-shape = SubResource("BoxShape3D_xiac4")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.1126862, -0.59173584, -2.133)
+shape = SubResource("BoxShape3D_vwj37")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Sections/Section16/BacktrackPrevention" parent_id_path=PackedInt32Array(782441552, 835127638) index="0" unique_id=550427647]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.269455, -0.3526001, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.129925, -0.3526001, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Sections/Section16/BacktrackPrevention/StaticBody3D" unique_id=730459531]
+shape = SubResource("BoxShape3D_0ru7v")
 
 [node name="LeafPuzzle" parent="Sections/Section16" unique_id=583281097 instance=ExtResource("4_0hfkw")]
 
