@@ -11,6 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://yavau60xdj13" path="res://scenes/entities/leaf_puzzle/collectible_leaf/collectible_leaf.tscn" id="5_lxcgy"]
 [ext_resource type="PackedScene" uid="uid://jkkawrmxgder" path="res://scenes/environment/grab_surface.tscn" id="5_t8qqb"]
 [ext_resource type="PackedScene" uid="uid://c5b7jn4ap3754" path="res://scenes/entities/tutorial/TutorialTrigger.tscn" id="9_23rn6"]
+[ext_resource type="AudioStream" uid="uid://dbasge706v2p7" path="res://assets/music/Caterpillar Climb.mp3" id="12_ub3dp"]
 
 [sub_resource type="CylinderMesh" id="CylinderMesh_yya0e"]
 
@@ -1718,6 +1719,11 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.383793, 3.6537018, 0)
 
 [node name="CollectibleLeaf3" parent="Sections/Section16/LeafPuzzle/Leafs" parent_id_path=PackedInt32Array(583281097, 448507772) index="2" unique_id=1027864344 instance=ExtResource("5_lxcgy")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.7283745, 2.076416, 0)
+
+[node name="BGMPlayer" type="AudioStreamPlayer" parent="." unique_id=1261825081]
+stream = ExtResource("12_ub3dp")
+autoplay = true
+
 
 [editable path="Sections/Section0"]
 [editable path="Sections/Section0/TutorialTrigger"]
