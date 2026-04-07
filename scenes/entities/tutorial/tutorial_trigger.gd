@@ -6,7 +6,8 @@ extends Area3D
 enum FollowTarget {
 	FRONT,
 	MIDDLE,
-	BACK
+	BACK,
+	FIXED_POSITION
 }
 
 enum CompletionMode {
@@ -21,7 +22,8 @@ enum CompletionMode {
 ## The tutorial text to display. Use \n for line breaks since Label3D
 ## does not support automatic line wrapping.
 @export_multiline var tutorial_text: String
-## Which caterpillar body part the label should follow.
+## Which caterpillar body part the label should follow, or FIXED_POSITION
+## to keep the label where you placed TutorialLabelContainer in the editor.
 @export var follow_target: FollowTarget = FollowTarget.MIDDLE
 ## How the tutorial completes (dismissed).
 @export var completion_mode: CompletionMode = CompletionMode.TIMEOUT
@@ -59,7 +61,7 @@ func _check_existing_overlaps_delayed() -> void:
 			break
 
 func _process(delta: float) -> void:
-	if not _move_target_node or not _is_showing:
+	if follow_target == FollowTarget.FIXED_POSITION or not _move_target_node or not _is_showing:
 		return
 	_label_container.global_position = lerp(
 		_label_container.global_position,
@@ -105,16 +107,16 @@ func _show_tutorial() -> void:
 	if show_delay > 0.0:
 		await get_tree().create_timer(show_delay).timeout
 
-	# Resolve which body part to follow
-	match follow_target:
-		FollowTarget.FRONT:
-			_move_target_node = player.front_caterpillar_end_segment
-		FollowTarget.MIDDLE:
-			_move_target_node = player.caterpillar_middle_segment
-		FollowTarget.BACK:
-			_move_target_node = player.end_caterpillar_end_segment
-
-	_label_container.global_position = _move_target_node.global_position
+	# Resolve which body part to follow (unless using fixed position)
+	if not follow_target == FollowTarget.FIXED_POSITION:
+		match follow_target:
+			FollowTarget.FRONT:
+				_move_target_node = player.front_caterpillar_end_segment
+			FollowTarget.MIDDLE:
+				_move_target_node = player.caterpillar_middle_segment
+			FollowTarget.BACK:
+				_move_target_node = player.end_caterpillar_end_segment
+		_label_container.global_position = _move_target_node.global_position
 
 	# Typewriter text animation
 	_label.text = ""
