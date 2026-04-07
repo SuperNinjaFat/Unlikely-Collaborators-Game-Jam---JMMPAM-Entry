@@ -43,10 +43,16 @@ var _triggered: bool = false
 func _ready() -> void:
 	body_entered.connect(_on_body_entered)
 	input_ray_pickable = false
-	# Check for bodies already overlapping (e.g. player spawned inside this trigger)
-	_check_existing_overlaps.call_deferred()
+	# Check for bodies already overlapping (e.g. player spawned inside this trigger
+	# from a checkpoint). We need to wait for the player to actually exist and for
+	# the physics server to register overlaps, so wait a couple of physics frames.
+	_check_existing_overlaps_delayed()
 
-func _check_existing_overlaps() -> void:
+func _check_existing_overlaps_delayed() -> void:
+	await get_tree().physics_frame
+	await get_tree().physics_frame
+	if _triggered:
+		return
 	for body in get_overlapping_bodies():
 		_on_body_entered(body)
 		if _triggered:
