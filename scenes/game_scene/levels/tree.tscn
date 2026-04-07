@@ -11,6 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://yavau60xdj13" path="res://scenes/entities/leaf_puzzle/collectible_leaf/collectible_leaf.tscn" id="5_lxcgy"]
 [ext_resource type="PackedScene" uid="uid://jkkawrmxgder" path="res://scenes/environment/grab_surface.tscn" id="5_t8qqb"]
 [ext_resource type="PackedScene" uid="uid://chp30vobl7iri" path="res://addons/maaacks_game_template/base/nodes/tutorial_giver/tutorial_giver.tscn" id="11_23rn6"]
+[ext_resource type="AudioStream" uid="uid://dbasge706v2p7" path="res://assets/music/Caterpillar Climb.mp3" id="12_ub3dp"]
 
 [sub_resource type="CylinderMesh" id="CylinderMesh_yya0e"]
 
@@ -1617,6 +1618,10 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.383793, 3.6537018, 0)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.7283745, 2.076416, 0)
 
 [node name="TutorialGiver" parent="." unique_id=1051063935 instance=ExtResource("11_23rn6")]
+
+[node name="BGMPlayer" type="AudioStreamPlayer" parent="." unique_id=1261825081]
+stream = ExtResource("12_ub3dp")
+autoplay = true
 
 [editable path="Sections/Section0"]
 [editable path="Sections/Section1"]
