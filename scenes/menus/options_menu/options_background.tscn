@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://8oqbtk8vclho" path="res://assets/ui_files/caterpillar_v2.png" id="4_gcuxi"]
 [ext_resource type="Texture2D" uid="uid://bs8rbnjlk6n6j" path="res://assets/ui_files/cloud_v2.png" id="5_idjub"]
 [ext_resource type="FontFile" uid="uid://bfqgp73lkxt8w" path="res://assets/fonts/LakkiReddy-Regular.ttf" id="6_mu3iv"]
+[ext_resource type="Texture2D" uid="uid://b3nxt0gg764kl" path="res://assets/ui_files/cloud_v2_highlight.png" id="7_jp4qw"]
 [ext_resource type="Script" uid="uid://c7ec0jj1gt72t" path="res://scenes/menus/options_menu/options_background.gd" id="7_script"]
 
 [node name="OptionsBackground" type="Control" unique_id=419945252]
@@ -57,6 +58,7 @@ theme_override_constants/margin_top = 40
 [node name="BackButton" type="TextureButton" parent="BackButtonMargin" unique_id=227339353]
 layout_mode = 2
 texture_normal = ExtResource("5_idjub")
+texture_hover = ExtResource("7_jp4qw")
 
 [node name="Back" type="Label" parent="BackButtonMargin/BackButton" unique_id=1840368085]
 layout_mode = 0
@@ -81,7 +83,7 @@ layout_mode = 2
 
 [node name="Settings" type="Label" parent="SettingsMargin/SettingsContainer" unique_id=1470556706]
 layout_mode = 2
-size_flags_horizontal = 0
+size_flags_horizontal = 4
 size_flags_vertical = 0
 theme_override_colors/font_color = Color(0.10980392, 0.21176471, 0.007843138, 1)
 theme_override_fonts/font = ExtResource("6_mu3iv")
@@ -125,7 +127,6 @@ text = "Music"
 unique_name_in_owner = true
 custom_minimum_size = Vector2(250, 40)
 layout_mode = 2
-min_value = 0.0
 max_value = 1.0
 step = 0.05
 value = 1.0
@@ -148,7 +149,6 @@ text = "SFX"
 unique_name_in_owner = true
 custom_minimum_size = Vector2(250, 40)
 layout_mode = 2
-min_value = 0.0
 max_value = 1.0
 step = 0.05
 value = 1.0
@@ -171,7 +171,6 @@ text = "Master"
 unique_name_in_owner = true
 custom_minimum_size = Vector2(250, 40)
 layout_mode = 2
-min_value = 0.0
 max_value = 1.0
 step = 0.05
 value = 1.0
@@ -187,13 +186,13 @@ theme_override_fonts/font = ExtResource("6_mu3iv")
 theme_override_font_sizes/font_size = 42
 text = "Display"
 
-[node name="FullscreenMargin" type="MarginContainer" parent="SettingsMargin/SettingsContainer/ScrollContainer/SettingsListContainer/DisplayContainer"]
+[node name="FullscreenMargin" type="MarginContainer" parent="SettingsMargin/SettingsContainer/ScrollContainer/SettingsListContainer/DisplayContainer" unique_id=1928781882]
 layout_mode = 2
 
-[node name="FullscreenContainer" type="HBoxContainer" parent="SettingsMargin/SettingsContainer/ScrollContainer/SettingsListContainer/DisplayContainer/FullscreenMargin"]
+[node name="FullscreenContainer" type="HBoxContainer" parent="SettingsMargin/SettingsContainer/ScrollContainer/SettingsListContainer/DisplayContainer/FullscreenMargin" unique_id=1459532808]
 layout_mode = 2
 
-[node name="FullscreenLabel" type="Label" parent="SettingsMargin/SettingsContainer/ScrollContainer/SettingsListContainer/DisplayContainer/FullscreenMargin/FullscreenContainer"]
+[node name="FullscreenLabel" type="Label" parent="SettingsMargin/SettingsContainer/ScrollContainer/SettingsListContainer/DisplayContainer/FullscreenMargin/FullscreenContainer" unique_id=41387665]
 custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
 theme_override_colors/font_color = Color(0.10980392, 0.21176471, 0.007843138, 1)
@@ -201,17 +200,17 @@ theme_override_fonts/font = ExtResource("6_mu3iv")
 theme_override_font_sizes/font_size = 30
 text = "Fullscreen"
 
-[node name="FullscreenCheck" type="CheckButton" parent="SettingsMargin/SettingsContainer/ScrollContainer/SettingsListContainer/DisplayContainer/FullscreenMargin/FullscreenContainer"]
+[node name="FullscreenCheck" type="CheckButton" parent="SettingsMargin/SettingsContainer/ScrollContainer/SettingsListContainer/DisplayContainer/FullscreenMargin/FullscreenContainer" unique_id=563758145]
 unique_name_in_owner = true
 layout_mode = 2
 
-[node name="VSyncMargin" type="MarginContainer" parent="SettingsMargin/SettingsContainer/ScrollContainer/SettingsListContainer/DisplayContainer"]
+[node name="VSyncMargin" type="MarginContainer" parent="SettingsMargin/SettingsContainer/ScrollContainer/SettingsListContainer/DisplayContainer" unique_id=86481931]
 layout_mode = 2
 
-[node name="VSyncContainer" type="HBoxContainer" parent="SettingsMargin/SettingsContainer/ScrollContainer/SettingsListContainer/DisplayContainer/VSyncMargin"]
+[node name="VSyncContainer" type="HBoxContainer" parent="SettingsMargin/SettingsContainer/ScrollContainer/SettingsListContainer/DisplayContainer/VSyncMargin" unique_id=1325820942]
 layout_mode = 2
 
-[node name="VSyncLabel" type="Label" parent="SettingsMargin/SettingsContainer/ScrollContainer/SettingsListContainer/DisplayContainer/VSyncMargin/VSyncContainer"]
+[node name="VSyncLabel" type="Label" parent="SettingsMargin/SettingsContainer/ScrollContainer/SettingsListContainer/DisplayContainer/VSyncMargin/VSyncContainer" unique_id=1524213144]
 custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
 theme_override_colors/font_color = Color(0.10980392, 0.21176471, 0.007843138, 1)
@@ -219,7 +218,7 @@ theme_override_fonts/font = ExtResource("6_mu3iv")
 theme_override_font_sizes/font_size = 30
 text = "V-Sync"
 
-[node name="VSyncOption" type="OptionButton" parent="SettingsMargin/SettingsContainer/ScrollContainer/SettingsListContainer/DisplayContainer/VSyncMargin/VSyncContainer"]
+[node name="VSyncOption" type="OptionButton" parent="SettingsMargin/SettingsContainer/ScrollContainer/SettingsListContainer/DisplayContainer/VSyncMargin/VSyncContainer" unique_id=1121622888]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(200, 40)
 layout_mode = 2
