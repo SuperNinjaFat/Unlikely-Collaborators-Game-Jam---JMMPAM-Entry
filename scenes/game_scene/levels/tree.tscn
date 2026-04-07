@@ -10,7 +10,7 @@
 [ext_resource type="Material" uid="uid://lyxplwn1qaue" path="res://resources/materials/bark2.tres" id="4_lr8mv"]
 [ext_resource type="PackedScene" uid="uid://yavau60xdj13" path="res://scenes/entities/leaf_puzzle/collectible_leaf/collectible_leaf.tscn" id="5_lxcgy"]
 [ext_resource type="PackedScene" uid="uid://jkkawrmxgder" path="res://scenes/environment/grab_surface.tscn" id="5_t8qqb"]
-[ext_resource type="PackedScene" uid="uid://chp30vobl7iri" path="res://addons/maaacks_game_template/base/nodes/tutorial_giver/tutorial_giver.tscn" id="11_23rn6"]
+[ext_resource type="PackedScene" uid="uid://c5b7jn4ap3754" path="res://scenes/entities/tutorial/TutorialTrigger.tscn" id="9_23rn6"]
 [ext_resource type="AudioStream" uid="uid://dbasge706v2p7" path="res://assets/music/Caterpillar Climb.mp3" id="12_ub3dp"]
 
 [sub_resource type="CylinderMesh" id="CylinderMesh_yya0e"]
@@ -20,6 +20,12 @@
 [sub_resource type="BoxShape3D" id="BoxShape3D_86hxr"]
 resource_local_to_scene = true
 size = Vector3(12.070679, 8.455108, 10.99115)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_r6ktd"]
+size = Vector3(5.701111, 1.9697876, 3.5022888)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_x3pf8"]
+size = Vector3(9.97394, 9.035564, 1)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_lweol"]
 resource_local_to_scene = true
@@ -36,11 +42,17 @@ size = Vector3(18.235626, 9.442686, 10.99115)
 [sub_resource type="BoxShape3D" id="BoxShape3D_h3dag"]
 size = Vector3(11.477539, 0.49023438, 16.103027)
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_w1gio"]
+size = Vector3(11.356987, 12.352875, 1)
+
 [sub_resource type="BoxShape3D" id="BoxShape3D_lr8mv"]
 size = Vector3(12.070679, 8.455108, 10.99115)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_6r80g"]
 size = Vector3(11.477539, 0.49023438, 16.103027)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_o5qe6"]
+size = Vector3(12.61457, 11.083176, 1)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_u47i0"]
 size = Vector3(17.206844, 11.720536, 10.99115)
@@ -89,6 +101,9 @@ size = Vector3(18.333054, 11.342789, 10.99115)
 [sub_resource type="BoxShape3D" id="BoxShape3D_0rfiw"]
 size = Vector3(1.16029, 8.528637, 2.3110962)
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_dlsj8"]
+size = Vector3(12.826796, 11.175743, 1)
+
 [sub_resource type="BoxShape3D" id="BoxShape3D_kjpiw"]
 size = Vector3(2, 0.19140625, 2)
 
@@ -116,7 +131,7 @@ material = SubResource("StandardMaterial3D_lr8mv")
 size = Vector3(2, 2, 2)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_aismf"]
-size = Vector3(2, 2, 2)
+size = Vector3(2, 2.2207031, 2)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_0dcr5"]
 size = Vector3(2, 2.7155762, 2)
@@ -158,6 +173,9 @@ resource_local_to_scene = true
 size = Vector3(5.4687805, 9.724625, 10.99115)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_66qj3"]
+size = Vector3(1, 5.301758, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_f5140"]
 resource_local_to_scene = true
 size = Vector3(5.5120544, 7.9581375, 10.99115)
 
@@ -166,11 +184,14 @@ size = Vector3(0.9038086, 7.998047, 2.3110962)
 
 [sub_resource type="CylinderMesh" id="CylinderMesh_0hfkw"]
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_f5140"]
+[sub_resource type="BoxShape3D" id="BoxShape3D_u53t4"]
 resource_local_to_scene = true
 size = Vector3(12.552887, 8.455108, 10.99115)
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_u53t4"]
+[sub_resource type="BoxShape3D" id="BoxShape3D_wr4mq"]
+size = Vector3(12.875, 1, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_xiac4"]
 resource_local_to_scene = true
 size = Vector3(12.410675, 21.882387, 10.99115)
 
@@ -184,15 +205,18 @@ albedo_color = Color(0.44555736, 0.8298593, 0.456303, 1)
 [sub_resource type="PlaneMesh" id="PlaneMesh_23rn6"]
 material = SubResource("StandardMaterial3D_8hv7v")
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_wr4mq"]
+[sub_resource type="BoxShape3D" id="BoxShape3D_5xuhm"]
 resource_local_to_scene = true
 size = Vector3(2, 2, 2)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_tf22"]
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_xiac4"]
+[sub_resource type="BoxShape3D" id="BoxShape3D_vwj37"]
 resource_local_to_scene = true
 size = Vector3(20.503136, 9.831184, 10.99115)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_0ru7v"]
+size = Vector3(1, 10.318359, 1)
 
 [node name="Tree" type="Node3D" unique_id=863522178]
 script = ExtResource("1_lr8mv")
@@ -201,7 +225,7 @@ script = ExtResource("1_lr8mv")
 transform = Transform3D(0.98628557, -0.021257402, 0.16367294, 0, 0.9916711, 0.1287956, -0.16504759, -0.12702923, 0.978071, 0, 0, 0)
 shadow_enabled = true
 
-[node name="CameraPivot" type="Camera3D" parent="." unique_id=1232756286 node_paths=PackedStringArray("end_cutscene", "sections_parent", "tutorial_giver")]
+[node name="CameraPivot" type="Camera3D" parent="." unique_id=1232756286 node_paths=PackedStringArray("end_cutscene", "sections_parent")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.521097, 5.7190466, 27.954)
 projection = 1
 current = true
@@ -210,7 +234,6 @@ size = 15.815
 script = ExtResource("2_mkqp2")
 end_cutscene = NodePath("../CutsceneManager/Cutscene")
 sections_parent = NodePath("../Sections")
-tutorial_giver = NodePath("../TutorialGiver")
 
 [node name="CutsceneManager" parent="." unique_id=1659254018 instance=ExtResource("3_8hv7v")]
 
@@ -275,6 +298,31 @@ transform = Transform3D(2.4768205, 0, 0, 0, 4.501539, 0, 0, 0, 1, 9.647383, 4.61
 
 [node name="CollisionShape3D" parent="Sections/Section0/SectionTrigger" parent_id_path=PackedInt32Array(33027719, 2029195658) index="0" unique_id=1708760178]
 shape = SubResource("BoxShape3D_86hxr")
+
+[node name="TutorialTrigger" parent="Sections/Section0" unique_id=1436302952 instance=ExtResource("9_23rn6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.9878373, 2.9808793, 0)
+tutorial_text = "Click either end of the
+caterpillar to move around."
+follow_target = 0
+completion_mode = 0
+tutorial_id = "move"
+
+[node name="CollisionShape3D" parent="Sections/Section0/TutorialTrigger" index="0" unique_id=1728854673]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.7718735, -1.8380966, -0.4877777)
+shape = SubResource("BoxShape3D_r6ktd")
+
+[node name="TutorialTrigger2" parent="Sections/Section0" unique_id=208919694 instance=ExtResource("9_23rn6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.228526, 2.4275293, 0)
+tutorial_text = "Drag one end of the
+caterpillar to a climbing surface
+and release to grab hold."
+follow_target = 2
+completion_mode = 0
+tutorial_id = "climb"
+
+[node name="CollisionShape3D" parent="Sections/Section0/TutorialTrigger2" index="0" unique_id=1728854673]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.9395847, 2.145647, 0)
+shape = SubResource("BoxShape3D_x3pf8")
 
 [node name="Section1" parent="Sections" unique_id=1717817911 instance=ExtResource("3_t8qqb")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 21.961699, 0)
@@ -387,6 +435,18 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.27457714, -12.93951, 0)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 4.618408)
 shape = SubResource("BoxShape3D_h3dag")
 
+[node name="TutorialTrigger" parent="Sections/Section2" unique_id=787869992 instance=ExtResource("9_23rn6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.9032288, -4.822838, 0)
+tutorial_text = "Drag and release the
+caterpillar middle section to
+jump!"
+completion_mode = 1
+tutorial_id = "jump"
+
+[node name="CollisionShape3D" parent="Sections/Section2/TutorialTrigger" index="0" unique_id=1728854673]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.076931, 1.067215, 0)
+shape = SubResource("BoxShape3D_w1gio")
+
 [node name="Section3" parent="Sections" unique_id=2069214035 instance=ExtResource("3_t8qqb")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.701643, 47.259624, 0)
 
@@ -451,6 +511,15 @@ transform = Transform3D(-4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, 0, 1, -0.6
 
 [node name="CollectibleLeaf" parent="Sections/Section3/LeafPuzzle/Leafs" parent_id_path=PackedInt32Array(318786704, 448507772) index="0" unique_id=163625636 instance=ExtResource("5_lxcgy")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.475628, -1.4272804, 0)
+
+[node name="TutorialTrigger" parent="Sections/Section3" unique_id=1473193390 instance=ExtResource("9_23rn6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.125649, -1.6694603, 0)
+tutorial_text = "Grab leaves to open gates!"
+tutorial_id = "leaf"
+
+[node name="CollisionShape3D" parent="Sections/Section3/TutorialTrigger" index="0" unique_id=1728854673]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.9076958, 0.63484955, 0)
+shape = SubResource("BoxShape3D_o5qe6")
 
 [node name="Section4" parent="Sections" unique_id=1707660947 instance=ExtResource("3_t8qqb")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 49.35483, 0)
@@ -713,7 +782,7 @@ use_collision = true
 mesh = SubResource("BoxMesh_awo2h")
 
 [node name="CollisionShape3D" parent="Sections/Section7/SectionTrigger" parent_id_path=PackedInt32Array(1218749252, 2029195658) index="0" unique_id=1708760178]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.1592655, -5.10878, 996.1507)
+transform = Transform3D(0.99991405, 0, 0, 0, 0.99991405, 0, 0, 0, 0.99991405, -15.1592655, -5.10878, 996.1507)
 shape = SubResource("BoxShape3D_vd7vu")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Sections/Section7/BacktrackPrevention" parent_id_path=PackedInt32Array(1218749252, 835127638) index="0" unique_id=652323004]
@@ -789,6 +858,16 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.800016, 0.46575165, 0)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5339489, -0.5884781, 0)
 shape = SubResource("BoxShape3D_0rfiw")
 
+[node name="TutorialTrigger" parent="Sections/Section8" unique_id=2028485717 instance=ExtResource("9_23rn6")]
+tutorial_text = "Some surfaces are slippery,
+you will need to move quickly
+to avoid falling!"
+tutorial_id = "slide"
+
+[node name="CollisionShape3D" parent="Sections/Section8/TutorialTrigger" index="0" unique_id=1728854673]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 2.8922853, 2.6599789, -1.4189682, 0)
+shape = SubResource("BoxShape3D_dlsj8")
+
 [node name="Section9" parent="Sections" unique_id=1005249169 instance=ExtResource("3_t8qqb")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.950989, 106.99553, 0)
 
@@ -848,7 +927,7 @@ use_collision = true
 mesh = SubResource("BoxMesh_okq4k")
 
 [node name="TestFloor11" type="CSGMesh3D" parent="Sections/Section9/Blockout" parent_id_path=PackedInt32Array(1005249169, 98019502) index="9" unique_id=379815232]
-transform = Transform3D(2.9278083, 0, 0, 0, -5.36907e-07, -0.86112005, 0, 12.283, -3.764075e-08, -13.548534, 0.43660736, 3.0920148e-07)
+transform = Transform3D(5.285344, 0, 0, 0, -5.36907e-07, -0.86112005, 0, 12.283, -3.764075e-08, -13.956118, 3.8525388, 4.585166e-07)
 material_override = ExtResource("4_lr8mv")
 use_collision = true
 mesh = SubResource("BoxMesh_vd7vu")
@@ -964,13 +1043,13 @@ use_collision = true
 mesh = SubResource("PrismMesh_h3dag")
 
 [node name="TestFloor11" type="CSGMesh3D" parent="Sections/Section10/Blockout" parent_id_path=PackedInt32Array(1047179397, 98019502) index="2" unique_id=1270101378]
-transform = Transform3D(0.9851311, 0, 0, 0, 4.5881047, 0, 0, 0, 25, -1.2788143, -3.6159973, 0)
+transform = Transform3D(0.9851311, 0, 0, 0, 5.9434514, 0, 0, 0, 25, 0.16424412, -2.8915863, 0)
 material_override = ExtResource("4_lr8mv")
 use_collision = true
 mesh = SubResource("BoxMesh_okq4k")
 
 [node name="GrabSurface" parent="Sections/Section10/Blockout" parent_id_path=PackedInt32Array(1047179397, 98019502) index="3" unique_id=321083850 instance=ExtResource("5_t8qqb")]
-transform = Transform3D(1.405, 0, 0, 0, 4.755, 0, 0, 0, 1.405, -7.7727413, -6.650627, 0)
+transform = Transform3D(1.405, 0, 0, 0, 4.755, 0, 0, 0, 1.405, -8.2053795, -6.5674286, 0)
 slide_velocity = Vector2(0, -0.5)
 
 [node name="MeshInstance3D" parent="Sections/Section10/Blockout/GrabSurface" index="0" unique_id=78994872]
@@ -980,17 +1059,19 @@ mesh = SubResource("PlaneMesh_3y3aj")
 shape = SubResource("BoxShape3D_frosr")
 
 [node name="GrabSurface2" parent="Sections/Section10/Blockout" parent_id_path=PackedInt32Array(1047179397, 98019502) index="4" unique_id=1767582106 instance=ExtResource("5_t8qqb")]
-transform = Transform3D(1.405, 0, 0, 0, 4.755, 0, 0, 0, 1.405, -3.174778, -1.1494751, 0)
+transform = Transform3D(1.405, 0, 0, 0, 4.755, 0, 0, 0, 1.405, -1.731719, -1.1494751, 0)
 slide_velocity = Vector2(0, -0.5)
 
 [node name="MeshInstance3D" parent="Sections/Section10/Blockout/GrabSurface2" index="0" unique_id=78994872]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1.1048, 0, 1, -4.8292343e-08, 0, 0.11426283, -0.59999996)
 mesh = SubResource("PlaneMesh_3y3aj")
 
 [node name="CollisionShape3D" parent="Sections/Section10/Blockout/GrabSurface2" index="1" unique_id=2034447646]
+transform = Transform3D(1, 0, 0, 0, 0.9999999, 0, 0, 0, 1, 0, 0.11035156, 0)
 shape = SubResource("BoxShape3D_aismf")
 
 [node name="TestFloor12" type="CSGMesh3D" parent="Sections/Section10/Blockout" parent_id_path=PackedInt32Array(1047179397, 98019502) index="5" unique_id=495670323]
-transform = Transform3D(4.1262207, 0, 0, 0, -5.36907e-07, -0.86112005, 0, 12.283, -3.7640753e-08, -2.8825188, -6.3253326, 3.0920145e-07)
+transform = Transform3D(4.1262207, 0, 0, 0, -5.36907e-07, -0.86112005, 0, 12.283, -3.7640753e-08, -1.4274597, -6.3253326, 3.0920145e-07)
 material_override = ExtResource("4_lr8mv")
 use_collision = true
 mesh = SubResource("BoxMesh_kjpiw")
@@ -1002,30 +1083,36 @@ use_collision = true
 mesh = SubResource("BoxMesh_kjpiw")
 
 [node name="TestFloor13" type="CSGMesh3D" parent="Sections/Section10/Blockout" parent_id_path=PackedInt32Array(1047179397, 98019502) index="7" unique_id=1038945342]
-transform = Transform3D(4.4396524, 0, 0, 0, -5.36907e-07, -0.86112005, 0, 12.283, -3.7640753e-08, 5.8993835, -0.30419922, 3.0920145e-07)
+transform = Transform3D(4.4396524, 0, 0, 0, -5.36907e-07, -0.86112005, 0, 12.283, -3.7640753e-08, 6.5556183, -0.30419922, 3.0920145e-07)
 material_override = ExtResource("4_lr8mv")
 use_collision = true
 mesh = SubResource("BoxMesh_kjpiw")
 
 [node name="TestFloor14" type="CSGMesh3D" parent="Sections/Section10/Blockout" parent_id_path=PackedInt32Array(1047179397, 98019502) index="8" unique_id=1692567776]
-transform = Transform3D(0.9851311, 0, 0, 0, 4.4418545, 0, 0, 0, 25, 7.6273193, 2.375534, 0)
+transform = Transform3D(0.9851311, 0, 0, 0, 4.4418545, 0, 0, 0, 25, 8.283558, 2.361267, 0)
 material_override = ExtResource("4_lr8mv")
 use_collision = true
 mesh = SubResource("BoxMesh_okq4k")
 
-[node name="GrabSurface12" parent="Sections/Section10/Blockout" parent_id_path=PackedInt32Array(1047179397, 98019502) index="9" unique_id=418036704 instance=ExtResource("5_t8qqb")]
-transform = Transform3D(1.2769899, 0, 0, 0, 3.5160804, 0, 0, 0, 1, 5.851763, 3.7017975, 0)
+[node name="TestFloor19" type="CSGMesh3D" parent="Sections/Section10/Blockout" parent_id_path=PackedInt32Array(1047179397, 98019502) index="9" unique_id=461964548]
+transform = Transform3D(0.9851311, 0, 0, 0, 2.8434877, 0, 0, 0, 25, 4.6806374, 5.908478, 0)
+material_override = ExtResource("4_lr8mv")
+use_collision = true
+mesh = SubResource("BoxMesh_okq4k")
 
-[node name="GrabSurface13" parent="Sections/Section10/Blockout" parent_id_path=PackedInt32Array(1047179397, 98019502) index="10" unique_id=908181649 instance=ExtResource("5_t8qqb")]
-transform = Transform3D(4.5408864, 0, 0, 0, 1.319566, 0, 0, 0, 1, 11.622182, 5.8913116, 0)
+[node name="GrabSurface12" parent="Sections/Section10/Blockout" parent_id_path=PackedInt32Array(1047179397, 98019502) index="10" unique_id=418036704 instance=ExtResource("5_t8qqb")]
+transform = Transform3D(1.2769899, 0, 0, 0, 3.602426, 0, 0, 0, 1, 6.4794674, 3.7017975, 0)
 
-[node name="TestFloor15" type="CSGMesh3D" parent="Sections/Section10/Blockout" parent_id_path=PackedInt32Array(1047179397, 98019502) index="11" unique_id=1257672891]
+[node name="GrabSurface13" parent="Sections/Section10/Blockout" parent_id_path=PackedInt32Array(1047179397, 98019502) index="11" unique_id=908181649 instance=ExtResource("5_t8qqb")]
+transform = Transform3D(4.5408864, 0, 0, 0, 1.3681555, 0, 0, 0, 1, 11.622182, 5.9626465, 0)
+
+[node name="TestFloor15" type="CSGMesh3D" parent="Sections/Section10/Blockout" parent_id_path=PackedInt32Array(1047179397, 98019502) index="12" unique_id=1257672891]
 transform = Transform3D(0.9851311, 0, 0, 0, 6.3229427, 0, 0, 0, 25, 16.67513, 4.194641, 0)
 material_override = ExtResource("4_lr8mv")
 use_collision = true
 mesh = SubResource("BoxMesh_okq4k")
 
-[node name="GrabSurface3" parent="Sections/Section10/Blockout" parent_id_path=PackedInt32Array(1047179397, 98019502) index="12" unique_id=761714569 instance=ExtResource("5_t8qqb")]
+[node name="GrabSurface3" parent="Sections/Section10/Blockout" parent_id_path=PackedInt32Array(1047179397, 98019502) index="13" unique_id=761714569 instance=ExtResource("5_t8qqb")]
 transform = Transform3D(1.405, 0, 0, 0, 3.0761373, 0, 0, 0, 1.405, 14.779175, 0.38012695, 0)
 slide_velocity = Vector2(0, -0.5)
 
@@ -1037,25 +1124,25 @@ mesh = SubResource("PlaneMesh_3y3aj")
 transform = Transform3D(0.999988, 0, 0, 0, 0.99998814, 0, 0, 0, 0.999988, 0, 0.00012588501, 0)
 shape = SubResource("BoxShape3D_0dcr5")
 
-[node name="TestFloor16" type="CSGMesh3D" parent="Sections/Section10/Blockout" parent_id_path=PackedInt32Array(1047179397, 98019502) index="13" unique_id=240482043]
+[node name="TestFloor16" type="CSGMesh3D" parent="Sections/Section10/Blockout" parent_id_path=PackedInt32Array(1047179397, 98019502) index="14" unique_id=240482043]
 transform = Transform3D(4.2235117, 0, 0, 0, -5.369071e-07, -8.445945, 0, 12.283003, -3.6918402e-07, 22.392172, -7.0699463, 3.0920145e-07)
 material_override = ExtResource("4_lr8mv")
 use_collision = true
 mesh = SubResource("BoxMesh_kjpiw")
 
-[node name="TestFloor17" type="CSGMesh3D" parent="Sections/Section10/Blockout" parent_id_path=PackedInt32Array(1047179397, 98019502) index="14" unique_id=905331716]
+[node name="TestFloor17" type="CSGMesh3D" parent="Sections/Section10/Blockout" parent_id_path=PackedInt32Array(1047179397, 98019502) index="15" unique_id=905331716]
 transform = Transform3D(0.9851311, 0, 0, 0, 23.279388, 0, 0, 0, 25, 25.004812, 0.34257507, 0)
 material_override = ExtResource("4_lr8mv")
 use_collision = true
 mesh = SubResource("BoxMesh_okq4k")
 
-[node name="GrabSurface14" parent="Sections/Section10/Blockout" parent_id_path=PackedInt32Array(1047179397, 98019502) index="15" unique_id=490040684 instance=ExtResource("5_t8qqb")]
+[node name="GrabSurface14" parent="Sections/Section10/Blockout" parent_id_path=PackedInt32Array(1047179397, 98019502) index="16" unique_id=490040684 instance=ExtResource("5_t8qqb")]
 transform = Transform3D(1.2769899, 0, 0, 0, 3.5160804, 0, 0, 0, 1, 23.185781, 0.6957092, 0)
 
-[node name="GrabSurface15" parent="Sections/Section10/Blockout" parent_id_path=PackedInt32Array(1047179397, 98019502) index="16" unique_id=1246871143 instance=ExtResource("5_t8qqb")]
+[node name="GrabSurface15" parent="Sections/Section10/Blockout" parent_id_path=PackedInt32Array(1047179397, 98019502) index="17" unique_id=1246871143 instance=ExtResource("5_t8qqb")]
 transform = Transform3D(3.6614108, 0, 0, 0, 3.8673344, 0, 0, 0, 1, 20.780006, 8.031021, 0)
 
-[node name="TestFloor21" type="CSGMesh3D" parent="Sections/Section10/Blockout" parent_id_path=PackedInt32Array(1047179397, 98019502) index="17" unique_id=650083880]
+[node name="TestFloor21" type="CSGMesh3D" parent="Sections/Section10/Blockout" parent_id_path=PackedInt32Array(1047179397, 98019502) index="18" unique_id=650083880]
 transform = Transform3D(-8.485281, 4.2426405, 0, -8.485281, -4.2426405, 0, 0, 0, 25, 18.180445, -9.199257, 0)
 material_override = ExtResource("4_lr8mv")
 use_collision = true
@@ -1195,6 +1282,10 @@ shape = SubResource("BoxShape3D_5povq")
 [node name="StaticBody3D" type="StaticBody3D" parent="Sections/Section12/BacktrackPrevention" parent_id_path=PackedInt32Array(690953752, 835127638) index="0" unique_id=92344543]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.0755177, -7.8954163, 0)
 
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Sections/Section12/BacktrackPrevention/StaticBody3D" unique_id=1567898859]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.1616211, 0)
+shape = SubResource("BoxShape3D_66qj3")
+
 [node name="LeafPuzzle" parent="Sections/Section12" unique_id=396259638 instance=ExtResource("4_0hfkw")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.499733, 7.7487946, 0)
 
@@ -1236,7 +1327,7 @@ use_collision = true
 mesh = SubResource("PrismMesh_h3dag")
 
 [node name="TestFloor19" type="CSGMesh3D" parent="Sections/Section13/Blockout" parent_id_path=PackedInt32Array(89616397, 98019502) index="2" unique_id=984728906]
-transform = Transform3D(5.697795, 0, 0, 0, -5.36907e-07, -0.86112005, 0, 12.283, -3.7640753e-08, 5.760561, -3.556488, 3.0920145e-07)
+transform = Transform3D(11.003243, 0, 0, 0, -5.36907e-07, -0.86112005, 0, 12.283, -3.7640753e-08, 3.0821455, -3.556488, 3.0920145e-07)
 material_override = ExtResource("4_lr8mv")
 use_collision = true
 mesh = SubResource("BoxMesh_kjpiw")
@@ -1250,60 +1341,66 @@ material_override = ExtResource("4_lr8mv")
 use_collision = true
 mesh = SubResource("BoxMesh_kjpiw")
 
-[node name="TestFloor11" type="CSGMesh3D" parent="Sections/Section13/Blockout" parent_id_path=PackedInt32Array(89616397, 98019502) index="5" unique_id=1785043077]
+[node name="TestFloor21" type="CSGMesh3D" parent="Sections/Section13/Blockout" parent_id_path=PackedInt32Array(89616397, 98019502) index="5" unique_id=1672123076]
+transform = Transform3D(7.6218886, 0, 0, 0, -5.36907e-07, -0.86112005, 0, 12.283, -3.7640753e-08, -3.5727005, 0.79660034, 7.0963927e-07)
+material_override = ExtResource("4_lr8mv")
+use_collision = true
+mesh = SubResource("BoxMesh_kjpiw")
+
+[node name="TestFloor11" type="CSGMesh3D" parent="Sections/Section13/Blockout" parent_id_path=PackedInt32Array(89616397, 98019502) index="6" unique_id=1785043077]
 transform = Transform3D(1.592798, 0, 0, 0, 10.49489, 0, 0, 0, 25, -8.171867, -3.5449371, 0)
 material_override = ExtResource("4_lr8mv")
 use_collision = true
 mesh = SubResource("BoxMesh_okq4k")
 
-[node name="TestFloor12" type="CSGMesh3D" parent="Sections/Section13/Blockout" parent_id_path=PackedInt32Array(89616397, 98019502) index="6" unique_id=172730348]
+[node name="TestFloor12" type="CSGMesh3D" parent="Sections/Section13/Blockout" parent_id_path=PackedInt32Array(89616397, 98019502) index="7" unique_id=172730348]
 transform = Transform3D(5.102968, 0, 0, 0, 4.9234285, 0, 0, 0, 25, 7.5431194, -0.66156006, 0)
 material_override = ExtResource("4_lr8mv")
 use_collision = true
 mesh = SubResource("BoxMesh_okq4k")
 
-[node name="TestFloor23" type="CSGMesh3D" parent="Sections/Section13/Blockout" parent_id_path=PackedInt32Array(89616397, 98019502) index="7" unique_id=1193578332]
+[node name="TestFloor23" type="CSGMesh3D" parent="Sections/Section13/Blockout" parent_id_path=PackedInt32Array(89616397, 98019502) index="8" unique_id=1193578332]
 transform = Transform3D(-4.2426405, -2.1213202, 0, 4.2426405, -2.1213202, 0, 0, 0, 25.000004, -6.3159847, -6.8651886, 0)
 material_override = ExtResource("4_lr8mv")
 use_collision = true
 mesh = SubResource("PrismMesh_h3dag")
 
-[node name="TestFloor24" type="CSGMesh3D" parent="Sections/Section13/Blockout" parent_id_path=PackedInt32Array(89616397, 98019502) index="8" unique_id=1032430950]
+[node name="TestFloor24" type="CSGMesh3D" parent="Sections/Section13/Blockout" parent_id_path=PackedInt32Array(89616397, 98019502) index="9" unique_id=1032430950]
 transform = Transform3D(-2.1213202, 1.0606601, 0, -2.1213202, -1.0606601, 0, 0, 0, 25, 4.5434437, -2.607071, 0)
 material_override = ExtResource("4_lr8mv")
 use_collision = true
 mesh = SubResource("PrismMesh_h3dag")
 
-[node name="TestFloor25" type="CSGMesh3D" parent="Sections/Section13/Blockout" parent_id_path=PackedInt32Array(89616397, 98019502) index="9" unique_id=1139561496]
+[node name="TestFloor25" type="CSGMesh3D" parent="Sections/Section13/Blockout" parent_id_path=PackedInt32Array(89616397, 98019502) index="10" unique_id=1139561496]
 transform = Transform3D(2.5716238, 2.710477, 0, -5.420954, 1.2858119, 0, 0, 0, 25, -8.771217, -7.526184, 0)
 material_override = ExtResource("4_lr8mv")
 use_collision = true
 mesh = SubResource("PrismMesh_h3dag")
 
-[node name="TestFloor20" type="CSGMesh3D" parent="Sections/Section13/Blockout" parent_id_path=PackedInt32Array(89616397, 98019502) index="10" unique_id=699872661]
+[node name="TestFloor20" type="CSGMesh3D" parent="Sections/Section13/Blockout" parent_id_path=PackedInt32Array(89616397, 98019502) index="11" unique_id=699872661]
 transform = Transform3D(12.42059, -8.6303814e-08, -0.22372633, -2.0228217, -5.299253e-07, -1.3737313, 0, 12.283, -6.083882e-08, -14.419317, -5.1356354, 3.0920145e-07)
 material_override = ExtResource("4_lr8mv")
 use_collision = true
 mesh = SubResource("BoxMesh_kjpiw")
 
-[node name="GrabSurface" parent="Sections/Section13/Blockout" parent_id_path=PackedInt32Array(89616397, 98019502) index="11" unique_id=618657325 instance=ExtResource("5_t8qqb")]
+[node name="GrabSurface" parent="Sections/Section13/Blockout" parent_id_path=PackedInt32Array(89616397, 98019502) index="12" unique_id=618657325 instance=ExtResource("5_t8qqb")]
 transform = Transform3D(1, 0, 0, 0, 1.5, 0, 0, 0, 1, -5.989483, -3.750183, 0)
 
-[node name="GrabSurface3" parent="Sections/Section13/Blockout" parent_id_path=PackedInt32Array(89616397, 98019502) index="12" unique_id=2141463907 instance=ExtResource("5_t8qqb")]
+[node name="GrabSurface3" parent="Sections/Section13/Blockout" parent_id_path=PackedInt32Array(89616397, 98019502) index="13" unique_id=2141463907 instance=ExtResource("5_t8qqb")]
 transform = Transform3D(1, 0, 0, 0, 1.5, 0, 0, 0, 1, -3.0487022, -6.475128, 0)
 
-[node name="GrabSurface4" parent="Sections/Section13/Blockout" parent_id_path=PackedInt32Array(89616397, 98019502) index="13" unique_id=51406651 instance=ExtResource("5_t8qqb")]
-transform = Transform3D(2, 0, 0, 0, 1, 0, 0, 0, 1, -2.050457, -1.8885956, 0)
+[node name="GrabSurface4" parent="Sections/Section13/Blockout" parent_id_path=PackedInt32Array(89616397, 98019502) index="14" unique_id=51406651 instance=ExtResource("5_t8qqb")]
+transform = Transform3D(2, 0, 0, 0, 1, 0, 0, 0, 1, -1.7593231, -1.3451385, 0)
 
-[node name="GrabSurface5" parent="Sections/Section13/Blockout" parent_id_path=PackedInt32Array(89616397, 98019502) index="14" unique_id=1548671120 instance=ExtResource("5_t8qqb")]
-transform = Transform3D(1, 0, 0, 0, 1.5, 0, 0, 0, 1, 1.8615913, -0.24284363, 0)
+[node name="GrabSurface5" parent="Sections/Section13/Blockout" parent_id_path=PackedInt32Array(89616397, 98019502) index="15" unique_id=1548671120 instance=ExtResource("5_t8qqb")]
+transform = Transform3D(1, 0, 0, 0, 1.5, 0, 0, 0, 1, 2.502079, -0.24284363, 0)
 
-[node name="GrabSurface6" parent="Sections/Section13/Blockout" parent_id_path=PackedInt32Array(89616397, 98019502) index="15" unique_id=735551473 instance=ExtResource("5_t8qqb")]
+[node name="GrabSurface6" parent="Sections/Section13/Blockout" parent_id_path=PackedInt32Array(89616397, 98019502) index="16" unique_id=735551473 instance=ExtResource("5_t8qqb")]
 transform = Transform3D(6.156434, 0, 0, 0, 1.4145601, 0, 0, 0, 1, -1.1871071, 2.6524353, 0)
 
 [node name="CollisionShape3D" parent="Sections/Section13/SectionTrigger" parent_id_path=PackedInt32Array(89616397, 2029195658) index="0" unique_id=1708760178]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.095703, -11.945221, -2.133)
-shape = SubResource("BoxShape3D_66qj3")
+shape = SubResource("BoxShape3D_f5140")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Sections/Section13/BacktrackPrevention" parent_id_path=PackedInt32Array(89616397, 835127638) index="0" unique_id=484532199]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.4830227, -12.676849, 0)
@@ -1387,10 +1484,13 @@ mesh = SubResource("PrismMesh_h3dag")
 
 [node name="CollisionShape3D" parent="Sections/Section14/SectionTrigger" parent_id_path=PackedInt32Array(100839602, 2029195658) index="0" unique_id=1708760178]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.98433876, -8.610504, -2.133)
-shape = SubResource("BoxShape3D_f5140")
+shape = SubResource("BoxShape3D_u53t4")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Sections/Section14/BacktrackPrevention" parent_id_path=PackedInt32Array(100839602, 835127638) index="0" unique_id=1488728817]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.9923687, -13.579086, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Sections/Section14/BacktrackPrevention/StaticBody3D" unique_id=1038611992]
+shape = SubResource("BoxShape3D_wr4mq")
 
 [node name="LeafPuzzle" parent="Sections/Section14" unique_id=1188697580 instance=ExtResource("4_0hfkw")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.9218502, 3.8050995, 0)
@@ -1508,7 +1608,7 @@ transform = Transform3D(9.362223, 0.32753208, 0, -3.392774, 0.9038115, 0, 0, 0, 
 
 [node name="CollisionShape3D" parent="Sections/Section15/SectionTrigger" parent_id_path=PackedInt32Array(1821260037, 2029195658) index="0" unique_id=1708760178]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.1558685, -0.5359802, -2.133)
-shape = SubResource("BoxShape3D_u53t4")
+shape = SubResource("BoxShape3D_xiac4")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Sections/Section15/BacktrackPrevention" parent_id_path=PackedInt32Array(1821260037, 835127638) index="0" unique_id=1518567611]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.09665871, -12.139008, 0)
@@ -1544,8 +1644,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.7360153, -1.7746277, 0)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -51.2482, 225.50066, 0)
 
 [node name="CameraSpot" parent="Sections/Section16" index="0" unique_id=1614131868]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.767624, 0, 27.871)
-size = 19.337982
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.7597923, 0.16255188, 27.871)
+size = 18.6156
 
 [node name="RespawnPoint" parent="Sections/Section16" index="1" unique_id=427335471]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.5652275, -4.524048, 0)
@@ -1588,7 +1688,7 @@ game_end = true
 mesh = SubResource("PlaneMesh_23rn6")
 
 [node name="CollisionShape3D" parent="Sections/Section16/Blockout/GrabSurface11" index="1" unique_id=2034447646]
-shape = SubResource("BoxShape3D_wr4mq")
+shape = SubResource("BoxShape3D_5xuhm")
 
 [node name="TestFloor22" type="StaticBody3D" parent="Sections/Section16/Blockout" parent_id_path=PackedInt32Array(782441552, 98019502) index="7" unique_id=578164903]
 transform = Transform3D(9.94724, 2.4820955, 0, -11.590489, 2.130195, 0, 0, 0, 25.000002, -15.316643, -1.3317108, 0)
@@ -1597,11 +1697,14 @@ transform = Transform3D(9.94724, 2.4820955, 0, -11.590489, 2.130195, 0, 0, 0, 25
 shape = SubResource("BoxShape3D_tf22")
 
 [node name="CollisionShape3D" parent="Sections/Section16/SectionTrigger" parent_id_path=PackedInt32Array(782441552, 2029195658) index="0" unique_id=1708760178]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.36493683, -0.59173584, -2.133)
-shape = SubResource("BoxShape3D_xiac4")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.1126862, -0.59173584, -2.133)
+shape = SubResource("BoxShape3D_vwj37")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Sections/Section16/BacktrackPrevention" parent_id_path=PackedInt32Array(782441552, 835127638) index="0" unique_id=550427647]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.269455, -0.3526001, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.129925, -0.3526001, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Sections/Section16/BacktrackPrevention/StaticBody3D" unique_id=730459531]
+shape = SubResource("BoxShape3D_0ru7v")
 
 [node name="LeafPuzzle" parent="Sections/Section16" unique_id=583281097 instance=ExtResource("4_0hfkw")]
 
@@ -1617,18 +1720,21 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.383793, 3.6537018, 0)
 [node name="CollectibleLeaf3" parent="Sections/Section16/LeafPuzzle/Leafs" parent_id_path=PackedInt32Array(583281097, 448507772) index="2" unique_id=1027864344 instance=ExtResource("5_lxcgy")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.7283745, 2.076416, 0)
 
-[node name="TutorialGiver" parent="." unique_id=1051063935 instance=ExtResource("11_23rn6")]
-
 [node name="BGMPlayer" type="AudioStreamPlayer" parent="." unique_id=1261825081]
 stream = ExtResource("12_ub3dp")
 autoplay = true
 bus = &"Music"
 
+
 [editable path="Sections/Section0"]
+[editable path="Sections/Section0/TutorialTrigger"]
+[editable path="Sections/Section0/TutorialTrigger2"]
 [editable path="Sections/Section1"]
 [editable path="Sections/Section2"]
+[editable path="Sections/Section2/TutorialTrigger"]
 [editable path="Sections/Section3"]
 [editable path="Sections/Section3/LeafPuzzle"]
+[editable path="Sections/Section3/TutorialTrigger"]
 [editable path="Sections/Section4"]
 [editable path="Sections/Section5"]
 [editable path="Sections/Section6"]
@@ -1636,6 +1742,7 @@ bus = &"Music"
 [editable path="Sections/Section7"]
 [editable path="Sections/Section8"]
 [editable path="Sections/Section8/Blockout/GrabSurface10"]
+[editable path="Sections/Section8/TutorialTrigger"]
 [editable path="Sections/Section9"]
 [editable path="Sections/Section9/Blockout/GrabSurface10"]
 [editable path="Sections/Section9/LeafPuzzle"]
