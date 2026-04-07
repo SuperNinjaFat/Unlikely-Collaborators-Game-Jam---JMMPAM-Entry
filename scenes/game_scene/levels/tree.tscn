@@ -10,7 +10,7 @@
 [ext_resource type="Material" uid="uid://lyxplwn1qaue" path="res://resources/materials/bark2.tres" id="4_lr8mv"]
 [ext_resource type="PackedScene" uid="uid://yavau60xdj13" path="res://scenes/entities/leaf_puzzle/collectible_leaf/collectible_leaf.tscn" id="5_lxcgy"]
 [ext_resource type="PackedScene" uid="uid://jkkawrmxgder" path="res://scenes/environment/grab_surface.tscn" id="5_t8qqb"]
-[ext_resource type="PackedScene" uid="uid://chp30vobl7iri" path="res://addons/maaacks_game_template/base/nodes/tutorial_giver/tutorial_giver.tscn" id="11_23rn6"]
+[ext_resource type="PackedScene" uid="uid://c5b7jn4ap3754" path="res://scenes/entities/tutorial/TutorialTrigger.tscn" id="9_23rn6"]
 
 [sub_resource type="CylinderMesh" id="CylinderMesh_yya0e"]
 
@@ -19,6 +19,12 @@
 [sub_resource type="BoxShape3D" id="BoxShape3D_86hxr"]
 resource_local_to_scene = true
 size = Vector3(12.070679, 8.455108, 10.99115)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_r6ktd"]
+size = Vector3(5.701111, 1.9697876, 3.5022888)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_x3pf8"]
+size = Vector3(9.97394, 9.035564, 1)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_lweol"]
 resource_local_to_scene = true
@@ -35,11 +41,17 @@ size = Vector3(18.235626, 9.442686, 10.99115)
 [sub_resource type="BoxShape3D" id="BoxShape3D_h3dag"]
 size = Vector3(11.477539, 0.49023438, 16.103027)
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_w1gio"]
+size = Vector3(11.356987, 12.352875, 1)
+
 [sub_resource type="BoxShape3D" id="BoxShape3D_lr8mv"]
 size = Vector3(12.070679, 8.455108, 10.99115)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_6r80g"]
 size = Vector3(11.477539, 0.49023438, 16.103027)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_o5qe6"]
+size = Vector3(12.61457, 11.083176, 1)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_u47i0"]
 size = Vector3(17.206844, 11.720536, 10.99115)
@@ -87,6 +99,9 @@ size = Vector3(18.333054, 11.342789, 10.99115)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_0rfiw"]
 size = Vector3(1.16029, 8.528637, 2.3110962)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_dlsj8"]
+size = Vector3(12.826796, 11.175743, 1)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_kjpiw"]
 size = Vector3(2, 0.19140625, 2)
@@ -209,7 +224,7 @@ script = ExtResource("1_lr8mv")
 transform = Transform3D(0.98628557, -0.021257402, 0.16367294, 0, 0.9916711, 0.1287956, -0.16504759, -0.12702923, 0.978071, 0, 0, 0)
 shadow_enabled = true
 
-[node name="CameraPivot" type="Camera3D" parent="." unique_id=1232756286 node_paths=PackedStringArray("end_cutscene", "sections_parent", "tutorial_giver")]
+[node name="CameraPivot" type="Camera3D" parent="." unique_id=1232756286 node_paths=PackedStringArray("end_cutscene", "sections_parent")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.521097, 5.7190466, 27.954)
 projection = 1
 current = true
@@ -218,7 +233,6 @@ size = 15.815
 script = ExtResource("2_mkqp2")
 end_cutscene = NodePath("../CutsceneManager/Cutscene")
 sections_parent = NodePath("../Sections")
-tutorial_giver = NodePath("../TutorialGiver")
 
 [node name="CutsceneManager" parent="." unique_id=1659254018 instance=ExtResource("3_8hv7v")]
 
@@ -283,6 +297,31 @@ transform = Transform3D(2.4768205, 0, 0, 0, 4.501539, 0, 0, 0, 1, 9.647383, 4.61
 
 [node name="CollisionShape3D" parent="Sections/Section0/SectionTrigger" parent_id_path=PackedInt32Array(33027719, 2029195658) index="0" unique_id=1708760178]
 shape = SubResource("BoxShape3D_86hxr")
+
+[node name="TutorialTrigger" parent="Sections/Section0" unique_id=1436302952 instance=ExtResource("9_23rn6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.9878373, 2.9808793, 0)
+tutorial_text = "Click either end of the
+caterpillar to move around."
+follow_target = 0
+completion_mode = 0
+tutorial_id = "move"
+
+[node name="CollisionShape3D" parent="Sections/Section0/TutorialTrigger" index="0" unique_id=1728854673]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.7718735, -1.8380966, -0.4877777)
+shape = SubResource("BoxShape3D_r6ktd")
+
+[node name="TutorialTrigger2" parent="Sections/Section0" unique_id=208919694 instance=ExtResource("9_23rn6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.228526, 2.4275293, 0)
+tutorial_text = "Drag one end of the
+caterpillar to a climbing surface
+and release to grab hold."
+follow_target = 2
+completion_mode = 0
+tutorial_id = "climb"
+
+[node name="CollisionShape3D" parent="Sections/Section0/TutorialTrigger2" index="0" unique_id=1728854673]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.9395847, 2.145647, 0)
+shape = SubResource("BoxShape3D_x3pf8")
 
 [node name="Section1" parent="Sections" unique_id=1717817911 instance=ExtResource("3_t8qqb")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 21.961699, 0)
@@ -395,6 +434,18 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.27457714, -12.93951, 0)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 4.618408)
 shape = SubResource("BoxShape3D_h3dag")
 
+[node name="TutorialTrigger" parent="Sections/Section2" unique_id=787869992 instance=ExtResource("9_23rn6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.9032288, -4.822838, 0)
+tutorial_text = "Drag and release the
+caterpillar middle section to
+jump!"
+completion_mode = 1
+tutorial_id = "jump"
+
+[node name="CollisionShape3D" parent="Sections/Section2/TutorialTrigger" index="0" unique_id=1728854673]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.076931, 1.067215, 0)
+shape = SubResource("BoxShape3D_w1gio")
+
 [node name="Section3" parent="Sections" unique_id=2069214035 instance=ExtResource("3_t8qqb")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.701643, 47.259624, 0)
 
@@ -459,6 +510,15 @@ transform = Transform3D(-4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, 0, 1, -0.6
 
 [node name="CollectibleLeaf" parent="Sections/Section3/LeafPuzzle/Leafs" parent_id_path=PackedInt32Array(318786704, 448507772) index="0" unique_id=163625636 instance=ExtResource("5_lxcgy")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.475628, -1.4272804, 0)
+
+[node name="TutorialTrigger" parent="Sections/Section3" unique_id=1473193390 instance=ExtResource("9_23rn6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.125649, -1.6694603, 0)
+tutorial_text = "Grab leaves to open gates!"
+tutorial_id = "leaf"
+
+[node name="CollisionShape3D" parent="Sections/Section3/TutorialTrigger" index="0" unique_id=1728854673]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.9076958, 0.63484955, 0)
+shape = SubResource("BoxShape3D_o5qe6")
 
 [node name="Section4" parent="Sections" unique_id=1707660947 instance=ExtResource("3_t8qqb")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 49.35483, 0)
@@ -721,7 +781,7 @@ use_collision = true
 mesh = SubResource("BoxMesh_awo2h")
 
 [node name="CollisionShape3D" parent="Sections/Section7/SectionTrigger" parent_id_path=PackedInt32Array(1218749252, 2029195658) index="0" unique_id=1708760178]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.1592655, -5.10878, 996.1507)
+transform = Transform3D(0.99991405, 0, 0, 0, 0.99991405, 0, 0, 0, 0.99991405, -15.1592655, -5.10878, 996.1507)
 shape = SubResource("BoxShape3D_vd7vu")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Sections/Section7/BacktrackPrevention" parent_id_path=PackedInt32Array(1218749252, 835127638) index="0" unique_id=652323004]
@@ -796,6 +856,16 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.800016, 0.46575165, 0)
 [node name="CollisionShape3D3" type="CollisionShape3D" parent="Sections/Section8/BacktrackPrevention/StaticBody3D" unique_id=237952464]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5339489, -0.5884781, 0)
 shape = SubResource("BoxShape3D_0rfiw")
+
+[node name="TutorialTrigger" parent="Sections/Section8" unique_id=2028485717 instance=ExtResource("9_23rn6")]
+tutorial_text = "Some surfaces are slippery,
+you will need to move quickly
+to avoid falling!"
+tutorial_id = "slide"
+
+[node name="CollisionShape3D" parent="Sections/Section8/TutorialTrigger" index="0" unique_id=1728854673]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 2.8922853, 2.6599789, -1.4189682, 0)
+shape = SubResource("BoxShape3D_dlsj8")
 
 [node name="Section9" parent="Sections" unique_id=1005249169 instance=ExtResource("3_t8qqb")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.950989, 106.99553, 0)
@@ -1649,13 +1719,15 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.383793, 3.6537018, 0)
 [node name="CollectibleLeaf3" parent="Sections/Section16/LeafPuzzle/Leafs" parent_id_path=PackedInt32Array(583281097, 448507772) index="2" unique_id=1027864344 instance=ExtResource("5_lxcgy")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.7283745, 2.076416, 0)
 
-[node name="TutorialGiver" parent="." unique_id=1051063935 instance=ExtResource("11_23rn6")]
-
 [editable path="Sections/Section0"]
+[editable path="Sections/Section0/TutorialTrigger"]
+[editable path="Sections/Section0/TutorialTrigger2"]
 [editable path="Sections/Section1"]
 [editable path="Sections/Section2"]
+[editable path="Sections/Section2/TutorialTrigger"]
 [editable path="Sections/Section3"]
 [editable path="Sections/Section3/LeafPuzzle"]
+[editable path="Sections/Section3/TutorialTrigger"]
 [editable path="Sections/Section4"]
 [editable path="Sections/Section5"]
 [editable path="Sections/Section6"]
@@ -1663,6 +1735,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.7283745, 2.076416, 0)
 [editable path="Sections/Section7"]
 [editable path="Sections/Section8"]
 [editable path="Sections/Section8/Blockout/GrabSurface10"]
+[editable path="Sections/Section8/TutorialTrigger"]
 [editable path="Sections/Section9"]
 [editable path="Sections/Section9/Blockout/GrabSurface10"]
 [editable path="Sections/Section9/LeafPuzzle"]
