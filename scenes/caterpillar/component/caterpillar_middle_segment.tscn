@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://b1qp6jd1y2uos"]
 
 [ext_resource type="Script" uid="uid://c8wndh50n0d8b" path="res://scenes/caterpillar/component/caterpillar_middle_segment.gd" id="1_asqxw"]
-[ext_resource type="AudioStream" uid="uid://cdnxw4cg8pnar" path="res://assets/sfx/button_click.ogg" id="3_i80sl"]
+[ext_resource type="AudioStream" uid="uid://bc2nlxbnpc6g5" path="res://assets/sfx/caterclick_down.wav" id="2_i80sl"]
 [ext_resource type="AudioStream" uid="uid://cumrm4npl4nvw" path="res://assets/sfx/swish-5.wav" id="4_sllwc"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_ke6ca"]
@@ -69,7 +69,7 @@ mesh = SubResource("CylinderMesh_sllwc")
 metadata/_edit_lock_ = true
 
 [node name="SelectedSound" type="AudioStreamPlayer" parent="." unique_id=77385346]
-stream = ExtResource("3_i80sl")
+stream = ExtResource("2_i80sl")
 bus = &"SFX"
 
 [node name="LaunchSound" type="AudioStreamPlayer" parent="." unique_id=267122729]

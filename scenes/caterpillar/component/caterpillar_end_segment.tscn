@@ -1,8 +1,8 @@
 [gd_scene format=3 uid="uid://bnvrwyt77hkgb"]
 
 [ext_resource type="Script" uid="uid://8jitkex01v8a" path="res://scenes/caterpillar/component/caterpillar_end_segment.gd" id="1_idj6d"]
-[ext_resource type="AudioStream" uid="uid://cdnxw4cg8pnar" path="res://assets/sfx/button_click.ogg" id="3_3md8d"]
-[ext_resource type="AudioStream" uid="uid://c605tdao0bpn3" path="res://assets/sfx/plop_01.ogg" id="4_asb6v"]
+[ext_resource type="AudioStream" uid="uid://bc2nlxbnpc6g5" path="res://assets/sfx/caterclick_down.wav" id="2_3viqf"]
+[ext_resource type="AudioStream" uid="uid://cf26fscstjyh2" path="res://assets/sfx/caterclick_up.wav" id="3_3viqf"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_tny1w"]
 
@@ -107,10 +107,10 @@ scale_amount_curve = SubResource("Curve_asb6v")
 metadata/_edit_lock_ = true
 
 [node name="SelectedSound" type="AudioStreamPlayer" parent="." unique_id=1580923267]
-stream = ExtResource("3_3md8d")
+stream = ExtResource("2_3viqf")
 bus = &"SFX"
 
 [node name="PinnedSound" type="AudioStreamPlayer" parent="." unique_id=792027296]
-stream = ExtResource("4_asb6v")
+stream = ExtResource("3_3viqf")
 volume_db = -6.0
 bus = &"SFX"
