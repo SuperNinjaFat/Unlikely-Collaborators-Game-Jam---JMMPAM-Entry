@@ -60,6 +60,9 @@ size = Vector3(11.477539, 0.49023438, 16.103027)
 [sub_resource type="BoxShape3D" id="BoxShape3D_w1gio"]
 size = Vector3(11.356987, 12.352875, 1)
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_hcbdk"]
+size = Vector3(11.386597, 12.431702, 1)
+
 [sub_resource type="BoxShape3D" id="BoxShape3D_lr8mv"]
 size = Vector3(12.070679, 8.455108, 10.99115)
 
@@ -471,10 +474,27 @@ tutorial_text = "Drag and release the
 caterpillar middle section to
 jump!"
 completion_mode = 1
+show_delay = 0.0
 
 [node name="CollisionShape3D" parent="Sections/Section2/TutorialTrigger" index="0" unique_id=1728854673]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.076931, 1.067215, 0)
 shape = SubResource("BoxShape3D_w1gio")
+
+[node name="TutorialTrigger2" parent="Sections/Section2" unique_id=509423066 instance=ExtResource("9_23rn6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.103668, -3, 0)
+tutorial_text = "Click a part to lock
+onto the wall after
+you throw yourself!"
+follow_target = 3
+timeout_duration = 12.0
+show_delay = 2.0
+
+[node name="CollisionShape3D" parent="Sections/Section2/TutorialTrigger2" index="0" unique_id=1728854673]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.1163673, -0.7989044, 0)
+shape = SubResource("BoxShape3D_hcbdk")
+
+[node name="TutorialLabelContainer" parent="Sections/Section2/TutorialTrigger2" index="1" unique_id=447720005]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.612574, 3.3125267, 0)
 
 [node name="Section3" parent="Sections" unique_id=2069214035 instance=ExtResource("3_t8qqb")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.701643, 47.259624, 0)
@@ -1767,6 +1787,7 @@ bus = &"Music"
 [editable path="Sections/Section1"]
 [editable path="Sections/Section2"]
 [editable path="Sections/Section2/TutorialTrigger"]
+[editable path="Sections/Section2/TutorialTrigger2"]
 [editable path="Sections/Section3"]
 [editable path="Sections/Section3/LeafPuzzle"]
 [editable path="Sections/Section3/TutorialTrigger"]

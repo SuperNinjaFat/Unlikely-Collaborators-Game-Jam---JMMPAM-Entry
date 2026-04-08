@@ -1,0 +1,322 @@
+[gd_scene format=3 uid="uid://i2aqjtq4np6m"]
+
+[ext_resource type="Script" uid="uid://b7ic6irfdgm5c" path="res://scenes/credits/credits_background.gd" id="1_8b8sy"]
+[ext_resource type="Texture2D" uid="uid://dgfqxnfr5p2tx" path="res://assets/ui_files/hill_v1.png" id="2_aw7ky"]
+[ext_resource type="Texture2D" uid="uid://c622hga77g6gl" path="res://assets/ui_files/hill_v2.png" id="3_kpsyb"]
+[ext_resource type="Texture2D" uid="uid://csn56rw1gn6yk" path="res://assets/ui_files/tree_v2.png" id="4_pvl6e"]
+[ext_resource type="Texture2D" uid="uid://8oqbtk8vclho" path="res://assets/ui_files/caterpillar_v2.png" id="5_0xp5w"]
+[ext_resource type="Texture2D" uid="uid://bs8rbnjlk6n6j" path="res://assets/ui_files/cloud_v2.png" id="6_a22wr"]
+[ext_resource type="FontFile" uid="uid://bfqgp73lkxt8w" path="res://assets/fonts/LakkiReddy-Regular.ttf" id="7_62shy"]
+[ext_resource type="Texture2D" uid="uid://b3nxt0gg764kl" path="res://assets/ui_files/cloud_v2_highlight.png" id="7_kvfxa"]
+[ext_resource type="Texture2D" uid="uid://cqyp3ntcty75q" path="res://assets/ui_files/itch_logo.png" id="9_8b8sy"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_8b8sy"]
+
+[node name="CreditsBackground" type="Control" unique_id=419945252]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_8b8sy")
+
+[node name="BackgroundColorRect" type="ColorRect" parent="." unique_id=1061247509]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.5411765, 0.7921569, 0.972549, 1)
+
+[node name="BackgroundArt" type="Node2D" parent="." unique_id=802263714]
+
+[node name="HillV1" type="Sprite2D" parent="BackgroundArt" unique_id=1879404516]
+position = Vector2(690, 418)
+texture = ExtResource("2_aw7ky")
+
+[node name="HillV2" type="Sprite2D" parent="BackgroundArt" unique_id=2038440147]
+position = Vector2(696, 551)
+texture = ExtResource("3_kpsyb")
+
+[node name="TreeV2" type="Sprite2D" parent="BackgroundArt" unique_id=1332635330]
+position = Vector2(766, 324)
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("4_pvl6e")
+
+[node name="CaterpillarV2" type="Sprite2D" parent="BackgroundArt" unique_id=487700219]
+position = Vector2(333, 237.00002)
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("5_0xp5w")
+
+[node name="BackButtonMargin" type="MarginContainer" parent="." unique_id=418920930]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+scale = Vector2(0.6, 0.6)
+theme_override_constants/margin_left = 40
+theme_override_constants/margin_top = 40
+
+[node name="BackButton" type="TextureButton" parent="BackButtonMargin" unique_id=227339353]
+layout_mode = 2
+texture_normal = ExtResource("6_a22wr")
+texture_hover = ExtResource("7_kvfxa")
+
+[node name="Back" type="Label" parent="BackButtonMargin/BackButton" unique_id=1840368085]
+layout_mode = 0
+offset_left = 60.0
+offset_top = 60.0
+offset_right = 198.0
+offset_bottom = 167.0
+theme_override_colors/font_color = Color(0.10980392, 0.21176471, 0.007843138, 1)
+theme_override_fonts/font = ExtResource("7_62shy")
+theme_override_font_sizes/font_size = 64
+text = "Back"
+
+[node name="CreditsMargin" type="MarginContainer" parent="." unique_id=1712916089]
+layout_mode = 0
+offset_left = 499.0
+offset_top = 129.0
+offset_right = 1049.0
+offset_bottom = 579.0
+
+[node name="CreditsContainer" type="VBoxContainer" parent="CreditsMargin" unique_id=1985033372]
+layout_mode = 2
+
+[node name="Credits" type="Label" parent="CreditsMargin/CreditsContainer" unique_id=1470556706]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+theme_override_colors/font_color = Color(0.10980392, 0.21176471, 0.007843138, 1)
+theme_override_fonts/font = ExtResource("7_62shy")
+theme_override_font_sizes/font_size = 64
+text = "CREDITS"
+
+[node name="ScrollContainer" type="ScrollContainer" parent="CreditsMargin/CreditsContainer" unique_id=404340690]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="CreditsListContainer" type="VBoxContainer" parent="CreditsMargin/CreditsContainer/ScrollContainer" unique_id=508258463]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="ContributorsContainer" type="VBoxContainer" parent="CreditsMargin/CreditsContainer/ScrollContainer/CreditsListContainer" unique_id=419470690]
+layout_mode = 2
+
+[node name="Contributors" type="Label" parent="CreditsMargin/CreditsContainer/ScrollContainer/CreditsListContainer/ContributorsContainer" unique_id=1900750457]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+theme_override_colors/font_color = Color(0.10980392, 0.21176471, 0.007843138, 1)
+theme_override_fonts/font = ExtResource("7_62shy")
+theme_override_font_sizes/font_size = 42
+text = "Contributors"
+
+[node name="Person1Margin" type="MarginContainer" parent="CreditsMargin/CreditsContainer/ScrollContainer/CreditsListContainer/ContributorsContainer" unique_id=1836042469]
+layout_mode = 2
+size_flags_vertical = 8
+
+[node name="Person1Container" type="HBoxContainer" parent="CreditsMargin/CreditsContainer/ScrollContainer/CreditsListContainer/ContributorsContainer/Person1Margin" unique_id=2097766904]
+layout_mode = 2
+theme_override_constants/separation = 30
+
+[node name="Person1Name" type="Label" parent="CreditsMargin/CreditsContainer/ScrollContainer/CreditsListContainer/ContributorsContainer/Person1Margin/Person1Container" unique_id=1947980703]
+custom_minimum_size = Vector2(210, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.10980392, 0.21176471, 0.007843138, 1)
+theme_override_fonts/font = ExtResource("7_62shy")
+theme_override_font_sizes/font_size = 21
+text = "Paul - Design"
+
+[node name="VSeparator" type="VSeparator" parent="CreditsMargin/CreditsContainer/ScrollContainer/CreditsListContainer/ContributorsContainer/Person1Margin/Person1Container" unique_id=1084329533]
+layout_mode = 2
+theme_override_constants/separation = 15
+theme_override_styles/separator = SubResource("StyleBoxEmpty_8b8sy")
+
+[node name="ItchLogo" type="TextureRect" parent="CreditsMargin/CreditsContainer/ScrollContainer/CreditsListContainer/ContributorsContainer/Person1Margin/Person1Container" unique_id=222123000]
+custom_minimum_size = Vector2(25, 25)
+layout_mode = 2
+size_flags_vertical = 0
+texture = ExtResource("9_8b8sy")
+expand_mode = 3
+
+[node name="Person1Itch" type="Label" parent="CreditsMargin/CreditsContainer/ScrollContainer/CreditsListContainer/ContributorsContainer/Person1Margin/Person1Container" unique_id=69962724]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.10980392, 0.21176471, 0.007843138, 1)
+theme_override_fonts/font = ExtResource("7_62shy")
+theme_override_font_sizes/font_size = 21
+text = "@ superninjafat"
+
+[node name="Person2Margin" type="MarginContainer" parent="CreditsMargin/CreditsContainer/ScrollContainer/CreditsListContainer/ContributorsContainer" unique_id=676052570]
+layout_mode = 2
+size_flags_vertical = 8
+
+[node name="Person2Container" type="HBoxContainer" parent="CreditsMargin/CreditsContainer/ScrollContainer/CreditsListContainer/ContributorsContainer/Person2Margin" unique_id=1415522167]
+layout_mode = 2
+theme_override_constants/separation = 30
+
+[node name="Person2Name" type="Label" parent="CreditsMargin/CreditsContainer/ScrollContainer/CreditsListContainer/ContributorsContainer/Person2Margin/Person2Container" unique_id=1812981059]
+custom_minimum_size = Vector2(210, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.10980392, 0.21176471, 0.007843138, 1)
+theme_override_fonts/font = ExtResource("7_62shy")
+theme_override_font_sizes/font_size = 21
+text = "Josh - Programming"
+
+[node name="VSeparator" type="VSeparator" parent="CreditsMargin/CreditsContainer/ScrollContainer/CreditsListContainer/ContributorsContainer/Person2Margin/Person2Container" unique_id=318017959]
+layout_mode = 2
+theme_override_constants/separation = 15
+theme_override_styles/separator = SubResource("StyleBoxEmpty_8b8sy")
+
+[node name="ItchLogo" type="TextureRect" parent="CreditsMargin/CreditsContainer/ScrollContainer/CreditsListContainer/ContributorsContainer/Person2Margin/Person2Container" unique_id=751080042]
+custom_minimum_size = Vector2(25, 25)
+layout_mode = 2
+size_flags_vertical = 0
+texture = ExtResource("9_8b8sy")
+expand_mode = 3
+
+[node name="Person1Itch" type="Label" parent="CreditsMargin/CreditsContainer/ScrollContainer/CreditsListContainer/ContributorsContainer/Person2Margin/Person2Container" unique_id=1351749452]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.10980392, 0.21176471, 0.007843138, 1)
+theme_override_fonts/font = ExtResource("7_62shy")
+theme_override_font_sizes/font_size = 21
+text = "@ itch"
+
+[node name="Person3Margin" type="MarginContainer" parent="CreditsMargin/CreditsContainer/ScrollContainer/CreditsListContainer/ContributorsContainer" unique_id=63225192]
+layout_mode = 2
+size_flags_vertical = 8
+
+[node name="Person3Container" type="HBoxContainer" parent="CreditsMargin/CreditsContainer/ScrollContainer/CreditsListContainer/ContributorsContainer/Person3Margin" unique_id=902629764]
+layout_mode = 2
+theme_override_constants/separation = 30
+
+[node name="Person3Name" type="Label" parent="CreditsMargin/CreditsContainer/ScrollContainer/CreditsListContainer/ContributorsContainer/Person3Margin/Person3Container" unique_id=1702608827]
+custom_minimum_size = Vector2(210, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.10980392, 0.21176471, 0.007843138, 1)
+theme_override_fonts/font = ExtResource("7_62shy")
+theme_override_font_sizes/font_size = 21
+text = "Mia - Music/Art"
+
+[node name="VSeparator" type="VSeparator" parent="CreditsMargin/CreditsContainer/ScrollContainer/CreditsListContainer/ContributorsContainer/Person3Margin/Person3Container" unique_id=1388709652]
+layout_mode = 2
+theme_override_constants/separation = 15
+theme_override_styles/separator = SubResource("StyleBoxEmpty_8b8sy")
+
+[node name="ItchLogo" type="TextureRect" parent="CreditsMargin/CreditsContainer/ScrollContainer/CreditsListContainer/ContributorsContainer/Person3Margin/Person3Container" unique_id=1382354202]
+custom_minimum_size = Vector2(25, 25)
+layout_mode = 2
+size_flags_vertical = 0
+texture = ExtResource("9_8b8sy")
+expand_mode = 3
+
+[node name="Person3Itch" type="Label" parent="CreditsMargin/CreditsContainer/ScrollContainer/CreditsListContainer/ContributorsContainer/Person3Margin/Person3Container" unique_id=85394550]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.10980392, 0.21176471, 0.007843138, 1)
+theme_override_fonts/font = ExtResource("7_62shy")
+theme_override_font_sizes/font_size = 21
+text = "@ itch"
+
+[node name="Person4Margin" type="MarginContainer" parent="CreditsMargin/CreditsContainer/ScrollContainer/CreditsListContainer/ContributorsContainer" unique_id=617423371]
+layout_mode = 2
+size_flags_vertical = 8
+
+[node name="Person4Container" type="HBoxContainer" parent="CreditsMargin/CreditsContainer/ScrollContainer/CreditsListContainer/ContributorsContainer/Person4Margin" unique_id=1458130511]
+layout_mode = 2
+theme_override_constants/separation = 30
+
+[node name="Person4Name" type="Label" parent="CreditsMargin/CreditsContainer/ScrollContainer/CreditsListContainer/ContributorsContainer/Person4Margin/Person4Container" unique_id=1416448722]
+custom_minimum_size = Vector2(210, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.10980392, 0.21176471, 0.007843138, 1)
+theme_override_fonts/font = ExtResource("7_62shy")
+theme_override_font_sizes/font_size = 21
+text = "Max - Sound"
+
+[node name="VSeparator" type="VSeparator" parent="CreditsMargin/CreditsContainer/ScrollContainer/CreditsListContainer/ContributorsContainer/Person4Margin/Person4Container" unique_id=691964496]
+layout_mode = 2
+theme_override_constants/separation = 15
+theme_override_styles/separator = SubResource("StyleBoxEmpty_8b8sy")
+
+[node name="ItchLogo" type="TextureRect" parent="CreditsMargin/CreditsContainer/ScrollContainer/CreditsListContainer/ContributorsContainer/Person4Margin/Person4Container" unique_id=1060901865]
+custom_minimum_size = Vector2(25, 25)
+layout_mode = 2
+size_flags_vertical = 0
+texture = ExtResource("9_8b8sy")
+expand_mode = 3
+
+[node name="Person4Itch" type="Label" parent="CreditsMargin/CreditsContainer/ScrollContainer/CreditsListContainer/ContributorsContainer/Person4Margin/Person4Container" unique_id=1821865250]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.10980392, 0.21176471, 0.007843138, 1)
+theme_override_fonts/font = ExtResource("7_62shy")
+theme_override_font_sizes/font_size = 21
+text = "@ itch"
+
+[node name="Person5Margin" type="MarginContainer" parent="CreditsMargin/CreditsContainer/ScrollContainer/CreditsListContainer/ContributorsContainer" unique_id=759284822]
+layout_mode = 2
+size_flags_vertical = 8
+
+[node name="Person5Container" type="HBoxContainer" parent="CreditsMargin/CreditsContainer/ScrollContainer/CreditsListContainer/ContributorsContainer/Person5Margin" unique_id=1840713218]
+layout_mode = 2
+theme_override_constants/separation = 30
+
+[node name="Person5Name" type="Label" parent="CreditsMargin/CreditsContainer/ScrollContainer/CreditsListContainer/ContributorsContainer/Person5Margin/Person5Container" unique_id=1820246933]
+custom_minimum_size = Vector2(210, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.10980392, 0.21176471, 0.007843138, 1)
+theme_override_fonts/font = ExtResource("7_62shy")
+theme_override_font_sizes/font_size = 21
+text = "Megan Eaton - Art/UI"
+
+[node name="VSeparator" type="VSeparator" parent="CreditsMargin/CreditsContainer/ScrollContainer/CreditsListContainer/ContributorsContainer/Person5Margin/Person5Container" unique_id=2113317948]
+layout_mode = 2
+theme_override_constants/separation = 15
+theme_override_styles/separator = SubResource("StyleBoxEmpty_8b8sy")
+
+[node name="ItchLogo" type="TextureRect" parent="CreditsMargin/CreditsContainer/ScrollContainer/CreditsListContainer/ContributorsContainer/Person5Margin/Person5Container" unique_id=1467388433]
+custom_minimum_size = Vector2(25, 25)
+layout_mode = 2
+size_flags_vertical = 0
+texture = ExtResource("9_8b8sy")
+expand_mode = 3
+
+[node name="Person5Itch" type="Label" parent="CreditsMargin/CreditsContainer/ScrollContainer/CreditsListContainer/ContributorsContainer/Person5Margin/Person5Container" unique_id=126042175]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.10980392, 0.21176471, 0.007843138, 1)
+theme_override_fonts/font = ExtResource("7_62shy")
+theme_override_font_sizes/font_size = 21
+text = "@ me_gan"
+
+[node name="SpecialThanksContainer" type="VBoxContainer" parent="CreditsMargin/CreditsContainer/ScrollContainer/CreditsListContainer" unique_id=709384128]
+layout_mode = 2
+
+[node name="SpecialThanks" type="Label" parent="CreditsMargin/CreditsContainer/ScrollContainer/CreditsListContainer/SpecialThanksContainer" unique_id=39896548]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(0.10980392, 0.21176471, 0.007843138, 1)
+theme_override_fonts/font = ExtResource("7_62shy")
+theme_override_font_sizes/font_size = 42
+text = "Special Thanks"
+
+[node name="SpecialThanks1Margin" type="MarginContainer" parent="CreditsMargin/CreditsContainer/ScrollContainer/CreditsListContainer/SpecialThanksContainer" unique_id=1928781882]
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="SpecialThanks1Container" type="HBoxContainer" parent="CreditsMargin/CreditsContainer/ScrollContainer/CreditsListContainer/SpecialThanksContainer/SpecialThanks1Margin" unique_id=1459532808]
+layout_mode = 2
+
+[node name="GodotTemplate" type="Label" parent="CreditsMargin/CreditsContainer/ScrollContainer/CreditsListContainer/SpecialThanksContainer/SpecialThanks1Margin/SpecialThanks1Container" unique_id=41387665]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.10980392, 0.21176471, 0.007843138, 1)
+theme_override_fonts/font = ExtResource("7_62shy")
+theme_override_font_sizes/font_size = 30
+text = "Godot Game Template by Maaack"
+
+[connection signal="pressed" from="BackButtonMargin/BackButton" to="." method="hide"]
