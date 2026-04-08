@@ -1,13 +1,22 @@
 [gd_scene format=3 uid="uid://jkkawrmxgder"]
 
 [ext_resource type="Script" uid="uid://qv6ay1mo7sgx" path="res://scenes/environment/grab_surface.gd" id="1_oq6ap"]
+[ext_resource type="Texture2D" uid="uid://c0ehdv6peyrii" path="res://assets/image/pale_wood_tile_1.png" id="2_5xjrm"]
+[ext_resource type="Material" uid="uid://cb5d5eh2m838j" path="res://resources/materials/grab_surface_water_material.tres" id="3_xom51"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_q7huo"]
 shading_mode = 0
-albedo_color = Color(0.8235294, 0.7058824, 0.54901963, 1)
+albedo_texture = ExtResource("2_5xjrm")
+uv1_scale = Vector3(0.125, 0.125, 0.125)
+uv1_offset = Vector3(0, 0.5, 0)
+uv1_triplanar = true
+uv1_world_triplanar = true
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_oq6ap"]
 material = SubResource("StandardMaterial3D_q7huo")
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_x5rkv"]
+material = ExtResource("3_xom51")
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_q7huo"]
 resource_local_to_scene = true
@@ -19,9 +28,14 @@ collision_mask = 0
 input_ray_pickable = false
 script = ExtResource("1_oq6ap")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=78994872]
+[node name="DefaultSurface" type="MeshInstance3D" parent="." unique_id=78994872]
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, -0.59999996)
 mesh = SubResource("PlaneMesh_oq6ap")
+
+[node name="SlideSurface" type="MeshInstance3D" parent="." unique_id=641705160]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, -0.7)
+visible = false
+mesh = SubResource("PlaneMesh_x5rkv")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=2034447646]
 shape = SubResource("BoxShape3D_q7huo")
