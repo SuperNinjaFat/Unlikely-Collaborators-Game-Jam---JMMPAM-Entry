@@ -126,8 +126,8 @@ custom_minimum_size = Vector2(210, 0)
 layout_mode = 2
 theme_override_colors/font_color = Color(0.10980392, 0.21176471, 0.007843138, 1)
 theme_override_fonts/font = ExtResource("7_62shy")
-theme_override_font_sizes/font_size = 30
-text = "Person 1 Name"
+theme_override_font_sizes/font_size = 21
+text = "Paul - Design"
 
 [node name="VSeparator" type="VSeparator" parent="CreditsMargin/CreditsContainer/ScrollContainer/CreditsListContainer/ContributorsContainer/Person1Margin/Person1Container" unique_id=1084329533]
 layout_mode = 2
@@ -135,7 +135,7 @@ theme_override_constants/separation = 15
 theme_override_styles/separator = SubResource("StyleBoxEmpty_8b8sy")
 
 [node name="ItchLogo" type="TextureRect" parent="CreditsMargin/CreditsContainer/ScrollContainer/CreditsListContainer/ContributorsContainer/Person1Margin/Person1Container" unique_id=222123000]
-custom_minimum_size = Vector2(30, 30)
+custom_minimum_size = Vector2(25, 25)
 layout_mode = 2
 size_flags_vertical = 0
 texture = ExtResource("9_8b8sy")
@@ -146,8 +146,8 @@ custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
 theme_override_colors/font_color = Color(0.10980392, 0.21176471, 0.007843138, 1)
 theme_override_fonts/font = ExtResource("7_62shy")
-theme_override_font_sizes/font_size = 30
-text = "@ itch"
+theme_override_font_sizes/font_size = 21
+text = "@ superninjafat"
 
 [node name="Person2Margin" type="MarginContainer" parent="CreditsMargin/CreditsContainer/ScrollContainer/CreditsListContainer/ContributorsContainer" unique_id=676052570]
 layout_mode = 2
@@ -162,8 +162,8 @@ custom_minimum_size = Vector2(210, 0)
 layout_mode = 2
 theme_override_colors/font_color = Color(0.10980392, 0.21176471, 0.007843138, 1)
 theme_override_fonts/font = ExtResource("7_62shy")
-theme_override_font_sizes/font_size = 30
-text = "Person 2 Name"
+theme_override_font_sizes/font_size = 21
+text = "Josh - Programming"
 
 [node name="VSeparator" type="VSeparator" parent="CreditsMargin/CreditsContainer/ScrollContainer/CreditsListContainer/ContributorsContainer/Person2Margin/Person2Container" unique_id=318017959]
 layout_mode = 2
@@ -171,7 +171,7 @@ theme_override_constants/separation = 15
 theme_override_styles/separator = SubResource("StyleBoxEmpty_8b8sy")
 
 [node name="ItchLogo" type="TextureRect" parent="CreditsMargin/CreditsContainer/ScrollContainer/CreditsListContainer/ContributorsContainer/Person2Margin/Person2Container" unique_id=751080042]
-custom_minimum_size = Vector2(30, 30)
+custom_minimum_size = Vector2(25, 25)
 layout_mode = 2
 size_flags_vertical = 0
 texture = ExtResource("9_8b8sy")
@@ -182,7 +182,7 @@ custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
 theme_override_colors/font_color = Color(0.10980392, 0.21176471, 0.007843138, 1)
 theme_override_fonts/font = ExtResource("7_62shy")
-theme_override_font_sizes/font_size = 30
+theme_override_font_sizes/font_size = 21
 text = "@ itch"
 
 [node name="Person3Margin" type="MarginContainer" parent="CreditsMargin/CreditsContainer/ScrollContainer/CreditsListContainer/ContributorsContainer" unique_id=63225192]
@@ -198,8 +198,8 @@ custom_minimum_size = Vector2(210, 0)
 layout_mode = 2
 theme_override_colors/font_color = Color(0.10980392, 0.21176471, 0.007843138, 1)
 theme_override_fonts/font = ExtResource("7_62shy")
-theme_override_font_sizes/font_size = 30
-text = "Person 3 Name"
+theme_override_font_sizes/font_size = 21
+text = "Mia - Music/Art"
 
 [node name="VSeparator" type="VSeparator" parent="CreditsMargin/CreditsContainer/ScrollContainer/CreditsListContainer/ContributorsContainer/Person3Margin/Person3Container" unique_id=1388709652]
 layout_mode = 2
@@ -207,7 +207,7 @@ theme_override_constants/separation = 15
 theme_override_styles/separator = SubResource("StyleBoxEmpty_8b8sy")
 
 [node name="ItchLogo" type="TextureRect" parent="CreditsMargin/CreditsContainer/ScrollContainer/CreditsListContainer/ContributorsContainer/Person3Margin/Person3Container" unique_id=1382354202]
-custom_minimum_size = Vector2(30, 30)
+custom_minimum_size = Vector2(25, 25)
 layout_mode = 2
 size_flags_vertical = 0
 texture = ExtResource("9_8b8sy")
@@ -218,7 +218,7 @@ custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
 theme_override_colors/font_color = Color(0.10980392, 0.21176471, 0.007843138, 1)
 theme_override_fonts/font = ExtResource("7_62shy")
-theme_override_font_sizes/font_size = 30
+theme_override_font_sizes/font_size = 21
 text = "@ itch"
 
 [node name="Person4Margin" type="MarginContainer" parent="CreditsMargin/CreditsContainer/ScrollContainer/CreditsListContainer/ContributorsContainer" unique_id=617423371]
@@ -234,8 +234,8 @@ custom_minimum_size = Vector2(210, 0)
 layout_mode = 2
 theme_override_colors/font_color = Color(0.10980392, 0.21176471, 0.007843138, 1)
 theme_override_fonts/font = ExtResource("7_62shy")
-theme_override_font_sizes/font_size = 30
-text = "Person 4 Name"
+theme_override_font_sizes/font_size = 21
+text = "Max - Sound"
 
 [node name="VSeparator" type="VSeparator" parent="CreditsMargin/CreditsContainer/ScrollContainer/CreditsListContainer/ContributorsContainer/Person4Margin/Person4Container" unique_id=691964496]
 layout_mode = 2
@@ -243,7 +243,7 @@ theme_override_constants/separation = 15
 theme_override_styles/separator = SubResource("StyleBoxEmpty_8b8sy")
 
 [node name="ItchLogo" type="TextureRect" parent="CreditsMargin/CreditsContainer/ScrollContainer/CreditsListContainer/ContributorsContainer/Person4Margin/Person4Container" unique_id=1060901865]
-custom_minimum_size = Vector2(30, 30)
+custom_minimum_size = Vector2(25, 25)
 layout_mode = 2
 size_flags_vertical = 0
 texture = ExtResource("9_8b8sy")
@@ -254,7 +254,7 @@ custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
 theme_override_colors/font_color = Color(0.10980392, 0.21176471, 0.007843138, 1)
 theme_override_fonts/font = ExtResource("7_62shy")
-theme_override_font_sizes/font_size = 30
+theme_override_font_sizes/font_size = 21
 text = "@ itch"
 
 [node name="Person5Margin" type="MarginContainer" parent="CreditsMargin/CreditsContainer/ScrollContainer/CreditsListContainer/ContributorsContainer" unique_id=759284822]
@@ -270,8 +270,8 @@ custom_minimum_size = Vector2(210, 0)
 layout_mode = 2
 theme_override_colors/font_color = Color(0.10980392, 0.21176471, 0.007843138, 1)
 theme_override_fonts/font = ExtResource("7_62shy")
-theme_override_font_sizes/font_size = 30
-text = "Person 5 Name"
+theme_override_font_sizes/font_size = 21
+text = "Megan Eaton - Art/UI"
 
 [node name="VSeparator" type="VSeparator" parent="CreditsMargin/CreditsContainer/ScrollContainer/CreditsListContainer/ContributorsContainer/Person5Margin/Person5Container" unique_id=2113317948]
 layout_mode = 2
@@ -279,7 +279,7 @@ theme_override_constants/separation = 15
 theme_override_styles/separator = SubResource("StyleBoxEmpty_8b8sy")
 
 [node name="ItchLogo" type="TextureRect" parent="CreditsMargin/CreditsContainer/ScrollContainer/CreditsListContainer/ContributorsContainer/Person5Margin/Person5Container" unique_id=1467388433]
-custom_minimum_size = Vector2(30, 30)
+custom_minimum_size = Vector2(25, 25)
 layout_mode = 2
 size_flags_vertical = 0
 texture = ExtResource("9_8b8sy")
@@ -290,8 +290,8 @@ custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
 theme_override_colors/font_color = Color(0.10980392, 0.21176471, 0.007843138, 1)
 theme_override_fonts/font = ExtResource("7_62shy")
-theme_override_font_sizes/font_size = 30
-text = "@ itch"
+theme_override_font_sizes/font_size = 21
+text = "@ me_gan"
 
 [node name="SpecialThanksContainer" type="VBoxContainer" parent="CreditsMargin/CreditsContainer/ScrollContainer/CreditsListContainer" unique_id=709384128]
 layout_mode = 2
