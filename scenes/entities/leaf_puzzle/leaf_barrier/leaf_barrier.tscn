@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://bcn6n2re8h1p6"]
 
 [ext_resource type="Script" uid="uid://1ha16gbn3uym" path="res://scenes/entities/leaf_puzzle/leaf_barrier/leaf_barrier.gd" id="1_v8twt"]
-[ext_resource type="Texture2D" uid="uid://cly32den027w3" path="res://assets/image/leaf_lowres.jpg" id="2_emgr6"]
+[ext_resource type="Texture2D" uid="uid://tv4m5lkuylcs" path="res://assets/ui_files/leaves2.png" id="2_emgr6"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_5fiuf"]
 size = Vector3(6.3808594, 1, 1)
@@ -11,7 +11,7 @@ transparency = 1
 shading_mode = 0
 albedo_color = Color(0.23921569, 1, 0.19607843, 1)
 albedo_texture = ExtResource("2_emgr6")
-uv1_scale = Vector3(0.585, 0.585, 0.585)
+uv1_scale = Vector3(0.3, 0.3, 0.3)
 uv1_triplanar = true
 uv1_world_triplanar = true
 
