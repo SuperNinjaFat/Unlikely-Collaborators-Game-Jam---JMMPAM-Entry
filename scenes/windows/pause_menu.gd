@@ -2,6 +2,7 @@
 extends OverlaidWindow
 
 @export var options_menu_scene : PackedScene
+@export var credits_menu_scene : PackedScene
 ## Path to a main menu scene.
 ## Will attempt to read from AppConfig if left empty.
 @export_file("*.tscn") var main_menu_scene_path : String
@@ -99,6 +100,9 @@ func _on_restart_button_pressed() -> void:
 
 func _on_options_button_pressed() -> void:
 	_load_and_show_menu(options_menu_scene)
+
+func _on_credits_button_pressed() -> void:
+	_load_and_show_menu(credits_menu_scene)
 
 func _on_main_menu_button_pressed() -> void:
 	_show_window(main_menu_confirmation)
