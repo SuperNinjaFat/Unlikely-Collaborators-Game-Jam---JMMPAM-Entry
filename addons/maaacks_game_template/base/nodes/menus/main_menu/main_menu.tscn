@@ -15,6 +15,8 @@
 [ext_resource type="Texture2D" uid="uid://bpr0d8ea5mxkc" path="res://assets/ui_files/caterpillar_v1.png" id="7_lf2y4"]
 [ext_resource type="FontFile" uid="uid://bfqgp73lkxt8w" path="res://assets/fonts/LakkiReddy-Regular.ttf" id="7_vjnah"]
 [ext_resource type="Texture2D" uid="uid://bs8rbnjlk6n6j" path="res://assets/ui_files/cloud_v2.png" id="7_vn02j"]
+[ext_resource type="Texture2D" uid="uid://cp2regtq5h8yt" path="res://assets/ui_files/cloud_v1_highlight.png" id="11_7msp7"]
+[ext_resource type="Texture2D" uid="uid://b3nxt0gg764kl" path="res://assets/ui_files/cloud_v2_highlight.png" id="14_lf2y4"]
 
 [node name="MainMenu" type="Control" unique_id=781937481]
 layout_mode = 3
@@ -149,6 +151,7 @@ unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 4
 texture_normal = ExtResource("6_5lk5m")
+texture_hover = ExtResource("11_7msp7")
 
 [node name="StartMarginContainer" type="MarginContainer" parent="MenuContainer/MenuButtonsMargin/MenuButtonsContainer/MenuButtonsBoxContainer/NewGameButton" unique_id=71777503]
 layout_mode = 0
@@ -172,6 +175,7 @@ theme_override_constants/separation = 20
 unique_name_in_owner = true
 layout_mode = 2
 texture_normal = ExtResource("7_vn02j")
+texture_hover = ExtResource("14_lf2y4")
 
 [node name="StartMarginContainer" type="MarginContainer" parent="MenuContainer/MenuButtonsMargin/MenuButtonsContainer/MenuButtonsBoxContainer/HBoxContainer/OptionsButton" unique_id=75820295]
 layout_mode = 0
@@ -191,6 +195,7 @@ text = "Settings"
 unique_name_in_owner = true
 layout_mode = 2
 texture_normal = ExtResource("7_vn02j")
+texture_hover = ExtResource("14_lf2y4")
 
 [node name="StartMarginContainer" type="MarginContainer" parent="MenuContainer/MenuButtonsMargin/MenuButtonsContainer/MenuButtonsBoxContainer/HBoxContainer/CreditsButton" unique_id=1485635205]
 layout_mode = 0
@@ -210,6 +215,7 @@ text = "Credits"
 unique_name_in_owner = true
 layout_mode = 2
 texture_normal = ExtResource("7_vn02j")
+texture_hover = ExtResource("14_lf2y4")
 
 [node name="StartMarginContainer" type="MarginContainer" parent="MenuContainer/MenuButtonsMargin/MenuButtonsContainer/MenuButtonsBoxContainer/HBoxContainer/ExitButton" unique_id=1656296004]
 layout_mode = 0
