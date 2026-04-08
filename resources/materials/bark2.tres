@@ -1,6 +1,6 @@
 [gd_resource type="StandardMaterial3D" format=3 uid="uid://lyxplwn1qaue"]
 
-[ext_resource type="Texture2D" uid="uid://ccmergih628rm" path="res://assets/image/dark_wood_tile_2.png" id="1_iiwhq"]
+[ext_resource type="Texture2D" uid="uid://crr8vu4uc2ltj" path="res://assets/ui_files/wood_tile_dark.png" id="1_iiwhq"]
 
 [resource]
 shading_mode = 0
