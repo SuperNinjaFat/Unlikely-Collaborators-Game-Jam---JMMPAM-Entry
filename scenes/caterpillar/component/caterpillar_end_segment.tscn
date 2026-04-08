@@ -112,5 +112,4 @@ bus = &"SFX"
 
 [node name="PinnedSound" type="AudioStreamPlayer" parent="." unique_id=792027296]
 stream = ExtResource("3_3viqf")
-volume_db = -6.0
 bus = &"SFX"

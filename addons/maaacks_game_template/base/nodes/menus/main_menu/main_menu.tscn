@@ -146,7 +146,7 @@ alignment = 1
 vertical = true
 script = ExtResource("4_l1ebe")
 
-[node name="TopButtonsRow" type="HBoxContainer" parent="MenuContainer/MenuButtonsMargin/MenuButtonsContainer/MenuButtonsBoxContainer"]
+[node name="TopButtonsRow" type="HBoxContainer" parent="MenuContainer/MenuButtonsMargin/MenuButtonsContainer/MenuButtonsBoxContainer" unique_id=2057309448]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 4
@@ -265,7 +265,7 @@ offset_left = -88.0
 offset_top = -26.0
 grow_horizontal = 0
 grow_vertical = 0
-text = "v0.0.0"
+text = "v1.0.0"
 horizontal_alignment = 2
 script = ExtResource("6_pdiij")
 

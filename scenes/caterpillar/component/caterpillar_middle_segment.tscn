@@ -74,5 +74,5 @@ bus = &"SFX"
 
 [node name="LaunchSound" type="AudioStreamPlayer" parent="." unique_id=267122729]
 stream = ExtResource("4_sllwc")
-volume_db = -8.0
+volume_db = -4.0
 bus = &"SFX"
