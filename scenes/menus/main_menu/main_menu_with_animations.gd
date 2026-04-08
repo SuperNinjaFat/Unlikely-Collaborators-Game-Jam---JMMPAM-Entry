@@ -1,4 +1,5 @@
 extends MainMenu
+const _LevelAndStateManager = preload("res://scripts/level_and_state_manager.gd")
 ## Main menu extension that adds options and animates the title and menu fading in.
 ## The scene adds a 'Continue' button if a game is in progress.
 ## The animation can be skipped by the player with any input.
@@ -65,6 +66,11 @@ func _ready() -> void:
 	_show_level_select_if_set()
 	_show_continue_if_set()
 	animation_state_machine = $MenuAnimationTree.get("parameters/playback")
+	if _LevelAndStateManager.show_credits_on_menu:
+		_LevelAndStateManager.show_credits_on_menu = false
+		# Skip intro animation, then open credits
+		intro_done()
+		_on_credits_button_pressed.call_deferred()
 
 func _on_continue_game_button_pressed() -> void:
 	GameState.continue_game()

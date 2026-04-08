@@ -56,6 +56,17 @@ func _ready() -> void:
 		else: _visual_segments_1.append(segment)
 		segment.set_as_top_level(true)
 
+func _unhandled_input(event: InputEvent) -> void:
+	if event.is_action_pressed("right_click"):
+		_try_pin_unpinned_segment()
+
+func _try_pin_unpinned_segment() -> void:
+	# Pin all unpinned end segments that are overlapping a grab surface.
+	for segment in [front_caterpillar_end_segment, end_caterpillar_end_segment]:
+		if not segment.is_pinned_to_world() \
+				and segment.grab_surface_detection.get_overlapping_areas().size() > 0:
+			segment.pin_to_world(true)
+
 func _physics_process(delta: float) -> void:
 	
 	# Update segments between head and middle

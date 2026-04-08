@@ -146,21 +146,27 @@ alignment = 1
 vertical = true
 script = ExtResource("4_l1ebe")
 
-[node name="NewGameButton" type="TextureButton" parent="MenuContainer/MenuButtonsMargin/MenuButtonsContainer/MenuButtonsBoxContainer" unique_id=1210784591]
+[node name="TopButtonsRow" type="HBoxContainer" parent="MenuContainer/MenuButtonsMargin/MenuButtonsContainer/MenuButtonsBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 4
+alignment = 1
+
+[node name="NewGameButton" type="TextureButton" parent="MenuContainer/MenuButtonsMargin/MenuButtonsContainer/MenuButtonsBoxContainer/TopButtonsRow" unique_id=1210784591]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 4
 texture_normal = ExtResource("6_5lk5m")
 texture_hover = ExtResource("11_7msp7")
 
-[node name="StartMarginContainer" type="MarginContainer" parent="MenuContainer/MenuButtonsMargin/MenuButtonsContainer/MenuButtonsBoxContainer/NewGameButton" unique_id=71777503]
+[node name="StartMarginContainer" type="MarginContainer" parent="MenuContainer/MenuButtonsMargin/MenuButtonsContainer/MenuButtonsBoxContainer/TopButtonsRow/NewGameButton" unique_id=71777503]
 layout_mode = 0
 offset_left = 140.0
 offset_top = 80.0
 offset_right = 442.0
 offset_bottom = 298.00024
 
-[node name="Start" type="Label" parent="MenuContainer/MenuButtonsMargin/MenuButtonsContainer/MenuButtonsBoxContainer/NewGameButton/StartMarginContainer" unique_id=1363012500]
+[node name="Start" type="Label" parent="MenuContainer/MenuButtonsMargin/MenuButtonsContainer/MenuButtonsBoxContainer/TopButtonsRow/NewGameButton/StartMarginContainer" unique_id=1363012500]
 layout_mode = 2
 theme_override_colors/font_color = Color(0.10980392, 0.21176471, 0.007843138, 1)
 theme_override_fonts/font = ExtResource("7_vjnah")
@@ -276,7 +282,7 @@ ui_cancel_closes = false
 text = "Really exit the game?"
 title_visible = false
 
-[connection signal="pressed" from="MenuContainer/MenuButtonsMargin/MenuButtonsContainer/MenuButtonsBoxContainer/NewGameButton" to="." method="_on_new_game_button_pressed"]
+[connection signal="pressed" from="MenuContainer/MenuButtonsMargin/MenuButtonsContainer/MenuButtonsBoxContainer/TopButtonsRow/NewGameButton" to="." method="_on_new_game_button_pressed"]
 [connection signal="pressed" from="MenuContainer/MenuButtonsMargin/MenuButtonsContainer/MenuButtonsBoxContainer/HBoxContainer/OptionsButton" to="." method="_on_options_button_pressed"]
 [connection signal="pressed" from="MenuContainer/MenuButtonsMargin/MenuButtonsContainer/MenuButtonsBoxContainer/HBoxContainer/CreditsButton" to="." method="_on_credits_button_pressed"]
 [connection signal="pressed" from="MenuContainer/MenuButtonsMargin/MenuButtonsContainer/MenuButtonsBoxContainer/HBoxContainer/ExitButton" to="." method="_on_exit_button_pressed"]

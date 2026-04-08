@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://b1ebmtbokawua"]
 
 [ext_resource type="Script" uid="uid://cbenyrm8dvniv" path="res://scenes/game_scene/levels/tree.gd" id="1_lr8mv"]
-[ext_resource type="Shader" uid="uid://bjl5kfgsosq87" path="res://scenes/game_scene/levels/texture_scroll.gdshader" id="2_86hxr"]
+[ext_resource type="Shader" path="res://scenes/game_scene/levels/texture_scroll.gdshader" id="2_86hxr"]
 [ext_resource type="Material" uid="uid://bsjr6bocklkwl" path="res://resources/materials/bark.tres" id="2_h3dag"]
 [ext_resource type="Script" uid="uid://dfwslcsnx132u" path="res://scenes/entities/camera_pivot.gd" id="2_mkqp2"]
 [ext_resource type="PackedScene" uid="uid://cw3xmgfyfihf2" path="res://scenes/entities/cutscene/cutscene_manager.tscn" id="3_8hv7v"]
@@ -325,7 +325,7 @@ shape = SubResource("BoxShape3D_lweol")
 
 [node name="TutorialTrigger" parent="Sections/Section0" unique_id=1436302952 instance=ExtResource("9_23rn6")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.9878373, 2.9808793, 0)
-tutorial_text = "Click either end of the
+tutorial_text = "Left-click either end of the
 caterpillar to move around."
 follow_target = 0
 completion_mode = 0
@@ -336,9 +336,9 @@ shape = SubResource("BoxShape3D_r6ktd")
 
 [node name="TutorialTrigger2" parent="Sections/Section0" unique_id=208919694 instance=ExtResource("9_23rn6")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.228526, 2.4275293, 0)
-tutorial_text = "Drag one end of the
-caterpillar to a climbing surface
-and release to grab hold."
+tutorial_text = "Drag one end of the caterpillar
+to a climbing surface and
+release to grab hold."
 follow_target = 2
 completion_mode = 0
 
@@ -459,9 +459,8 @@ shape = SubResource("BoxShape3D_h3dag")
 
 [node name="TutorialTrigger" parent="Sections/Section2" unique_id=787869992 instance=ExtResource("9_23rn6")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.9032288, -4.822838, 0)
-tutorial_text = "Drag and release the
-caterpillar middle section to
-jump!"
+tutorial_text = "Drag and release the caterpillar
+middle section to jump!"
 completion_mode = 1
 show_delay = 0.0
 
@@ -471,9 +470,9 @@ shape = SubResource("BoxShape3D_w1gio")
 
 [node name="TutorialTrigger2" parent="Sections/Section2" unique_id=509423066 instance=ExtResource("9_23rn6")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.103668, -3, 0)
-tutorial_text = "Click a part to lock
-onto the wall after
-you throw yourself!"
+tutorial_text = "Right-click to quickly pin
+either end of the caterpillar
+to a nearby surface."
 follow_target = 3
 timeout_duration = 12.0
 show_delay = 2.0
