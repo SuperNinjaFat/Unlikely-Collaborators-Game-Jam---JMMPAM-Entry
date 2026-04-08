@@ -50,13 +50,13 @@ mesh = SubResource("SphereMesh_asb6v")
 [node name="FloorChecks" type="Node3D" parent="." unique_id=611531767]
 
 [node name="DownFloorCheck" type="RayCast3D" parent="FloorChecks" unique_id=1854741315]
-target_position = Vector3(0, -0.5, 0)
+target_position = Vector3(0, -0.501, 0)
 
 [node name="SecondaryFloorCheck0" type="RayCast3D" parent="FloorChecks" unique_id=1875951508]
-target_position = Vector3(0.5, -0.5, 0)
+target_position = Vector3(0.5, -0.501, 0)
 
 [node name="SecondaryFloorCheck1" type="RayCast3D" parent="FloorChecks" unique_id=947196719]
-target_position = Vector3(-0.5, -0.5, 0)
+target_position = Vector3(-0.5, -0.501, 0)
 
 [node name="GrabSurfaceDetection" type="Area3D" parent="." unique_id=867330508]
 collision_layer = 0
