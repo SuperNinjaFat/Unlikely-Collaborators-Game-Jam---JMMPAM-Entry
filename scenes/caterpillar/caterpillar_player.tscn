@@ -3,7 +3,8 @@
 [ext_resource type="Script" uid="uid://ckq847pxixmms" path="res://scenes/caterpillar/caterpillar_player.gd" id="1_wpa61"]
 [ext_resource type="PackedScene" uid="uid://bnvrwyt77hkgb" path="res://scenes/caterpillar/component/caterpillar_end_segment.tscn" id="2_n8wdf"]
 [ext_resource type="PackedScene" uid="uid://b1qp6jd1y2uos" path="res://scenes/caterpillar/component/caterpillar_middle_segment.tscn" id="3_ocytg"]
-[ext_resource type="PackedScene" uid="uid://gqjc3c7bhhqk" path="res://scenes/caterpillar/component/caterpillar_segment_small.tscn" id="4_t4js3"]
+[ext_resource type="PackedScene" uid="uid://d8lparlil6t6" path="res://scenes/caterpillar/component/caterpillar_segment_small_yellow.tscn" id="4_03i8n"]
+[ext_resource type="PackedScene" uid="uid://gqjc3c7bhhqk" path="res://scenes/caterpillar/component/caterpillar_segment_small_green.tscn" id="4_t4js3"]
 
 [node name="CaterpillarPlayer" type="Node3D" unique_id=2112225814 groups=["caterpillar"]]
 script = ExtResource("1_wpa61")
@@ -36,42 +37,62 @@ opposite_segment = NodePath("../FrontCaterpillarEndSegment")
 [node name="VisualSegmentsContainer" type="Node3D" parent="." unique_id=171880237]
 metadata/_edit_lock_ = true
 
-[node name="CaterpillarSegmentSmall0" parent="VisualSegmentsContainer" unique_id=594499725 instance=ExtResource("4_t4js3")]
+[node name="CaterpillarSegmentSmallGreen0" parent="VisualSegmentsContainer" unique_id=1957028878 instance=ExtResource("4_t4js3")]
+metadata/_edit_lock_ = true
 
-[node name="CaterpillarSegmentSmall1" parent="VisualSegmentsContainer" unique_id=2143692491 instance=ExtResource("4_t4js3")]
+[node name="CaterpillarSegmentSmallYellow0" parent="VisualSegmentsContainer" unique_id=1157301748 instance=ExtResource("4_03i8n")]
+metadata/_edit_lock_ = true
 
-[node name="CaterpillarSegmentSmall2" parent="VisualSegmentsContainer" unique_id=1692030736 instance=ExtResource("4_t4js3")]
+[node name="CaterpillarSegmentSmallGreen1" parent="VisualSegmentsContainer" unique_id=922591491 instance=ExtResource("4_t4js3")]
+metadata/_edit_lock_ = true
 
-[node name="CaterpillarSegmentSmall3" parent="VisualSegmentsContainer" unique_id=2146554370 instance=ExtResource("4_t4js3")]
+[node name="CaterpillarSegmentSmallYellow1" parent="VisualSegmentsContainer" unique_id=2076886885 instance=ExtResource("4_03i8n")]
+metadata/_edit_lock_ = true
 
-[node name="CaterpillarSegmentSmall4" parent="VisualSegmentsContainer" unique_id=1891503481 instance=ExtResource("4_t4js3")]
+[node name="CaterpillarSegmentSmallGreen2" parent="VisualSegmentsContainer" unique_id=359722743 instance=ExtResource("4_t4js3")]
+metadata/_edit_lock_ = true
 
-[node name="CaterpillarSegmentSmall5" parent="VisualSegmentsContainer" unique_id=65855192 instance=ExtResource("4_t4js3")]
+[node name="CaterpillarSegmentSmallYellow2" parent="VisualSegmentsContainer" unique_id=1516603200 instance=ExtResource("4_03i8n")]
+metadata/_edit_lock_ = true
 
-[node name="CaterpillarSegmentSmall6" parent="VisualSegmentsContainer" unique_id=1957028878 instance=ExtResource("4_t4js3")]
+[node name="CaterpillarSegmentSmallGreen3" parent="VisualSegmentsContainer" unique_id=1436616476 instance=ExtResource("4_t4js3")]
+metadata/_edit_lock_ = true
 
-[node name="CaterpillarSegmentSmall7" parent="VisualSegmentsContainer" unique_id=1451775380 instance=ExtResource("4_t4js3")]
+[node name="CaterpillarSegmentSmallYellow3" parent="VisualSegmentsContainer" unique_id=1375426599 instance=ExtResource("4_03i8n")]
+metadata/_edit_lock_ = true
 
-[node name="CaterpillarSegmentSmall8" parent="VisualSegmentsContainer" unique_id=1486138161 instance=ExtResource("4_t4js3")]
+[node name="CaterpillarSegmentSmallGreen4" parent="VisualSegmentsContainer" unique_id=639609184 instance=ExtResource("4_t4js3")]
+metadata/_edit_lock_ = true
 
-[node name="CaterpillarSegmentSmall9" parent="VisualSegmentsContainer" unique_id=880058195 instance=ExtResource("4_t4js3")]
+[node name="CaterpillarSegmentSmallYellow4" parent="VisualSegmentsContainer" unique_id=2034832620 instance=ExtResource("4_03i8n")]
+metadata/_edit_lock_ = true
 
-[node name="CaterpillarSegmentSmall10" parent="VisualSegmentsContainer" unique_id=1222923775 instance=ExtResource("4_t4js3")]
+[node name="CaterpillarSegmentSmallGreen5" parent="VisualSegmentsContainer" unique_id=768278767 instance=ExtResource("4_t4js3")]
+metadata/_edit_lock_ = true
 
-[node name="CaterpillarSegmentSmall11" parent="VisualSegmentsContainer" unique_id=2068316293 instance=ExtResource("4_t4js3")]
+[node name="CaterpillarSegmentSmallYellow5" parent="VisualSegmentsContainer" unique_id=565877141 instance=ExtResource("4_03i8n")]
+metadata/_edit_lock_ = true
 
-[node name="CaterpillarSegmentSmall12" parent="VisualSegmentsContainer" unique_id=1683724632 instance=ExtResource("4_t4js3")]
+[node name="CaterpillarSegmentSmallGreen6" parent="VisualSegmentsContainer" unique_id=864214567 instance=ExtResource("4_t4js3")]
+metadata/_edit_lock_ = true
 
-[node name="CaterpillarSegmentSmall13" parent="VisualSegmentsContainer" unique_id=1091271255 instance=ExtResource("4_t4js3")]
+[node name="CaterpillarSegmentSmallYellow6" parent="VisualSegmentsContainer" unique_id=1594671235 instance=ExtResource("4_03i8n")]
+metadata/_edit_lock_ = true
 
-[node name="CaterpillarSegmentSmall14" parent="VisualSegmentsContainer" unique_id=790473422 instance=ExtResource("4_t4js3")]
+[node name="CaterpillarSegmentSmallGreen7" parent="VisualSegmentsContainer" unique_id=1548287588 instance=ExtResource("4_t4js3")]
+metadata/_edit_lock_ = true
 
-[node name="CaterpillarSegmentSmall15" parent="VisualSegmentsContainer" unique_id=606706904 instance=ExtResource("4_t4js3")]
+[node name="CaterpillarSegmentSmallYellow7" parent="VisualSegmentsContainer" unique_id=1198709620 instance=ExtResource("4_03i8n")]
+metadata/_edit_lock_ = true
 
-[node name="CaterpillarSegmentSmall16" parent="VisualSegmentsContainer" unique_id=48408938 instance=ExtResource("4_t4js3")]
+[node name="CaterpillarSegmentSmallGreen8" parent="VisualSegmentsContainer" unique_id=751798115 instance=ExtResource("4_t4js3")]
+metadata/_edit_lock_ = true
 
-[node name="CaterpillarSegmentSmall17" parent="VisualSegmentsContainer" unique_id=1430826999 instance=ExtResource("4_t4js3")]
+[node name="CaterpillarSegmentSmallYellow8" parent="VisualSegmentsContainer" unique_id=938435252 instance=ExtResource("4_03i8n")]
+metadata/_edit_lock_ = true
 
-[node name="CaterpillarSegmentSmall18" parent="VisualSegmentsContainer" unique_id=605204408 instance=ExtResource("4_t4js3")]
+[node name="CaterpillarSegmentSmallGreen9" parent="VisualSegmentsContainer" unique_id=748186305 instance=ExtResource("4_t4js3")]
+metadata/_edit_lock_ = true
 
-[node name="CaterpillarSegmentSmall19" parent="VisualSegmentsContainer" unique_id=1351305103 instance=ExtResource("4_t4js3")]
+[node name="CaterpillarSegmentSmallYellow9" parent="VisualSegmentsContainer" unique_id=356248611 instance=ExtResource("4_03i8n")]
+metadata/_edit_lock_ = true
