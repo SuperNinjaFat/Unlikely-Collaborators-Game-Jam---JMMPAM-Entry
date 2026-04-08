@@ -1,5 +1,8 @@
 [gd_resource type="StandardMaterial3D" format=3 uid="uid://bsjr6bocklkwl"]
 
+[ext_resource type="Texture2D" uid="uid://eyglit6kjggu" path="res://assets/image/wood_tile_1.png" id="1_c70q3"]
+
 [resource]
 shading_mode = 0
-albedo_color = Color(0.2901961, 0.18039216, 0.101960786, 1)
+albedo_texture = ExtResource("1_c70q3")
+uv1_scale = Vector3(3.7, 3.7, 3.7)

@@ -7,7 +7,8 @@
 [sub_resource type="SphereShape3D" id="SphereShape3D_tny1w"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3viqf"]
-albedo_color = Color(0, 1, 0, 1)
+shading_mode = 0
+albedo_color = Color(0, 0.6589149, 1.92523e-07, 1)
 
 [sub_resource type="SphereMesh" id="SphereMesh_asb6v"]
 material = SubResource("StandardMaterial3D_3viqf")
@@ -50,13 +51,13 @@ mesh = SubResource("SphereMesh_asb6v")
 [node name="FloorChecks" type="Node3D" parent="." unique_id=611531767]
 
 [node name="DownFloorCheck" type="RayCast3D" parent="FloorChecks" unique_id=1854741315]
-target_position = Vector3(0, -0.5, 0)
+target_position = Vector3(0, -0.501, 0)
 
 [node name="SecondaryFloorCheck0" type="RayCast3D" parent="FloorChecks" unique_id=1875951508]
-target_position = Vector3(0.5, -0.5, 0)
+target_position = Vector3(0.5, -0.501, 0)
 
 [node name="SecondaryFloorCheck1" type="RayCast3D" parent="FloorChecks" unique_id=947196719]
-target_position = Vector3(-0.5, -0.5, 0)
+target_position = Vector3(-0.5, -0.501, 0)
 
 [node name="GrabSurfaceDetection" type="Area3D" parent="." unique_id=867330508]
 collision_layer = 0
