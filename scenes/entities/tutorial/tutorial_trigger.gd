@@ -31,9 +31,6 @@ enum CompletionMode {
 @export var timeout_duration: float = 5.0
 ## Delay before showing the tutorial after the player enters.
 @export var show_delay: float = 1.0
-## Unique ID for tracking whether this tutorial has been shown. Leave
-## empty to show every time.
-@export var tutorial_id: String
 
 @onready var _label_container: Node3D = $TutorialLabelContainer
 @onready var _label: Label3D = $TutorialLabelContainer/TutorialLabel
@@ -75,27 +72,8 @@ func _on_body_entered(body: Node3D) -> void:
 	if not body.is_in_group("caterpillar_parts"):
 		return
 
-	# Check if already shown (if tracking by ID)
-	if tutorial_id != "":
-		var level_node := _find_level_node()
-		if level_node:
-			GameState.get_or_create_state()
-			var level_state := GameState.get_level_state(level_node.scene_file_path)
-			if tutorial_id in level_state.tutorials_seen:
-				_triggered = true
-				return
-
 	_triggered = true
 	_show_tutorial()
-
-func _find_level_node() -> Node:
-	# Walk up to find the level root (has level_won signal)
-	var node := get_parent()
-	while node:
-		if node.has_signal("level_won"):
-			return node
-		node = node.get_parent()
-	return null
 
 func _show_tutorial() -> void:
 	var player := get_tree().get_first_node_in_group("caterpillar")
@@ -151,10 +129,3 @@ func _complete_tutorial() -> void:
 	_is_showing = false
 	_move_target_node = null
 
-	# Mark as seen
-	if tutorial_id != "":
-		var level_node := _find_level_node()
-		if level_node:
-			var level_state := GameState.get_level_state(level_node.scene_file_path)
-			level_state.tutorials_seen.append(tutorial_id)
-			GlobalState.save()
