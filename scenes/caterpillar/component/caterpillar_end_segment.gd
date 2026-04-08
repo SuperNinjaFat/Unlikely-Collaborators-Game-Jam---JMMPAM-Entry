@@ -6,12 +6,17 @@ const SEGMENT_DRAG_DEADZONE: float = 0.1
 const SEGMENT_MIN_TRAVEL_SPEED: float = 0.25
 const SEGMENT_MAX_TRAVEL_SPEED: float = 16.0
 const SLIDE_BODY_UID: String = "uid://cqy7e7a8unm80"
+const DEFAULT_COLOR: Color = Color("00ff00")
+const UNPINNED_COLOR: Color = Color("007f00")
 
 @export var opposite_segment: CaterpillarBodyEndSegment
 
+@onready var body_mesh: MeshInstance3D = $BodyMesh
 @onready var world_pin: PinJoint3D = $WorldPin
 @onready var floor_checks: Node3D = $FloorChecks
 @onready var grab_surface_detection: Area3D = $GrabSurfaceDetection
+@onready var pin_particles: CPUParticles3D = $PinParticles
+@onready var jump_particles: CPUParticles3D = $JumpParticles
 @onready var selected_sound: AudioStreamPlayer = $SelectedSound
 @onready var pinned_sound: AudioStreamPlayer = $PinnedSound
 
@@ -39,6 +44,7 @@ func _ready() -> void:
 	
 	set_as_top_level(true)
 	floor_checks.set_as_top_level(true)
+	jump_particles.set_as_top_level(true)
 
 @warning_ignore("unused_parameter")
 func _input_event(camera: Camera3D, event: InputEvent, event_position: Vector3, normal: Vector3, shape_idx: int) -> void:
@@ -58,6 +64,7 @@ func _input_event(camera: Camera3D, event: InputEvent, event_position: Vector3, 
 	
 	elif event.is_action_released("left_click"):
 		if is_pinned_to_world(): return
+		# TODO - "can't find overlappying areas when monitoring is off" :/
 		elif grab_surface_detection.get_overlapping_areas().size() == 0: return
 		
 		pin_to_world(true)
@@ -121,6 +128,8 @@ func pin_to_world(pin: bool) -> void:
 		world_pin.node_a = get_path()
 		pinned_to_world.emit()
 		pinned_sound.play(0.01)
+		#body_mesh.mesh.material.albedo_color = DEFAULT_COLOR
+		pin_particles.set_emitting(true)
 		if _is_on_floor(): return
 		if grab_surface_detection.get_overlapping_areas().size() == 0: return # is this necessary?
 		var grab_surface: Node3D = grab_surface_detection.get_overlapping_areas()[0]
@@ -128,7 +137,6 @@ func pin_to_world(pin: bool) -> void:
 			game_end_reached.emit()
 			return
 		if grab_surface.slide_velocity == Vector2.ZERO: return
-		#if is_instance_valid(_slide_body): _slide_body.queue_free()
 		_slide_body = load(SLIDE_BODY_UID).instantiate()
 		add_child(_slide_body)
 		_slide_body.global_position = global_position
@@ -144,6 +152,7 @@ func pin_to_world(pin: bool) -> void:
 		await get_tree().physics_frame # :(
 		if not is_instance_valid(_slide_body): return
 		world_pin.node_b = _slide_body.get_path()
+	#else: body_mesh.mesh.material.albedo_color = UNPINNED_COLOR
 
 func is_pinned_to_world() -> bool:
 	return world_pin.node_a != NodePath("")
@@ -161,6 +170,12 @@ func disable_world_pin(disable_time: float = 0.25) -> void:
 
 func set_selectable(selectable: bool) -> void:
 	_selectable = selectable
+
+func emit_jump_particles(jump_direction: Vector3) -> void:
+	jump_particles.global_position = global_position
+	# TODO - make sure target and up vector are not colinear
+	jump_particles.look_at(jump_particles.global_position + jump_direction)
+	jump_particles.set_emitting(true)
 
 func _is_on_floor() -> bool:
 	return (

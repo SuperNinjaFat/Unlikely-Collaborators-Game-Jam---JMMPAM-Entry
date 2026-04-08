@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://c5b7jn4ap3754"]
+
+[ext_resource type="Script" uid="uid://b5f42i8kfyh8v" path="res://scenes/entities/tutorial/tutorial_trigger.gd" id="1_cecmv"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_jfxxt"]
+
+[node name="TutorialTrigger" type="Area3D" unique_id=1436302952]
+collision_mask = 3
+script = ExtResource("1_cecmv")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1728854673]
+shape = SubResource("BoxShape3D_jfxxt")
+
+[node name="TutorialLabelContainer" type="Node3D" parent="." unique_id=447720005]
+
+[node name="TutorialLabel" type="Label3D" parent="TutorialLabelContainer" unique_id=1111248331]
+pixel_size = 0.02
+offset = Vector2(0, 2)
+no_depth_test = true

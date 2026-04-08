@@ -9,7 +9,6 @@ const MAX_DRAG_DISTANCE: float = 2.0
 @onready var selected_sound: AudioStreamPlayer = $SelectedSound
 @onready var launch_sound: AudioStreamPlayer = $LaunchSound
 
-
 signal released
 
 var _selected: bool = false
@@ -29,6 +28,7 @@ func _process(_delta: float) -> void:
 		(global_position.distance_to(mouse_position))/MAX_DRAG_DISTANCE,
 		0.0, 1.0
 	)
+	# TODO - make sure target and up vector are not colinear
 	launch_indicator_pivot.look_at(
 		global_position + callbacks.get_launch_direction.call()
 	)

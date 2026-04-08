@@ -13,6 +13,8 @@ var current_section := 0
 # Persisted level state for saving section progress
 var level_state: LevelState
 
+var player_instance: Node3D
+
 # On initialization, set up triggers and restore saved section.
 func _ready() -> void:
 	# Populate sections array
@@ -60,7 +62,7 @@ func _initial_spawn(index: int) -> void:
 
 # Instantiate a fresh CaterpillarPlayer with its center on the respawn point.
 func _spawn_player(section_index: int) -> void:
-	var player_instance := CaterpillarPlayerScene.instantiate()
+	player_instance = CaterpillarPlayerScene.instantiate()
 	var respawn_pos := get_respawn_position(section_index)
 	# Offset so the middle segment (at local x=-1.5) lands exactly on the respawn point
 	player_instance.position = respawn_pos - MIDDLE_SEGMENT_LOCAL_OFFSET
@@ -100,6 +102,7 @@ func _on_section_entered(index: int) -> void:
 		tween.finished.connect(func():
 			_enable_backtrack_prevention(current_section)
 		)
+
 
 # Destroy the current player and spawn a fresh one at the given section.
 func jump_to_section(index: int) -> void:

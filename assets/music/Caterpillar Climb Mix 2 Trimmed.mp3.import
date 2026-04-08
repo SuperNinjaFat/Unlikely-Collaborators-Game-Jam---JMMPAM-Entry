@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://cb5iu3xidg8mp"
+path="res://.godot/imported/Caterpillar Climb Mix 2 Trimmed.mp3-89c21e38106b8810fd7abd3d0e35c72e.mp3str"
+
+[deps]
+
+source_file="res://assets/music/Caterpillar Climb Mix 2 Trimmed.mp3"
+dest_files=["res://.godot/imported/Caterpillar Climb Mix 2 Trimmed.mp3-89c21e38106b8810fd7abd3d0e35c72e.mp3str"]
+
+[params]
+
+loop=true
+loop_offset=0.0
+bpm=0.0
+beat_count=0
+bar_beats=4
